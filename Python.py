@@ -448,176 +448,176 @@ def get_sector_insight(sector, trend):
     insights = {
 
 
-    "Technology": {
-
-        "Positive Trend":
-            "Technology sector is benefiting from digital transformation and innovation demand.",
-
-        "Neutral Trend":
-            "Technology sector is currently facing weaker momentum and market volatility."
-    },
-
-    "Financial Services": {
-
-        "Positive Trend":
-            "Financial companies are benefiting from stronger market confidence and lending activity.",
-
-        "Neutral Trend":
-            "Financial sector is currently impacted by economic uncertainty and interest rate pressure."
-    },
-
-    "Energy": {
-
-        "Positive Trend":
-            "Energy companies are benefiting from stronger fuel demand and pricing conditions.",
-
-        "Neutral Trend":
-            "Energy companies are facing pressure from oil price fluctuations."
-    },
-
-    "Healthcare": {
-
-        "Positive Trend":
-            "Healthcare sector remains supported by stable medical demand.",
-
-        "Neutral Trend":
-            "Healthcare companies remain relatively defensive despite weaker momentum."
-    },
-
-    "Industrials": {
-
-        "Positive Trend":
-            "Industrial companies are benefiting from infrastructure and manufacturing activity.",
-
-        "Neutral Trend":
-            "Industrial sector is facing slower economic activity."
-    },
-
-    "Consumer Defensive": {
-
-        "Positive Trend":
-            "Consumer defensive companies are showing stable long-term demand.",
-
-        "Neutral Trend":
-            "Consumer defensive sector remains comparatively resilient."
-    },
-
-    "Consumer Cyclical": {
-
-        "Positive Trend":
-            "Consumer-focused companies are benefiting from stronger consumer demand.",
-
-        "Neutral Trend":
-            "Changing consumer spending patterns are affecting cyclical demand."
-    },
-
-    "Transportation": {
-
-        "Positive Trend":
-            "Transportation companies are benefiting from stronger logistics demand.",
-
-        "Neutral Trend":
-            "Transportation sector is facing operational and fuel-cost pressures."
-    },
-
-    "Communication Services": {
-
-        "Positive Trend":
-            "Communication companies are benefiting from rising digital connectivity demand.",
-
-        "Neutral Trend":
-            "Communication sector is facing stronger competition and slower momentum."
-    },
+        "Technology": {
     
-    "Basic Materials": {
-
-        "Positive Trend":
-            "Basic materials companies are benefiting from industrial and construction demand.",
-
-        "Neutral Trend":
-            "Commodity price fluctuations are affecting the materials sector."
-    },
-
-    "Real Estate": {
-
-        "Positive Trend":
-            "Real estate companies are benefiting from stronger property and infrastructure activity.",
-
-        "Neutral Trend":
-            "Real estate sector is facing pressure from interest rates and slower demand."
-    },
-
-    "Utilities": {
-
-        "Positive Trend":
-            "Utilities sector is benefiting from stable energy and infrastructure demand.",
-
-        "Neutral Trend":
-            "Utilities remain comparatively stable despite slower growth."
-    },
-
-    "Consumer Staples": {
-
-        "Positive Trend":
-            "Consumer staples companies are supported by stable daily consumption demand.",
-
-        "Neutral Trend":
-            "Consumer staples sector remains relatively defensive in weaker markets."
-    },
-
-    "Communication": {
-
-        "Positive Trend":
-            "Communication companies are benefiting from growing media and connectivity demand.",
-
-        "Neutral Trend":
-            "Communication sector is facing competitive and advertising pressures."
-    },
-
-    "Real Estate Services": {
-
-        "Positive Trend":
-            "Real estate services are benefiting from improving property market activity.",
-
-        "Neutral Trend":
-            "Property-related businesses are currently facing slower market movement."
-    },
-
-    "Airlines": {
-
-        "Positive Trend":
-            "Airline companies are benefiting from stronger travel demand and tourism activity.",
-
-        "Neutral Trend":
-            "Airline companies are affected by fuel price volatility and changing travel demand."
-    },
-
-    "Railroads": {
-
-        "Positive Trend":
-            "Railway companies are benefiting from transportation and infrastructure growth.",
-
-        "Neutral Trend":
-            "Railway companies are currently facing slower industrial movement."
-    },
-
-    "Auto Manufacturers": {
-
-        "Positive Trend":
-            "Automobile companies are benefiting from rising consumer and EV demand.",
-
-        "Neutral Trend":
-            "Auto companies are facing supply-chain and demand-related pressures."
-    },
-
-    "Banks": {
-
-        "Positive Trend":
-            "Banks are benefiting from lending growth and economic activity.",
-
-        "Neutral Trend":
-            "Banking sector is currently facing economic and interest rate pressures."
-    }
+            "Positive Trend":
+                "Technology sector is benefiting from digital transformation and innovation demand.",
+    
+            "Neutral Trend":
+                "Technology sector is currently facing weaker momentum and market volatility."
+        },
+    
+        "Financial Services": {
+    
+            "Positive Trend":
+                "Financial companies are benefiting from stronger market confidence and lending activity.",
+    
+            "Neutral Trend":
+                "Financial sector is currently impacted by economic uncertainty and interest rate pressure."
+        },
+    
+        "Energy": {
+    
+            "Positive Trend":
+                "Energy companies are benefiting from stronger fuel demand and pricing conditions.",
+    
+            "Neutral Trend":
+                "Energy companies are facing pressure from oil price fluctuations."
+        },
+    
+        "Healthcare": {
+    
+            "Positive Trend":
+                "Healthcare sector remains supported by stable medical demand.",
+    
+            "Neutral Trend":
+                "Healthcare companies remain relatively defensive despite weaker momentum."
+        },
+    
+        "Industrials": {
+    
+            "Positive Trend":
+                "Industrial companies are benefiting from infrastructure and manufacturing activity.",
+    
+            "Neutral Trend":
+                "Industrial sector is facing slower economic activity."
+        },
+    
+        "Consumer Defensive": {
+    
+            "Positive Trend":
+                "Consumer defensive companies are showing stable long-term demand.",
+    
+            "Neutral Trend":
+                "Consumer defensive sector remains comparatively resilient."
+        },
+    
+        "Consumer Cyclical": {
+    
+            "Positive Trend":
+                "Consumer-focused companies are benefiting from stronger consumer demand.",
+    
+            "Neutral Trend":
+                "Changing consumer spending patterns are affecting cyclical demand."
+        },
+    
+        "Transportation": {
+    
+            "Positive Trend":
+                "Transportation companies are benefiting from stronger logistics demand.",
+    
+            "Neutral Trend":
+                "Transportation sector is facing operational and fuel-cost pressures."
+        },
+    
+        "Communication Services": {
+    
+            "Positive Trend":
+                "Communication companies are benefiting from rising digital connectivity demand.",
+    
+            "Neutral Trend":
+                "Communication sector is facing stronger competition and slower momentum."
+        },
+        
+        "Basic Materials": {
+    
+            "Positive Trend":
+                "Basic materials companies are benefiting from industrial and construction demand.",
+    
+            "Neutral Trend":
+                "Commodity price fluctuations are affecting the materials sector."
+        },
+    
+        "Real Estate": {
+    
+            "Positive Trend":
+                "Real estate companies are benefiting from stronger property and infrastructure activity.",
+    
+            "Neutral Trend":
+                "Real estate sector is facing pressure from interest rates and slower demand."
+        },
+    
+        "Utilities": {
+    
+            "Positive Trend":
+                "Utilities sector is benefiting from stable energy and infrastructure demand.",
+    
+            "Neutral Trend":
+                "Utilities remain comparatively stable despite slower growth."
+        },
+    
+        "Consumer Staples": {
+    
+            "Positive Trend":
+                "Consumer staples companies are supported by stable daily consumption demand.",
+    
+            "Neutral Trend":
+                "Consumer staples sector remains relatively defensive in weaker markets."
+        },
+    
+        "Communication": {
+    
+            "Positive Trend":
+                "Communication companies are benefiting from growing media and connectivity demand.",
+    
+            "Neutral Trend":
+                "Communication sector is facing competitive and advertising pressures."
+        },
+    
+        "Real Estate Services": {
+    
+            "Positive Trend":
+                "Real estate services are benefiting from improving property market activity.",
+    
+            "Neutral Trend":
+                "Property-related businesses are currently facing slower market movement."
+        },
+    
+        "Airlines": {
+    
+            "Positive Trend":
+                "Airline companies are benefiting from stronger travel demand and tourism activity.",
+    
+            "Neutral Trend":
+                "Airline companies are affected by fuel price volatility and changing travel demand."
+        },
+    
+        "Railroads": {
+    
+            "Positive Trend":
+                "Railway companies are benefiting from transportation and infrastructure growth.",
+    
+            "Neutral Trend":
+                "Railway companies are currently facing slower industrial movement."
+        },
+    
+        "Auto Manufacturers": {
+    
+            "Positive Trend":
+                "Automobile companies are benefiting from rising consumer and EV demand.",
+    
+            "Neutral Trend":
+                "Auto companies are facing supply-chain and demand-related pressures."
+        },
+    
+        "Banks": {
+    
+            "Positive Trend":
+                "Banks are benefiting from lending growth and economic activity.",
+    
+            "Neutral Trend":
+                "Banking sector is currently facing economic and interest rate pressures."
+        }
 
 }
 
@@ -745,8 +745,7 @@ def analyze_stock(company, period):
         stock = get_valid_ticker(company)
 
         if not stock:
-           
-                return None
+            return None
 
         # =================================================
         # PERIOD LOGIC
@@ -1085,170 +1084,180 @@ if analyze_button:
 
         st.markdown("---")
 
-# =========================================================
-# TABS
-# =========================================================
+        # =========================================================
+        # TABS
+        # =========================================================
+        
+        tab1, tab2, tab3, tab4 = st.tabs([
+            "📈 Interactive Chart",
+            "💡 Insights",
+            "📊 Historical Data",
+            "📰 Latest News"
+        ])
+        
+        # =========================================================
+        # TAB 1 - CHART
+        # =========================================================
+        
+        with tab1:
+            if result is None:
+                st.warning("Please analyze a stock first.")
 
-tab1, tab2, tab3, tab4 = st.tabs([
-    "📈 Interactive Chart",
-    "💡 Insights",
-    "📊 Historical Data",
-    "📰 Latest News"
-])
-
-# =========================================================
-# TAB 1 - CHART
-# =========================================================
-
-with tab1:
-
-    data = result['Data']
-
-    fig = make_subplots(
-        rows=2,
-        cols=1,
-        shared_xaxes=True,
-        vertical_spacing=0.03,
-        row_heights=[0.75, 0.25]
-    )
-
-    # CANDLESTICK
-    fig.add_trace(
-        go.Candlestick(
-            x=data.index,
-            open=data['Open'],
-            high=data['High'],
-            low=data['Low'],
-            close=data['Close'],
-            name='Price'
-        ),
-        row=1, col=1
-    )
-
-    # MOVING AVERAGES
-    fig.add_trace(go.Scatter(
-        x=data.index,
-        y=data['MA20'],
-        mode='lines',
-        name='MA20'
-    ), row=1, col=1)
-
-    fig.add_trace(go.Scatter(
-        x=data.index,
-        y=data['MA50'],
-        mode='lines',
-        name='MA50'
-    ), row=1, col=1)
-
-    fig.add_trace(go.Scatter(
-        x=data.index,
-        y=data['MA200'],
-        mode='lines',
-        name='MA200'
-    ), row=1, col=1)
-
-    # VOLUME
-    fig.add_trace(
-        go.Bar(
-            x=data.index,
-            y=data['Volume'],
-            name='Volume'
-        ),
-        row=2, col=1
-    )
-
-    fig.update_layout(
-        template="plotly_dark",
-        height=750,
-        title=f"{result['Company']} Stock Analysis",
-        xaxis_rangeslider_visible=False
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
-
-# =========================================================
-# TAB 2 - INSIGHTS
-# =========================================================
-
-with tab2:
-
-    st.subheader("📌 Company Information")
-
-    st.write(f"**Company:** {result['Company']}")
-    st.write(f"**Ticker:** {result['Ticker']}")
-    st.write(f"**Sector:** {result['Sector']}")
-    st.write(f"**Volatility:** {result['Volatility']}")
-
-    st.markdown("---")
-
-    st.subheader("📊 Investment Observation")
-    st.info(result['Observation'])
-
-    st.subheader("💡 Sector Insight")
-    st.success(result['Sector Insight'])
-
-    st.subheader("⚠️ Reminder")
-    st.warning(
-        "Investment decisions should align with your financial goals and risk comfort."
-    )
-
-# =========================================================
-# TAB 3 - HISTORICAL DATA
-# =========================================================
-
-with tab3:
-
-    st.subheader("📊 Historical Stock Data")
-
-    st.dataframe(
-        data.tail(100),
-        use_container_width=True
-    )
-
-# =========================================================
-# TAB 4 - NEWS
-# =========================================================
-
-with tab4:
-
-    st.subheader("📰 Latest Stock News")
-
-    try:
-
-        ticker_news = yf.Ticker(result['Ticker'])
-        news_data = ticker_news.news
-
-        if news_data and len(news_data) > 0:
-
-            for news in news_data[:5]:
-
-                title = news.get("title", "No Title")
-                publisher = news.get("publisher", "Unknown")
-                link = news.get("link", "")
-                thumbnail = news.get("thumbnail")
-
-                st.subheader(title)
-                st.write(f"📰 Source: {publisher}")
-
-                if thumbnail:
-                    try:
-                        st.image(
-                            thumbnail['resolutions'][0]['url'],
-                            width=500
-                        )
-                    except:
-                        pass
-
-                if link:
-                    st.link_button("Read Full News", link)
-
-                st.markdown("---")
-
-        else:
-            st.info("No recent news available.")
-
-    except:
-        st.warning("Unable to fetch latest news.")        
+            else:
+                data = result['Data']
+        
+            fig = make_subplots(
+                rows=2,
+                cols=1,
+                shared_xaxes=True,
+                vertical_spacing=0.03,
+                row_heights=[0.75, 0.25]
+            )
+        
+            # CANDLESTICK
+            fig.add_trace(
+                go.Candlestick(
+                    x=data.index,
+                    open=data['Open'],
+                    high=data['High'],
+                    low=data['Low'],
+                    close=data['Close'],
+                    name='Price'
+                ),
+                row=1, col=1
+            )
+        
+            # MOVING AVERAGES
+            fig.add_trace(go.Scatter(
+                x=data.index,
+                y=data['MA20'],
+                mode='lines',
+                name='MA20'
+            ), row=1, col=1)
+        
+            fig.add_trace(go.Scatter(
+                x=data.index,
+                y=data['MA50'],
+                mode='lines',
+                name='MA50'
+            ), row=1, col=1)
+        
+            fig.add_trace(go.Scatter(
+                x=data.index,
+                y=data['MA200'],
+                mode='lines',
+                name='MA200'
+            ), row=1, col=1)
+        
+            # VOLUME
+            fig.add_trace(
+                go.Bar(
+                    x=data.index,
+                    y=data['Volume'],
+                    name='Volume'
+                ),
+                row=2, col=1
+            )
+        
+            fig.update_layout(
+                template="plotly_dark",
+                height=750,
+                title=f"{result['Company']} Stock Analysis",
+                xaxis_rangeslider_visible=False
+            )
+        
+            st.plotly_chart(fig, use_container_width=True)
+        
+        # =========================================================
+        # TAB 2 - INSIGHTS
+        # =========================================================
+        
+        with tab2:
+        
+            st.subheader("📌 Company Information")
+        
+            st.write(f"**Company:** {result['Company']}")
+            st.write(f"**Ticker:** {result['Ticker']}")
+            st.write(f"**Sector:** {result['Sector']}")
+            st.write(f"**Volatility:** {result['Volatility']}")
+        
+            st.markdown("---")
+        
+            st.subheader("📊 Investment Observation")
+            st.info(result['Observation'])
+        
+            st.subheader("💡 Sector Insight")
+            st.success(result['Sector Insight'])
+        
+            st.subheader("⚠️ Reminder")
+            st.warning(
+                "Investment decisions should align with your financial goals and risk comfort."
+            )
+        
+        # =========================================================
+        # TAB 3 - HISTORICAL DATA
+        # =========================================================
+        
+        with tab3:
+        
+            st.subheader("📊 Historical Stock Data")
+        
+            st.dataframe(
+                data.tail(100),
+                use_container_width=True
+            )
+        
+        # =========================================================
+        # TAB 4 - NEWS
+        # =========================================================
+        
+        with tab4:
+        
+            st.subheader("📰 Latest Stock News")
+        
+            try:
+        
+                if not result:
+                    st.warning("No stock data available.")
+                else:
+        
+                    ticker_news = yf.Ticker(result['Ticker'])
+                    news_data = ticker_news.news
+        
+                    if news_data and len(news_data) > 0:
+        
+                        for news in news_data[:5]:
+        
+                            title = news.get("title", "No Title")
+                            publisher = news.get("publisher", "Unknown")
+                            link = news.get("link", "")
+                            thumbnail = news.get("thumbnail")
+        
+                            st.subheader(title)
+                            st.write(f"📰 Source: {publisher}")
+        
+                            # SAFE IMAGE HANDLING
+                            if thumbnail:
+                                try:
+                                    image_url = thumbnail.get("resolutions", [{}])[0].get("url", None)
+                                    if image_url:
+                                        st.image(image_url, width=500)
+                                except:
+                                    pass
+        
+                            # SAFE LINK BUTTON
+                            if link:
+                                st.link_button("Read Full News", link)
+        
+                            st.markdown("---")
+        
+                    else:
+                        st.info("No recent news available.")
+        
+            except Exception as e:
+                st.warning("Unable to fetch latest news.")
+                st.write("Debug:", e)
+        
 # =========================================================
 # BUY / HOLD / SELL SENTIMENT
 # =========================================================
