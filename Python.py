@@ -1085,274 +1085,170 @@ if analyze_button:
 
         st.markdown("---")
 
-        # =================================================
-        # TABS
-        # =================================================
+# =========================================================
+# TABS
+# =========================================================
+
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📈 Interactive Chart",
+    "💡 Insights",
+    "📊 Historical Data",
+    "📰 Latest News"
+])
+
+# =========================================================
+# TAB 1 - CHART
+# =========================================================
+
+with tab1:
+
+    data = result['Data']
+
+    fig = make_subplots(
+        rows=2,
+        cols=1,
+        shared_xaxes=True,
+        vertical_spacing=0.03,
+        row_heights=[0.75, 0.25]
+    )
+
+    # CANDLESTICK
+    fig.add_trace(
+        go.Candlestick(
+            x=data.index,
+            open=data['Open'],
+            high=data['High'],
+            low=data['Low'],
+            close=data['Close'],
+            name='Price'
+        ),
+        row=1, col=1
+    )
+
+    # MOVING AVERAGES
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=data['MA20'],
+        mode='lines',
+        name='MA20'
+    ), row=1, col=1)
+
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=data['MA50'],
+        mode='lines',
+        name='MA50'
+    ), row=1, col=1)
+
+    fig.add_trace(go.Scatter(
+        x=data.index,
+        y=data['MA200'],
+        mode='lines',
+        name='MA200'
+    ), row=1, col=1)
+
+    # VOLUME
+    fig.add_trace(
+        go.Bar(
+            x=data.index,
+            y=data['Volume'],
+            name='Volume'
+        ),
+        row=2, col=1
+    )
+
+    fig.update_layout(
+        template="plotly_dark",
+        height=750,
+        title=f"{result['Company']} Stock Analysis",
+        xaxis_rangeslider_visible=False
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+# =========================================================
+# TAB 2 - INSIGHTS
+# =========================================================
+
+with tab2:
+
+    st.subheader("📌 Company Information")
+
+    st.write(f"**Company:** {result['Company']}")
+    st.write(f"**Ticker:** {result['Ticker']}")
+    st.write(f"**Sector:** {result['Sector']}")
+    st.write(f"**Volatility:** {result['Volatility']}")
+
+    st.markdown("---")
+
+    st.subheader("📊 Investment Observation")
+    st.info(result['Observation'])
+
+    st.subheader("💡 Sector Insight")
+    st.success(result['Sector Insight'])
 
-        tab1, tab2, tab3, tab4 = st.tabs(
+    st.subheader("⚠️ Reminder")
+    st.warning(
+        "Investment decisions should align with your financial goals and risk comfort."
+    )
 
-            [
-                "📈 Interactive Chart",
-                "💡 Insights",
-                "📊 Historical Data",
-                 "📰 Latest News"
-            ]
+# =========================================================
+# TAB 3 - HISTORICAL DATA
+# =========================================================
 
-        )
+with tab3:
 
-        # =================================================
-        # CHART TAB
-        # =================================================
+    st.subheader("📊 Historical Stock Data")
 
-        with tab1:
+    st.dataframe(
+        data.tail(100),
+        use_container_width=True
+    )
 
-            data = result['Data']
+# =========================================================
+# TAB 4 - NEWS
+# =========================================================
 
-            fig = make_subplots(
+with tab4:
 
-                rows=2,
-                cols=1,
+    st.subheader("📰 Latest Stock News")
 
-                shared_xaxes=True,
+    try:
 
-                vertical_spacing=0.03,
+        ticker_news = yf.Ticker(result['Ticker'])
+        news_data = ticker_news.news
 
-                row_heights=[0.75, 0.25]
+        if news_data and len(news_data) > 0:
 
-            )
+            for news in news_data[:5]:
 
-            # =================================================
-            # CANDLESTICK
-            # =================================================
+                title = news.get("title", "No Title")
+                publisher = news.get("publisher", "Unknown")
+                link = news.get("link", "")
+                thumbnail = news.get("thumbnail")
 
-            fig.add_trace(
+                st.subheader(title)
+                st.write(f"📰 Source: {publisher}")
 
-                go.Candlestick(
-
-                    x=data.index,
-
-                    open=data['Open'],
-                    high=data['High'],
-                    low=data['Low'],
-                    close=data['Close'],
-
-                    name='Price'
-
-                ),
-
-                row=1,
-                col=1
-
-            )
-
-            # =================================================
-            # MOVING AVERAGES
-            # =================================================
-
-            fig.add_trace(
-
-                go.Scatter(
-
-                    x=data.index,
-                    y=data['MA20'],
-
-                    mode='lines',
-
-                    name='MA20'
-
-                ),
-
-                row=1,
-                col=1
-
-            )
-
-            fig.add_trace(
-
-                go.Scatter(
-
-                    x=data.index,
-                    y=data['MA50'],
-
-                    mode='lines',
-
-                    name='MA50'
-
-                ),
-
-                row=1,
-                col=1
-
-            )
-
-            fig.add_trace(
-
-                go.Scatter(
-
-                    x=data.index,
-                    y=data['MA200'],
-
-                    mode='lines',
-
-                    name='MA200'
-
-                ),
-
-                row=1,
-                col=1
-
-            )
-
-            # =================================================
-            # VOLUME
-            # =================================================
-
-            fig.add_trace(
-
-                go.Bar(
-
-                    x=data.index,
-                    y=data['Volume'],
-
-                    name='Volume'
-
-                ),
-
-                row=2,
-                col=1
-
-            )
-
-            # =================================================
-            # LAYOUT
-            # =================================================
-
-            fig.update_layout(
-
-                template="plotly_dark",
-
-                height=750,
-
-                title=f"{result['Company']} Stock Analysis",
-
-                xaxis_rangeslider_visible=False
-
-            )
-
-            st.plotly_chart(
-
-                fig,
-
-                use_container_width=True
-
-            )
-
-        # =================================================
-        # INSIGHTS TAB
-        # =================================================
-
-        with tab2:
-
-            st.subheader("📌 Company Information")
-
-            st.write(
-                f"**Company:** {result['Company']}"
-            )
-
-            st.write(
-                f"**Ticker:** {result['Ticker']}"
-            )
-
-            st.write(
-                f"**Sector:** {result['Sector']}"
-            )
-
-            st.write(
-                f"**Volatility:** {result['Volatility']}"
-            )
-
-            st.markdown("---")
-
-            st.subheader("📊 Investment Observation")
-
-            st.info(
-                result['Observation']
-            )
-
-            st.subheader("💡 Sector Insight")
-
-            st.success(
-                result['Sector Insight']
-            )
-
-            st.subheader("⚠️ Reminder")
-
-            st.warning(
-                "Investment decisions should align with your financial goals and risk comfort."
-            )
-
-        # =================================================
-        # DATA TAB
-        # =================================================
-
-        with tab3:
-
-            st.subheader("📊 Historical Stock Data")
-
-            st.dataframe(
-
-                data.tail(100),
-
-                use_container_width=True
-
-            )
-            
-        # =========================================================
-        # NEWS ANALYSIS
-        # =========================================================
-
-        with tab4:
-            st.subheader("📰 Latest Stock News")
-        
-            try:
-        
-                ticker_news = yf.Ticker(result['Ticker'])
-                news_data = ticker_news.news
-        
-                if len(news_data) > 0:
-        
-                    for news in news_data[:5]:
-        
-                        title = news.get("title", "No Title")
-                        publisher = news.get("publisher", "Unknown")
-                        link = news.get("link", "")
-                        thumbnail = news.get("thumbnail")
-        
-                        st.subheader(title)
-                        st.write(f"📰 Source: {publisher}")
-        
-                        if thumbnail:
-                            try:
-                                st.image(
-                                    thumbnail['resolutions'][0]['url'],
-                                    width=500
-                                )
-                            except:
-                                pass
-        
-                        st.link_button(
-                            "Read Full News",
-                            link
+                if thumbnail:
+                    try:
+                        st.image(
+                            thumbnail['resolutions'][0]['url'],
+                            width=500
                         )
-        
-                        st.markdown("---")
-        
-                else:
-                    st.info("No recent news available.")
-        
-            except:
-                st.warning("Unable to fetch latest news.")
-        
+                    except:
+                        pass
+
+                if link:
+                    st.link_button("Read Full News", link)
+
+                st.markdown("---")
+
+        else:
+            st.info("No recent news available.")
+
+    except:
+        st.warning("Unable to fetch latest news.")        
 # =========================================================
 # BUY / HOLD / SELL SENTIMENT
 # =========================================================
