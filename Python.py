@@ -1,836 +1,3 @@
-'''import yfinance as yf
-import pandas as pd
-import matplotlib.pyplot as plt
-from yahooquery import search
-
-print("\n========== CLARITY INVEST ANALYSIS ==========\n")
-
-# User Input
-company = input("Enter company name: ")
-print("\n")
-
-try:
-    # Search Company Ticker
-    result = search(company)
-
-    # Extract ticker symbol
-    stock = result['quotes'][0]['symbol']
-
-    print(f"Ticker Found: {stock}")
-    print("\n")
-
-    # Investment Period
-    period = input("Choose investment period (short / medium / long): ").lower()
-    print("\n")
-
-    if period == "short":
-        start_date = "2025-01-01"
-
-    elif period == "medium":
-        start_date = "2024-01-01"
-
-    elif period == "long":
-        start_date = "2020-01-01"
-
-    else:
-        print("Invalid option selected.")
-        exit()
-
-    # Download Stock Data
-    data = yf.download(stock, start=start_date)
-
-    # Check if data exists
-    if data.empty:
-        print("No stock data found.")
-        exit()
-
-    # Calculate Returns
-    data['Returns'] = data['Close'].pct_change()
-
-    # Current Price
-    current_price = data['Close'].iloc[-1]
-
-    print("========== STOCK SUMMARY ==========\n")
-
-    print(f"Current Price: ₹{round(current_price, 2)}")
-    print("\n")
-
-    # Volatility Calculation
-    volatility = data['Returns'].std()
-
-    # Risk Level
-    if volatility < 0.02:
-        risk = "Low Risk / Beginner Friendly"
-
-    elif volatility < 0.05:
-        risk = "Moderate Risk"
-
-    else:
-        risk = "High Risk"
-
-    print(f"Risk Level: {risk}")
-    print("\n")
-
-    print(f"Volatility: {round(volatility, 4)}")
-    print("\n")
-
-    # Volatility Explanation
-    print("Volatility Explanation:")
-    print("This stock shows price fluctuations over time.")
-    print("Higher volatility generally means higher risk and uncertainty.")
-    print("\n")
-
-    # Moving Averages
-    data['MA50'] = data['Close'].rolling(window=50).mean()
-    data['MA200'] = data['Close'].rolling(window=200).mean()
-
-    # Trend Logic
-    if data['MA50'].iloc[-1] > data['MA200'].iloc[-1]:
-
-        trend = "Positive Trend"
-
-        explanation = (
-            "The stock is showing stronger recent momentum "
-            "compared to its long-term average."
-        )
-
-    else:
-
-        trend = "Weak Trend"
-
-        explanation = (
-            "The stock is currently showing weaker recent movement "
-            "compared to its long-term average."
-        )
-
-    print(f"Trend: {trend}")
-    print("\n")
-
-    print("Trend Explanation:")
-    print(explanation)
-    print("\n")
-
-    # Chart Explanation
-    print("How To Read The Chart:")
-    print("• Blue line shows actual stock price movement.")
-    print("• Orange line shows short-term average trend.")
-    print("• Green line shows long-term average trend.")
-    print("• If orange stays above green, momentum may be positive.")
-    print("\n")
-
-    print("Reminder:")
-    print("Investing decisions should align with your personal risk comfort and financial goals.")
-    print("\n")
-
-    # Plot Chart
-    plt.figure(figsize=(12, 6))
-
-    plt.plot(data['Close'], label="Stock Price")
-    plt.plot(data['MA50'], label="50-Day Moving Average")
-    plt.plot(data['MA200'], label="200-Day Moving Average")
-
-    plt.title(f"{company.title()} Stock Analysis")
-    plt.xlabel("Date")
-    plt.ylabel("Price")
-
-    plt.legend()
-
-    plt.show()
-
-except:
-    print("Company not found or invalid data received.")
-
-import yfinance as yf
-import pandas as pd
-import matplotlib.pyplot as plt
-from yahooquery import search
-
-# -----------------------------------
-# CHART STYLE
-# -----------------------------------
-
-plt.style.use("ggplot")
-
-print("\n========== CLARITY INVEST ANALYSIS ==========\n")
-
-# -----------------------------------
-# FUNCTION TO ANALYZE STOCK
-# -----------------------------------
-
-def analyze_stock(company, period):
-
-    try:
-
-        # -----------------------------------
-        # SEARCH COMPANY
-        # -----------------------------------
-
-        result = search(company)
-
-        if 'quotes' not in result or len(result['quotes']) == 0:
-
-            print(f"Company not found: {company}")
-            return None
-
-        quotes = result['quotes']
-
-        stock = None
-
-        # Prefer NSE Stocks
-        for q in quotes:
-
-            symbol = q.get('symbol', '')
-
-            if symbol.endswith(".NS"):
-
-                stock = symbol
-                break
-
-        # Fallback
-        if stock is None:
-
-            for q in quotes:
-
-                symbol = q.get('symbol', '')
-
-                if symbol.endswith(".BO"):
-
-                    stock = symbol
-                    break
-
-        # Final fallback
-        if stock is None:
-
-            stock = quotes[0]['symbol']
-
-        # -----------------------------------
-        # PERIOD SELECTION
-        # -----------------------------------
-
-        if period == "short":
-
-            period_value = "6mo"
-
-        elif period == "medium":
-
-            period_value = "1y"
-
-        elif period == "long":
-
-            period_value = "5y"
-
-        else:
-
-            print("Invalid investment period.")
-            return None
-
-        # -----------------------------------
-        # DOWNLOAD STOCK DATA
-        # -----------------------------------
-
-        data = yf.download(
-            stock,
-            period=period_value,
-            auto_adjust=True,
-            progress=False
-        )
-
-        # -----------------------------------
-        # FIX MULTI-INDEX COLUMNS
-        # -----------------------------------
-
-        if isinstance(data.columns, pd.MultiIndex):
-
-            data.columns = data.columns.get_level_values(0)
-
-        # -----------------------------------
-        # CHECK DATA
-        # -----------------------------------
-
-        if data.empty:
-
-            print(f"No stock data found for {company}")
-            return None
-
-        # -----------------------------------
-        # CLOSE PRICE SERIES
-        # -----------------------------------
-
-        close_prices = data['Close'].squeeze()
-
-        # -----------------------------------
-        # GET COMPANY INFO
-        # -----------------------------------
-
-        try:
-
-            ticker = yf.Ticker(stock)
-
-            info = ticker.info
-
-            sector = info.get("sector", "Other")
-
-        except:
-
-            sector = "Other"
-
-        # -----------------------------------
-        # RETURNS
-        # -----------------------------------
-
-        data['Returns'] = close_prices.pct_change()
-
-        # -----------------------------------
-        # PRICE CALCULATIONS
-        # -----------------------------------
-
-        current_price = float(close_prices.iloc[-1])
-
-        start_price = float(close_prices.iloc[0])
-
-        end_price = float(close_prices.iloc[-1])
-
-        change_percent = (
-            (end_price - start_price)
-            / start_price                                       #p
-        ) * 100
-
-        # -----------------------------------
-        # VOLATILITY
-        # -----------------------------------
-
-        volatility = float(
-            data['Returns'].std()                               #p
-        )
-
-        # -----------------------------------
-        # RISK ANALYSIS
-        # -----------------------------------
-
-        if volatility < 0.02:
-
-            risk = "Low Risk"
-
-            beginner_note = (                                    #p
-                "Comparatively stable for beginners."
-            )
-
-        elif volatility < 0.05:
-
-            risk = "Moderate Risk"
-
-            beginner_note = (
-                "Requires moderate market understanding."
-            )
-
-        else:
-
-            risk = "High Risk"
-
-            beginner_note = (
-                "May fluctuate heavily for beginners."
-            )
-
-        # -----------------------------------
-        # MOVING AVERAGES
-        # -----------------------------------
-
-        data['MA20'] = (
-            close_prices
-            .rolling(window=20)
-            .mean()
-        )
-
-        data['MA50'] = (
-            close_prices
-            .rolling(window=50)
-            .mean()
-        )
-
-        data['MA200'] = (
-            close_prices
-            .rolling(window=200)
-            .mean()
-        )
-
-        # -----------------------------------
-        # TREND ANALYSIS
-        # -----------------------------------
-
-        if period == "short":
-
-            latest_price = close_prices.iloc[-1]
-
-            ma20 = data['MA20'].iloc[-1]
-
-            if latest_price > ma20:
-
-                trend = "Positive Short-Term Trend"
-
-            else:
-
-                trend = "Weak Short-Term Trend"
-
-        elif period == "medium":
-
-            ma20 = data['MA20'].iloc[-1]
-
-            ma50 = data['MA50'].iloc[-1]
-
-            if pd.isna(ma50):
-
-                trend = "Insufficient Data"                             #p
-
-            elif ma20 > ma50:
-
-                trend = "Positive Medium-Term Trend"
-
-            else:
-
-                trend = "Weak Medium-Term Trend"
-
-        elif period == "long":
-
-            ma50 = data['MA50'].iloc[-1]
-
-            ma200 = data['MA200'].iloc[-1]
-
-            if pd.isna(ma200):
-
-                trend = "Insufficient Data"
-
-            elif ma50 > ma200:
-
-                trend = "Positive Long-Term Trend"
-
-            else:
-
-                trend = "Weak Long-Term Trend"
-               
-        # -----------------------------------
-        # INVESTMENT OBSERVATION
-        # -----------------------------------
-
-        if change_percent > 20:
-
-            observation = (
-                "The company has shown strong growth during this investment period."
-            )
-
-        elif change_percent > 0:
-
-            observation = (
-                "The company has shown stable positive movement."
-            )
-
-        elif change_percent > -10:
-
-            observation = (
-                "The company has shown slight negative movement and requires observation."
-            )
-
-        else:
-
-            observation = (
-                "The company has shown weak performance during this period."
-            )
-
-        # -----------------------------------
-        # SECTOR INSIGHT
-        # -----------------------------------
-
-        if sector == "Technology":
-
-            if trend == "Positive Trend":
-
-                sector_explanation = (
-                    "Technology sector is showing positive momentum supported by digital demand."
-                )
-
-            else:
-
-                sector_explanation = (
-                    "Technology sector is currently showing weaker movement and higher fluctuations."
-                )
-
-        elif sector == "Financial Services":
-
-            if trend == "Positive Trend":
-
-                sector_explanation = (
-                    "Financial companies are showing positive movement supported by market confidence."
-                )
-
-            else:
-
-                sector_explanation = (
-                    "Financial companies are currently affected by uncertain economic conditions."
-                )
-
-        elif sector == "Healthcare":
-
-            if trend == "Positive Trend":
-
-                sector_explanation = (
-                    "Healthcare companies are showing positive movement supported by medical demand."
-                )
-
-            else:
-
-                sector_explanation = (
-                    "Healthcare companies are currently showing weaker movement despite stable demand."
-                )
-
-        elif sector == "Energy":
-
-            if trend == "Positive Trend":
-
-                sector_explanation = (
-                    "Energy companies are benefiting from positive fuel demand and market conditions."
-                )
-
-            else:
-
-                sector_explanation = (
-                    "Energy companies are currently affected by fuel price fluctuations."
-                )
-
-        elif sector == "Industrials":
-
-            if trend == "Positive Trend":
-
-                sector_explanation = (
-                    "Industrial companies are showing positive movement supported by infrastructure activity."
-                )
-
-            else:
-
-                sector_explanation = (
-                    "Industrial companies are currently affected by slower business activity."
-                )
-
-        elif sector == "Consumer Defensive":
-
-            sector_explanation = (
-                "Consumer defensive companies are generally considered stable investments."
-            )
-
-        elif sector == "Consumer Cyclical":
-
-            sector_explanation = (
-                "Consumer-focused companies are affected by market demand and spending behavior."
-            )
-
-        elif (
-            "Transportation" in sector
-            or "Air" in sector
-        ):
-
-            sector_explanation = (
-                "Transportation companies are influenced by travel demand and fuel costs."
-            )
-
-        elif "Rail" in sector:
-
-            sector_explanation = (
-                "Railway companies benefit from transportation and infrastructure demand."
-            )
-
-        else:
-
-            sector_explanation = (
-                "This sector reacts to broader market and economic conditions."
-            )
-
-        # -----------------------------------
-        # RETURN RESULTS
-        # -----------------------------------
-
-        return {
-
-            "Company": company.title(),
-            "Ticker": stock,
-            "Sector": sector,
-            "Current Price": round(current_price, 2),
-            "Price Change %": round(change_percent, 2),
-            "Risk": risk,
-            "Trend": trend,
-            "Volatility": round(volatility, 4),
-            "Observation": observation,
-            "Beginner Note": beginner_note,
-            "Sector Insight": sector_explanation,
-            "Data": data
-        }
-
-    except Exception as e:
-
-        print(f"\nError analyzing {company}")
-        print(f"Reason: {e}")
-
-        return None
-
-
-# -----------------------------------
-# MAIN PROGRAM
-# -----------------------------------
-
-company = input(
-    "Enter company name: "
-)
-
-print("\n")
-
-period = input(
-    "Choose investment period (short / medium / long): "
-).lower()
-
-print("\n")
-
-result = analyze_stock(company, period)
-
-# -----------------------------------
-# DISPLAY RESULT
-# -----------------------------------
-
-if result:
-
-    print("========== COMPANY INFORMATION ==========\n")
-
-    print(f"Company: {result['Company']}")
-    print("\n")
-
-    print(f"Ticker: {result['Ticker']}")
-    print("\n")
-
-    print(f"Company Sector: {result['Sector']}")
-    print("\n")
-
-    print(f"Current Price: ₹{result['Current Price']}")
-    print("\n")
-
-    print(f"Price Change: {result['Price Change %']}%")
-    print("\n")
-
-    print(f"Risk Level: {result['Risk']}")
-    print("\n")
-
-    print(f"Trend: {result['Trend']}")
-    print("\n")
-
-    print("Investment Observation:")
-    print(result['Observation'])
-    print("\n")
-
-    print("Beginner Insight:")
-    print(result['Beginner Note'])
-    print("\n")
-
-    print("Sector Insight:")
-    print(result['Sector Insight'])
-    print("\n")
-
-    print("How To Read The Chart:")
-    print("• Blue line shows actual stock price movement.")
-    print("• Orange line shows short-term average trend.")
-    print("• Green line shows long-term average trend.")
-    print("• If orange stays above green, momentum may be positive.")
-    print("\n")
-
-    print("Reminder:")
-    print(
-        "Investing decisions should align with your financial goals and risk comfort."
-    )
-
-    print("\n")
-
-    # -----------------------------------
-    # STOCK CHART
-    # -----------------------------------
-
-    data = result['Data']
-
-    plt.figure(figsize=(12, 6))
-
-    plt.plot(
-        data.index,
-        data['Close'],
-        label="Stock Price"
-    )
-
-    plt.plot(
-    data.index,
-    data['MA20'],
-    label="20-Day MA"
-    )
-
-    plt.plot(
-        data.index,
-        data['MA50'],
-        label="50-Day MA"
-    )
-
-    plt.plot(
-        data.index,
-        data['MA200'],
-        label="200-Day MA"
-    )
-    plt.title(
-        f"{company.title()} Stock Analysis"
-    )
-
-    plt.xlabel("Date")
-
-    plt.ylabel("Price")
-
-    plt.legend()
-
-    plt.grid(True)
-
-
-# -----------------------------------
-# COMPARISON SECTION
-# -----------------------------------
-
-compare = input(
-    "Do you want company comparison? (yes/no): "
-).lower()
-
-# -----------------------------------
-# COMPANY COMPARISON
-# -----------------------------------
-
-if compare == "yes":
-
-    print("\n")
-
-    companies = input(
-        "Enter company names separated by commas: "
-    ).split(",")
-
-    print("\n========== COMPARISON ANALYSIS ==========\n")
-
-    comparison_results = []
-
-    for comp in companies:
-
-        comp = comp.strip()
-
-        result = analyze_stock(
-            comp,
-            period
-        )
-
-        if result:
-
-            comparison_results.append(result)
-
-    # -----------------------------------
-    # PRINT COMPARISON
-    # -----------------------------------
-
-    for result in comparison_results:
-
-        print("-----------------------------------")
-
-        print(f"Company: {result['Company']}")
-
-        print("-----------------------------------")
-
-        print(f"Ticker: {result['Ticker']}")
-        print(f"Sector: {result['Sector']}")
-        print(f"Current Price: ₹{result['Current Price']}")
-        print(f"Price Change: {result['Price Change %']}%")
-        print(f"Risk Level: {result['Risk']}")
-        print(f"Trend: {result['Trend']}")
-
-        print("\nInvestment Observation:")
-        print(result['Observation'])
-
-        print("\nBeginner Insight:")
-        print(result['Beginner Note'])
-
-        print("\nSector Insight:")
-        print(result['Sector Insight'])
-
-        print("\n")
-
-    # -----------------------------------
-    # COMPARISON CHART
-    # -----------------------------------
-
-    if len(comparison_results) > 0:
-
-        plt.figure(figsize=(12, 6))
-
-        for result in comparison_results:
-
-            data = result['Data']
-
-            normalized = (
-                data['Close']
-                / data['Close'].iloc[0]
-            ) * 100
-
-            plt.plot(
-                data.index,
-                normalized,
-                label=result['Company']
-            )
-
-        plt.title(
-            "Company Comparison (Normalized Performance)"
-        )
-
-        plt.xlabel("Date")
-
-        plt.ylabel(
-            "Normalized Price (Base = 100)"
-        )
-
-        plt.legend()
-
-        plt.grid(True)
-
-        plt.show()
-
-    else:
-
-        print(
-            "\nThank you for using Clarity Invest Analysis.\n"
-        )
-        print("\nSector Insight:")
-        print(result['Sector Insight'])
-
-        print("\n")
-
-    # Comparison Chart
-    if len(comparison_results) > 0:
-
-        plt.figure(figsize=(12, 6))
-
-        for result in comparison_results:
-
-            data = result['Data']
-
-            plt.plot(
-                data['Close'],
-                label=result['Company']
-            )
-
-        plt.title("Company Comparison")
-
-        plt.xlabel("Date")
-        plt.ylabel("Price")
-
-        plt.legend()
-
-        plt.show()
-
-
-    plt.show()
-'''
-
-
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -949,31 +116,50 @@ p, li, label, span {
 INPUT BOXES
 ====================================================== */
 
-.stTextInput input,
-.stSelectbox select,
-.stTextArea textarea {
-
-   .stSelectbox div[data-baseweb="select"] > div {
-
+/* Text Input */
+.stTextInput > div > div > input {
     background-color: #111827 !important;
-
     color: white !important;
-
     border: 1px solid #374151 !important;
-
     border-radius: 12px !important;
-
     padding: 10px !important;
+}
 
-    /* DROPDOWN MENU */
+/* Placeholder text */
+.stTextArea textarea::placeholder {
+    color: #9CA3AF !important;
+}
 
+/* Text Area */
+.stTextArea textarea {
+    background-color: #111827 !important;
+    color: #FFFFFF !important;
+    caret-color: #FFFFFF !important;
+    border: 1px solid #374151 !important;
+    border-radius: 10px !important;
+}
+
+/* Selectbox container */
+div[data-baseweb="select"] > div {
+    background-color: #111827 !important;
+    color: white !important;
+    border: 1px solid #374151 !important;
+    border-radius: 10px !important;
+}
+
+/* Selectbox text */
+div[data-baseweb="select"] span {
+    color: white !important;
+}
+
+/* DROPDOWN OPTIONS */
 ul {
     background-color: #111827 !important;
 }
 
 li {
+    background-color: #111827 !important;
     color: white !important;
-
 }
 
 /* ======================================================
@@ -1154,20 +340,104 @@ MARKDOWN TEXT FIX
 
 st.title("📊 Clarity Invest Pro Dashboard")
 
-st.markdown(
-    "<h4 style='color:#9CA3AF;'>Professional AI-powered stock analysis platform</h4>",
-    unsafe_allow_html=True
+# =========================================================
+# HERO SECTION
+# =========================================================
+
+st.info(
+    "🚀 Beginner-friendly investing dashboard for understanding stocks, trends, and risk in a simplified way."
 )
 
-st.markdown("""
-Professional Stock Analysis Dashboard with:
-- Technical Indicators
-- Risk Analysis
-- Trend Analysis
-- Sector Insights
-- Company Comparison
-- Interactive Charts
+st.markdown(
+    """
+    ### Simplifying Investing For Beginners
+    
+    Understand stocks, risk, trends, and investing concepts in a simple and practical way.
+    """
+)
+
+st.caption(
+    "Built to help beginners gain investing clarity through simple insights and practical understanding."
+)
+
+st.markdown("---")
+
+# =========================================================
+# HOW IT WORKS
+# =========================================================
+
+st.header("⚙️ How It Works")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+
+    st.subheader("1️⃣ Analyze")
+
+    st.write(
+        "Search companies and understand stock movement, risk, and trends."
+    )
+
+with col2:
+
+    st.subheader("2️⃣ Compare")
+
+    st.write(
+        "Compare multiple companies side-by-side for better investing clarity."
+    )
+
+with col3:
+
+    st.subheader("3️⃣ Learn")
+
+    st.write(
+        "Access beginner-friendly investing guidance and personalized clarity support."
+    )
+
+st.markdown("---")
+
+# =========================================================
+# WHY CLARITY INVEST
+# =========================================================
+
+st.header("💡 Why Clarity Invest")
+
+st.write("""
+Most beginners feel confused because investing information is often too complicated.
+
+Clarity Invest focuses on:
+- Simple explanations
+- Beginner-friendly insights
+- Risk understanding
+- Practical learning
+- Long-term clarity over hype
 """)
+
+st.markdown("---")
+
+# =========================================================
+# FREE FEATURES
+# =========================================================
+
+st.header("📊 Free Dashboard Features")
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    st.success("✅ Stock Trend Analysis")
+    st.success("✅ Risk Analysis")
+    st.success("✅ Company Comparison")
+    st.success("✅ Interactive Charts")
+
+with col2:
+
+    st.success("✅ Sector Insights")
+    st.success("✅ Historical Data")
+    st.success("✅ Beginner-Friendly Explanations")
+    st.success("✅ Investment Observations")
+
+st.markdown("---")
 
 # =========================================================
 # SECTOR INSIGHT FUNCTION
@@ -1183,7 +453,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Technology sector is benefiting from digital transformation and innovation demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Technology sector is currently facing weaker momentum and market volatility."
     },
 
@@ -1192,7 +462,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Financial companies are benefiting from stronger market confidence and lending activity.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Financial sector is currently impacted by economic uncertainty and interest rate pressure."
     },
 
@@ -1201,7 +471,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Energy companies are benefiting from stronger fuel demand and pricing conditions.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Energy companies are facing pressure from oil price fluctuations."
     },
 
@@ -1210,7 +480,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Healthcare sector remains supported by stable medical demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Healthcare companies remain relatively defensive despite weaker momentum."
     },
 
@@ -1219,7 +489,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Industrial companies are benefiting from infrastructure and manufacturing activity.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Industrial sector is facing slower economic activity."
     },
 
@@ -1228,7 +498,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Consumer defensive companies are showing stable long-term demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Consumer defensive sector remains comparatively resilient."
     },
 
@@ -1237,7 +507,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Consumer-focused companies are benefiting from stronger consumer demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Changing consumer spending patterns are affecting cyclical demand."
     },
 
@@ -1246,7 +516,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Transportation companies are benefiting from stronger logistics demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Transportation sector is facing operational and fuel-cost pressures."
     },
 
@@ -1255,25 +525,16 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Communication companies are benefiting from rising digital connectivity demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Communication sector is facing stronger competition and slower momentum."
     },
-
-    "Utilities": {
-
-        "Positive Trend":
-            "Utility companies are benefiting from stable infrastructure demand.",
-
-        "Weak Trend":
-            "Utilities sector remains comparatively defensive despite weaker momentum."
-    },
-
+    
     "Basic Materials": {
 
         "Positive Trend":
             "Basic materials companies are benefiting from industrial and construction demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Commodity price fluctuations are affecting the materials sector."
     },
 
@@ -1282,7 +543,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Real estate companies are benefiting from stronger property and infrastructure activity.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Real estate sector is facing pressure from interest rates and slower demand."
     },
 
@@ -1291,7 +552,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Utilities sector is benefiting from stable energy and infrastructure demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Utilities remain comparatively stable despite slower growth."
     },
 
@@ -1300,7 +561,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Consumer staples companies are supported by stable daily consumption demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Consumer staples sector remains relatively defensive in weaker markets."
     },
 
@@ -1309,7 +570,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Communication companies are benefiting from growing media and connectivity demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Communication sector is facing competitive and advertising pressures."
     },
 
@@ -1318,7 +579,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Real estate services are benefiting from improving property market activity.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Property-related businesses are currently facing slower market movement."
     },
 
@@ -1327,7 +588,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Airline companies are benefiting from stronger travel demand and tourism activity.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Airline companies are affected by fuel price volatility and changing travel demand."
     },
 
@@ -1336,7 +597,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Railway companies are benefiting from transportation and infrastructure growth.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Railway companies are currently facing slower industrial movement."
     },
 
@@ -1345,7 +606,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Automobile companies are benefiting from rising consumer and EV demand.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Auto companies are facing supply-chain and demand-related pressures."
     },
 
@@ -1354,7 +615,7 @@ def get_sector_insight(sector, trend):
         "Positive Trend":
             "Banks are benefiting from lending growth and economic activity.",
 
-        "Weak Trend":
+        "Neutral Trend":
             "Banking sector is currently facing economic and interest rate pressures."
     }
 
@@ -1395,19 +656,19 @@ def get_observation(risk, trend):
             "Strong growth potential exists, but volatility is comparatively higher."
         )
 
-    elif trend == "Weak Trend" and risk == "Low Risk":
+    elif trend == "Neutral Trend" and risk == "Low Risk":
 
         return (
             "Stock remains stable, but momentum is currently limited."
         )
 
-    elif trend == "Weak Trend" and risk == "Moderate Risk":
+    elif trend == "Neutral Trend" and risk == "Moderate Risk":
 
         return (
             "Moderate volatility with weaker momentum currently."
         )
 
-    elif trend == "Weak Trend" and risk == "High Risk":
+    elif trend == "Neutral Trend" and risk == "High Risk":
 
         return (
             "Higher volatility and weaker movement indicate cautious investing."
@@ -1447,14 +708,32 @@ def get_valid_ticker(company):
 
         return result['quotes'][0].get('symbol')
 
-    except:
+    except Exception:
 
         return None
 
 # =========================================================
+# STOCK NEWS FUNCTION
+# =========================================================
+
+def get_stock_news(ticker_symbol):
+
+    try:
+
+        ticker = yf.Ticker(ticker_symbol)
+
+        news = ticker.news
+
+        return news[:5]
+
+    except Exception:
+
+        return []
+# =========================================================
 # MAIN ANALYSIS FUNCTION
 # =========================================================
 
+@st.cache_data(ttl=3600)
 def analyze_stock(company, period):
 
     try:
@@ -1466,8 +745,8 @@ def analyze_stock(company, period):
         stock = get_valid_ticker(company)
 
         if not stock:
-
-            return None
+           
+                return None
 
         # =================================================
         # PERIOD LOGIC
@@ -1633,7 +912,7 @@ def analyze_stock(company, period):
 
             else:
 
-                trend = "Weak Trend"
+                trend = "Neutral Trend"
 
         elif period == "Medium Term":
 
@@ -1647,7 +926,7 @@ def analyze_stock(company, period):
 
             else:
 
-                trend = "Weak Trend"
+                trend = "Neutral Trend"
 
         else:
 
@@ -1661,7 +940,7 @@ def analyze_stock(company, period):
 
             else:
 
-                trend = "Weak Trend"
+                trend = "Neutral Trend"
 
         # =================================================
         # COMPANY INFO
@@ -1678,7 +957,7 @@ def analyze_stock(company, period):
                 "Other"
             )
 
-        except:
+        except Exception:
 
             sector = "Other"
 
@@ -1723,6 +1002,18 @@ def analyze_stock(company, period):
         st.write(e)
 
         return None
+
+
+
+# =========================================================
+# TRUST NOTE
+# =========================================================
+
+st.caption("""
+⚠️ Educational purpose only.
+No guaranteed returns or financial advice.
+""")
+
 
 # =========================================================
 # SIDEBAR
@@ -1798,12 +1089,13 @@ if analyze_button:
         # TABS
         # =================================================
 
-        tab1, tab2, tab3 = st.tabs(
+        tab1, tab2, tab3, tab4 = st.tabs(
 
             [
                 "📈 Interactive Chart",
                 "💡 Insights",
-                "📊 Historical Data"
+                "📊 Historical Data",
+                 "📰 Latest News"
             ]
 
         )
@@ -2015,11 +1307,219 @@ if analyze_button:
 
             )
 
+        # =========================================================
+        # NEWS ANALYSIS
+        # =========================================================
+
+       with tab4:
+           st.subheader("📰 Latest Stock News")
+
+        try:
+    
+            ticker_news = yf.Ticker(result['Ticker'])
+    
+            news_data = ticker_news.news
+    
+            if len(news_data) > 0:
+    
+                for news in news_data[:5]:
+    
+                    title = news.get("title", "No Title")
+    
+                    publisher = news.get("publisher", "Unknown")
+    
+                    link = news.get("link", "")
+    
+                    thumbnail = news.get("thumbnail")
+    
+                    st.subheader(title)
+    
+                    st.write(f"📰 Source: {publisher}")
+    
+                    if thumbnail:
+    
+                        try:
+    
+                            st.image(
+                                thumbnail['resolutions'][0]['url'],
+                                width=500
+                            )
+    
+                        except:
+                            pass
+    
+                    st.link_button(
+                        "Read Full News",
+                        link
+                    )
+    
+                    st.markdown("---")
+    
+            else:
+    
+                st.info("No recent news available.")
+    
+        except:
+    
+            st.warning("Unable to fetch latest news.")
+            
+# =========================================================
+# BUY / HOLD / SELL SENTIMENT
+# =========================================================
+
+st.markdown("---")
+
+st.header("🤖 Investment Sentiment")
+
+if analyze_button and result:
+
+    sentiment = ""
+
+    if (
+        result['Trend'] == "Positive Trend"
+        and result['Risk'] == "Low Risk"
+    ):
+
+        sentiment = "✅ BUY"
+
+    elif (
+        result['Trend'] == "Positive Trend"
+        and result['Risk'] == "Moderate Risk"
+    ):
+
+        sentiment = "📌 HOLD"
+
     else:
 
-        st.error(
-            "Company not found or data unavailable."
-        )
+        sentiment = "⚠️ Sell Caution"
+
+    st.subheader(sentiment)
+
+    st.write("""
+This sentiment is generated using:
+- Trend analysis
+- Risk analysis
+- Moving averages
+- Historical volatility
+""")
+
+    st.caption(
+        "Educational purpose only. Not financial advice."
+    )  
+
+# =========================================================
+# SIP CALCULATOR
+# =========================================================
+
+st.markdown("---")
+
+st.header("💰 SIP Calculator")
+
+sip_amount = st.number_input(
+    "Monthly SIP Amount (₹)",
+    min_value=500,
+    value=5000
+)
+
+years = st.slider(
+    "Investment Duration (Years)",
+    1,
+    30,
+    10
+)
+
+expected_return = st.slider(
+    "Expected Annual Return (%)",
+    1,
+    30,
+    12
+)
+
+monthly_return = expected_return / 12 / 100
+
+months = years * 12
+
+future_value = sip_amount * (
+    (
+        (1 + monthly_return) ** months - 1
+    )
+    / monthly_return
+) * (1 + monthly_return)
+
+total_invested = sip_amount * months
+
+wealth_gained = future_value - total_invested
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric(
+    "Total Invested",
+    f"₹{total_invested:,.0f}"
+)
+
+col2.metric(
+    "Estimated Value",
+    f"₹{future_value:,.0f}"
+)
+
+col3.metric(
+    "Estimated Returns",
+    f"₹{wealth_gained:,.0f}"
+)
+
+# =========================================================
+# PORTFOLIO ALLOCATION TOOL
+# =========================================================
+
+st.markdown("---")
+
+st.header("📊 Beginner Portfolio Allocation")
+
+risk_profile = st.selectbox(
+
+    "Select Risk Comfort",
+
+    [
+        "Low Risk",
+        "Moderate Risk",
+        "High Risk"
+    ]
+
+)
+
+if risk_profile == "Low Risk":
+
+    st.success("""
+✅ Suggested Allocation
+
+• 60% Large Cap Stocks
+• 30% Index Funds
+• 10% Gold / Cash
+""")
+
+elif risk_profile == "Moderate Risk":
+
+    st.info("""
+📈 Suggested Allocation
+
+• 50% Large Cap Stocks
+• 30% Mid Cap Stocks
+• 20% Index Funds
+""")
+
+else:
+
+    st.warning("""
+🚀 Suggested Allocation
+
+• 50% Growth Stocks
+• 30% Mid/Small Cap
+• 20% High Risk Opportunities
+""")
+
+st.caption(
+    "Educational allocation example for beginners."
+)
 
 # =========================================================
 # COMPARISON SECTION
@@ -2029,17 +1529,36 @@ st.sidebar.markdown("---")
 
 st.sidebar.subheader("⚖️ Compare Companies")
 
-comparison_input = st.sidebar.text_area(
+comparison_input = st.sidebar.multiselect(
 
-    "Enter company names separated by commas",
+    "Select Popular Companies",
 
-    "Reliance, Infosys"
+    [
+        "Reliance",
+        "Infosys",
+        "TCS",
+        "HDFC Bank",
+        "ICICI Bank",
+        "SBI",
+        "Wipro",
+        "Tata Motors",
+        "Mahindra & Mahindra",
+        "ITC"
+    ]
 
 )
 
+custom_companies = st.sidebar.text_input(
+
+    "Or Enter Custom Companies (comma separated)",
+
+    ""
+
+)
 compare_button = st.sidebar.button(
     "Compare Stocks"
 )
+
 
 # =========================================================
 # COMPARISON LOGIC
@@ -2049,123 +1568,347 @@ if compare_button:
 
     comparison_results = []
 
-    companies = comparison_input.split(",")
+    # Selected companies
+    companies = comparison_input.copy()
 
-    with st.spinner("Comparing companies..."):
+    # Add custom companies
+    if custom_companies:
 
-        for comp in companies:
+        custom_list = custom_companies.split(",")
+
+        for comp in custom_list:
 
             comp = comp.strip()
 
-            result = analyze_stock(
-                comp,
-                period
-            )
+            if comp and comp not in companies:
 
-            if result:
+                companies.append(comp)
 
-                comparison_results.append(
-                    result
-                )
+    # No company selected
+    if len(companies) == 0:
 
-    if len(comparison_results) > 0:
-
-        st.markdown("---")
-
-        st.header("📊 Company Comparison")
-
-        # =================================================
-        # COMPARISON TABLE
-        # =================================================
-
-        comparison_df = pd.DataFrame([
-
-            {
-
-                "Company": r["Company"],
-
-                "Sector": r["Sector"],
-
-                "Current Price": r["Current Price"],
-
-                "Price Change %": r["Price Change"],
-
-                "Risk": r["Risk"],
-
-                "Trend": r["Trend"]
-
-            }
-
-            for r in comparison_results
-
-        ])
-
-        st.dataframe(
-
-            comparison_df,
-
-            use_container_width=True
-
-        )
-
-        # =================================================
-        # NORMALIZED COMPARISON CHART
-        # =================================================
-
-        comparison_fig = go.Figure()
-
-        for r in comparison_results:
-
-            normalized = (
-
-                r['Data']['Close']
-
-                /
-
-                r['Data']['Close'].iloc[0]
-
-            )
-
-            comparison_fig.add_trace(
-
-                go.Scatter(
-
-                    x=r['Data'].index,
-
-                    y=normalized,
-
-                    mode='lines',
-
-                    name=r['Company']
-
-                )
-
-            )
-
-        comparison_fig.update_layout(
-
-            template="plotly_dark",
-
-            title="Normalized Performance Comparison",
-
-            xaxis_title="Date",
-
-            yaxis_title="Normalized Performance",
-
-            height=650
-
-        )
-
-        st.plotly_chart(
-
-            comparison_fig,
-
-            use_container_width=True
-
-        )
+        st.warning("Please select or enter companies.")
 
     else:
 
-        st.error(
-            "No valid companies found for comparison."
+        with st.spinner("Comparing companies..."):
+
+            for comp in companies:
+
+                result = analyze_stock(
+                    comp,
+                    period
+                )
+
+                if result:
+
+                    comparison_results.append(result)
+
+        # =================================================
+        # SHOW RESULTS
+        # =================================================
+
+        if len(comparison_results) > 0:
+
+            st.markdown("---")
+
+            st.header("📊 Company Comparison")
+
+            comparison_df = pd.DataFrame([
+
+                {
+
+                    "Company": r["Company"],
+                    "Sector": r["Sector"],
+                    "Current Price": r["Current Price"],
+                    "Price Change %": r["Price Change"],
+                    "Risk": r["Risk"],
+                    "Trend": r["Trend"]
+
+                }
+
+                for r in comparison_results
+
+            ])
+
+            st.dataframe(
+                comparison_df,
+                use_container_width=True
+            )
+
+            # =============================================
+            # COMPARISON CHART
+            # =============================================
+
+            comparison_fig = go.Figure()
+
+            for r in comparison_results:
+
+                normalized = (
+
+                    r['Data']['Close']
+
+                    /
+
+                    r['Data']['Close'].iloc[0]
+
+                )
+
+                comparison_fig.add_trace(
+
+                    go.Scatter(
+
+                        x=r['Data'].index,
+                        y=normalized,
+
+                        mode='lines',
+
+                        name=r['Company']
+
+                    )
+
+                )
+
+            comparison_fig.update_layout(
+
+                template="plotly_dark",
+
+                title="Normalized Performance Comparison",
+
+                xaxis_title="Date",
+
+                yaxis_title="Normalized Performance",
+
+                height=650
+
+            )
+
+            st.plotly_chart(
+                comparison_fig,
+                use_container_width=True
+            )
+
+        else:
+
+            st.error(
+                "No valid companies found for comparison."
+            )
+        if len(companies) > 8:
+
+            st.warning("Please compare maximum 8 companies at once.")
+
+            st.stop()
+
+# =========================================================
+# PREMIUM CLARITY SECTION
+# =========================================================
+
+st.markdown("---")
+
+st.header("🎯 Personalized Beginner Clarity")
+
+st.write("""
+Get beginner-friendly investing understanding based on:
+
+• Your goals  
+• Risk comfort  
+• Budget  
+• Investing stage  
+
+Designed for students and beginners looking for clearer financial understanding.
+""")
+
+# =========================================================
+# SERVICES
+# =========================================================
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    st.info("""
+📘 Beginner Investing Guide  
+₹49
+""")
+
+    st.write("""
+• Beginner-friendly investing understanding  
+• Risk clarity  
+• Common beginner mistakes  
+• Practical examples  
+""")
+
+    # PDF DOWNLOAD
+    try:
+
+        with open(
+            "Clarity_Invest_Beginner_Guide.pdf",
+            "rb"
+        ) as pdf_file:
+
+            st.download_button(
+
+                label="📥 Download Guide PDF",
+
+                data=pdf_file,
+
+                file_name="Clarity_Invest_Beginner_Guide.pdf",
+
+                mime="application/pdf"
+
+            )
+
+    except:
+
+        st.warning(
+            "PDF guide not uploaded yet."
         )
+
+with col2:
+
+    st.success("""
+🎯 Personalized Beginner Clarity  
+₹99
+""")
+
+    st.write("""
+• Personalized beginner guidance  
+• Based on your goals & comfort  
+• Simplified investing explanation  
+• Personal clarity support  
+""")
+
+# =========================================================
+# MORE SERVICES
+# =========================================================
+
+col3, col4 = st.columns(2)
+
+with col3:
+
+    st.warning("""
+📊 Portfolio Guidance  
+₹199
+""")
+
+    st.write("""
+• Beginner allocation understanding  
+• Risk balance thinking  
+• Practical portfolio structure  
+""")
+
+with col4:
+
+    st.info("""
+📞 1-on-1 Beginner Guidance  
+₹299+
+""")
+
+    st.write("""
+• Direct beginner support  
+• Personalized investing discussions  
+• Clarity-focused guidance  
+""")
+
+# =========================================================
+# PAYMENT SECTION
+# =========================================================
+
+st.markdown("---")
+
+st.subheader("💳 Payment Process")
+
+st.write("""
+1. Complete payment using the QR code  
+2. Click the form button below  
+3. Fill your investing details  
+4. Receive personalized clarity guidance  
+""")
+
+# =========================================================
+# QR IMAGE
+# =========================================================
+
+try:
+    st.image("clarity_invest_qr.JPEG", width=250)
+except:
+    st.warning("QR code not uploaded yet.")
+
+# =========================================================
+# GOOGLE FORM BUTTON
+# =========================================================
+
+st.link_button(
+    "Proceed to Personalized Clarity Form",
+    "https://docs.google.com/forms/d/1NxGIVfxyViyLncwt299FWVOxrH5dv5tGjVYz-abg-EM/edit"
+)
+
+# =========================================================
+# CONTACT SECTION
+# =========================================================
+
+st.markdown("---")
+
+st.markdown("""
+
+<div style='text-align:center;'>
+
+<h3>📩 Connect With Clarity Invest</h3>
+
+<p>
+Instagram: https://www.instagram.com/clarity_invest_insights?igsh=bXdtMHk0Mzh1Zmpj
+</p>
+
+<p>
+LinkedIn: https://www.linkedin.com/in/gauri-ganorkar-278260344/
+</p>
+
+<p>
+For personalized investing clarity and beginner guidance.
+</p>
+
+</div>
+
+""", unsafe_allow_html=True)
+# =========================================================
+# TRUST SECTION
+# =========================================================
+
+st.markdown("---")
+
+st.header("🤝 Beginner-Focused Investing")
+
+st.write("""
+Clarity Invest is designed for educational and informational purposes.
+
+The goal is not to provide stock tips or guaranteed returns.
+
+The focus is:
+- Understanding investing
+- Learning risk management
+- Building financial clarity
+- Making informed decisions
+""")
+
+# =========================================================
+# DISCLAIMER
+# =========================================================
+
+st.markdown("---")
+
+st.caption("""
+Disclaimer:
+This platform is built for educational and informational purposes only.
+It does not provide financial advice, stock recommendations, or guaranteed returns.
+Please do your own research before making investment decisions.
+""")
+
+st.markdown("""
+<div style='text-align:center; color:#9CA3AF;'>
+
+Clarity Invest • Beginner Financial Understanding Platform
+
+Designed to simplify investing concepts for students and first-time investors.
+
+</div>
+""", unsafe_allow_html=True)
