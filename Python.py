@@ -1173,7 +1173,6 @@ if analyze_button:
         # =========================================================
         
         with tab2:
-        
             st.subheader("📌 Company Information")
         
             st.write(f"**Company:** {result['Company']}")
@@ -1199,7 +1198,6 @@ if analyze_button:
         # =========================================================
         
         with tab3:
-        
             st.subheader("📊 Historical Stock Data")
         
             st.dataframe(
@@ -1212,7 +1210,6 @@ if analyze_button:
         # =========================================================
         
         with tab4:
-        
             st.subheader("📰 Latest Stock News")
         
             try:
