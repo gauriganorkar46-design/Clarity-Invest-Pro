@@ -1311,58 +1311,53 @@ if analyze_button:
         # NEWS ANALYSIS
         # =========================================================
 
-       with tab4:
-           st.subheader("📰 Latest Stock News")
+     # =========================================================
+# NEWS ANALYSIS
+# =========================================================
 
-        try:
-    
-            ticker_news = yf.Ticker(result['Ticker'])
-    
-            news_data = ticker_news.news
-    
-            if len(news_data) > 0:
-    
-                for news in news_data[:5]:
-    
-                    title = news.get("title", "No Title")
-    
-                    publisher = news.get("publisher", "Unknown")
-    
-                    link = news.get("link", "")
-    
-                    thumbnail = news.get("thumbnail")
-    
-                    st.subheader(title)
-    
-                    st.write(f"📰 Source: {publisher}")
-    
-                    if thumbnail:
-    
-                        try:
-    
-                            st.image(
-                                thumbnail['resolutions'][0]['url'],
-                                width=500
-                            )
-    
-                        except:
-                            pass
-    
-                    st.link_button(
-                        "Read Full News",
-                        link
-                    )
-    
-                    st.markdown("---")
-    
-            else:
-    
-                st.info("No recent news available.")
-    
-        except:
-    
-            st.warning("Unable to fetch latest news.")
-            
+with tab4:
+
+    st.subheader("📰 Latest Stock News")
+
+    try:
+
+        ticker_news = yf.Ticker(result['Ticker'])
+        news_data = ticker_news.news
+
+        if len(news_data) > 0:
+
+            for news in news_data[:5]:
+
+                title = news.get("title", "No Title")
+                publisher = news.get("publisher", "Unknown")
+                link = news.get("link", "")
+                thumbnail = news.get("thumbnail")
+
+                st.subheader(title)
+                st.write(f"📰 Source: {publisher}")
+
+                if thumbnail:
+                    try:
+                        st.image(
+                            thumbnail['resolutions'][0]['url'],
+                            width=500
+                        )
+                    except:
+                        pass
+
+                st.link_button(
+                    "Read Full News",
+                    link
+                )
+
+                st.markdown("---")
+
+        else:
+            st.info("No recent news available.")
+
+    except:
+        st.warning("Unable to fetch latest news.")
+        
 # =========================================================
 # BUY / HOLD / SELL SENTIMENT
 # =========================================================
