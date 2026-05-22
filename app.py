@@ -79,7 +79,7 @@ font-size:32px;
 font-weight:800;
 margin-bottom:0px;
 '>
-📊 Clarity Invest
+Clarity Invest
 </h1>
 
 <p style='

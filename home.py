@@ -30,11 +30,11 @@ font-weight:800;
 color:white;
 margin-bottom:10px;
 '>
-📊 Clarity Invest Pro
+Clarity Invest Pro
 </h1>
 
 <h2 style='
-font-size:28px;
+font-size:35px;
 font-weight:500;
 color:#D1D5DB;
 margin-bottom:25px;
@@ -43,7 +43,7 @@ Simplifying Investing For Beginners
 </h2>
 
 <p style='
-font-size:18px;
+font-size:20px;
 line-height:1.9;
 color:#CBD5E1;
 max-width:900px;
