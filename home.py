@@ -119,29 +119,29 @@ Understand investing, stock trends, risk, and market behavior through a clean be
 
     <div class="explore-grid">
 
-        <div class="explore-card">
-            <div class="explore-badge">Market Insight</div>
-            <div class="explore-title">🌀 What’s Moving?</div>
-            <div class="explore-text">Track real-time stock momentum and market trends instantly</div>
-        </div>
+    <div class="explore-card">
+        <div class="explore-badge">Market Insight</div>
+        <div class="explore-title">🌀 What’s Moving?</div>
+        <div class="explore-text">Track real-time stock momentum and market trends instantly</div>
+    </div>
 
-        <div class="explore-card">
-            <div class="explore-badge">Smart Compare</div>
-            <div class="explore-title">⚖️ Who Wins?</div>
-            <div class="explore-text">Compare companies side-by-side like a professional analyst</div>
-        </div>
+    <div class="explore-card">
+        <div class="explore-badge">Smart Compare</div>
+        <div class="explore-title">⚖️ Who Wins?</div>
+        <div class="explore-text">Compare companies side-by-side like a professional analyst</div>
+    </div>
 
-        <div class="explore-card">
-            <div class="explore-badge">Future Value</div>
-            <div class="explore-title">💰 What If You Invested?</div>
-            <div class="explore-text">Visualize long-term wealth growth from your investments</div>
-        </div>
+    <div class="explore-card">
+        <div class="explore-badge">Future Value</div>
+        <div class="explore-title">💰 What If You Invested?</div>
+        <div class="explore-text">Visualize long-term wealth growth from your investments</div>
+    </div>
 
-        <div class="explore-card">
-            <div class="explore-badge">Risk Check</div>
-            <div class="explore-title">📘 Are You Safe?</div>
-            <div class="explore-text">Analyze portfolio balance and risk exposure instantly</div>
-        </div>
+    <div class="explore-card">
+        <div class="explore-badge">Risk Check</div>
+        <div class="explore-title">📘 Are You Safe?</div>
+        <div class="explore-text">Analyze portfolio balance and risk exposure instantly</div>
+    </div>
 
     </div>
     """,
