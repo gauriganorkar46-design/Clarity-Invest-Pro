@@ -60,225 +60,146 @@ if "page" not in st.session_state:
 
     st.session_state.page = "home"
 
+if "menu" not in st.session_state:
+    st.session_state.menu = False
+
+
+
 # =========================================================
-# SIDEBAR
+# NAVIGATION FUNCTION
 # =========================================================
 
-with st.sidebar:
+def navigate(page):
+    st.session_state.page = page
+    st.session_state.menu = False
 
-    # =====================================================
-    # LOGO / BRANDING
-    # =====================================================
 
+# =========================================================
+# TOP HEADER (APP STYLE)
+# =========================================================
+
+col1, col2, col3 = st.columns([1, 4, 1])
+
+with col1:
+    if st.button("☰"):
+        st.session_state.menu = not st.session_state.menu
+
+with col2:
     st.markdown(
-        """
-<div style='text-align:center;padding-top:20px;'>
-
-<h1 style='
-font-size:42px;
-font-weight:800;
-margin-bottom:0px;
-'>
-⚡Clarity Invest
-</h1>
-
-<p style='
-color:#9CA3AF;
-font-size:18px;
-margin-top:5px;
-'>
-Simplifying Investing
-</p>
-
-</div>
-""",
+        "<h2 style='text-align:center;'>⚡ Clarity Invest</h2>",
         unsafe_allow_html=True
     )
 
-    st.markdown("---")
+with col3:
+    if st.button("🏠"):
+        navigate("home")
 
-    # =====================================================
-    # NAVIGATION
-    # =====================================================
+st.markdown("---")
 
-    st.subheader("📌 Navigation")
 
-    # =====================================================
-    # HOME
-    # =====================================================
+# =========================================================
+# SLIDE MENU (ONLY WHEN OPEN)
+# =========================================================
 
-    if st.button(
+if st.session_state.menu:
 
-        "🏠 Home",
+    st.markdown(
+        """
+        <div style="
+        background:#0F172A;
+        padding:15px;
+        border-radius:12px;
+        margin-bottom:10px;
+        ">
+        <h3 style="color:white;">Quick Menu</h3>
+        <p style="color:#94A3B8;">Navigate faster</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-        use_container_width=True
+    colA, colB = st.columns(2)
 
-    ):
+    with colA:
+        if st.button("📈 Analysis"):
+            navigate("analysis")
 
-        st.session_state.page = "home"
+        if st.button("💰 SIP"):
+            navigate("sip")
 
-    # =====================================================
-    # ANALYSIS
-    # =====================================================
+        if st.button("📘 Portfolio"):
+            navigate("portfolio")
 
-    if st.button(
+    with colB:
+        if st.button("⚖️ Compare"):
+            navigate("compare")
 
-        "📈 Stock Analysis",
+        if st.button("💎 Premium"):
+            navigate("premium")
 
-        use_container_width=True
+        if st.button("📩 Contact"):
+            navigate("contact")
 
-    ):
-
-        st.session_state.page = "analysis"
-
-    # =====================================================
-    # COMPARISON
-    # =====================================================
-
-    if st.button(
-
-        "⚖️ Compare Stocks",
-
-        use_container_width=True
-
-    ):
-
-        st.session_state.page = "compare"
-
-    # =====================================================
-    # SIP
-    # =====================================================
-
-    if st.button(
-
-        "💰 SIP Calculator",
-
-        use_container_width=True
-
-    ):
-
-        st.session_state.page = "sip"
-
-    # =====================================================
-    # PORTFOLIO
-    # =====================================================
-
-    if st.button(
-
-        "📘 Portfolio Tool",
-
-        use_container_width=True
-
-    ):
-
-        st.session_state.page = "portfolio"
-
-    # =====================================================
-    # PREMIUM
-    # =====================================================
-
-    if st.button(
-
-        "💎 Premium Guidance",
-
-        use_container_width=True
-
-    ):
-
-        st.session_state.page = "premium"
-
-    # =====================================================
-    # CONTACT
-    # =====================================================
-
-    if st.button(
-
-        "📩 Contact",
-
-        use_container_width=True
-
-    ):
-
-        st.session_state.page = "contact"
+    if st.button("❌ Close Menu"):
+        st.session_state.menu = False
 
     st.markdown("---")
 
-    # =====================================================
-    # QUICK INFO
-    # =====================================================
-
-    st.info(
-        """
-Beginner-friendly investing dashboard designed to simplify finance concepts.
-"""
-    )
-
-    st.caption(
-        """
-Educational purpose only.
-No financial advice.
-"""
-    )
 
 # =========================================================
 # PAGE ROUTING
 # =========================================================
 
-# =========================================================
-# HOME PAGE
-# =========================================================
-
 if st.session_state.page == "home":
-
     show_home_page()
 
-# =========================================================
-# ANALYSIS PAGE
-# =========================================================
-
 elif st.session_state.page == "analysis":
-
     show_analysis_page()
 
-# =========================================================
-# COMPARISON PAGE
-# =========================================================
-
 elif st.session_state.page == "compare":
-
     show_comparison_page()
 
-# =========================================================
-# SIP PAGE
-# =========================================================
-
 elif st.session_state.page == "sip":
-
     show_sip_page()
 
-# =========================================================
-# PORTFOLIO PAGE
-# =========================================================
-
 elif st.session_state.page == "portfolio":
-
     show_portfolio_page()
 
-# =========================================================
-# PREMIUM PAGE
-# =========================================================
-
 elif st.session_state.page == "premium":
-
     show_premium_page()
 
-# =========================================================
-# CONTACT PAGE
-# =========================================================
-
 elif st.session_state.page == "contact":
-
     show_contact_page()
+
+
+# =========================================================
+# BOTTOM NAVIGATION (MOBILE APP STYLE)
+# =========================================================
+
+st.markdown("---")
+
+col1, col2, col3, col4, col5 = st.columns(5)
+
+with col1:
+    if st.button("🏠"):
+        navigate("home")
+
+with col2:
+    if st.button("📈"):
+        navigate("analysis")
+
+with col3:
+    if st.button("⚖️"):
+        navigate("compare")
+
+with col4:
+    if st.button("💰"):
+        navigate("sip")
+
+with col5:
+    if st.button("📘"):
+        navigate("portfolio")
+
 
 # =========================================================
 # FOOTER
@@ -287,27 +208,12 @@ elif st.session_state.page == "contact":
 st.markdown("---")
 
 st.markdown(
-    """
-<div style='
-text-align:center;
-padding:20px;
-color:#94A3B8;
-font-size:25px;
-'>
-
-<p>
-⚡Clarity Invest Pro Dashboard
-</p>
-
-<p>
-Built for beginner-friendly investing understanding
-</p>
-
-<p>
-Educational Purpose Only • No Guaranteed Returns
-</p>
-
+"""
+<div style='text-align:center; padding:15px; color:#94A3B8; font-size:12px;'>
+<b>⚡ Clarity Invest Pro</b><br>
+Smart investing made simple<br>
+<span style="font-size:11px;">Educational Purpose Only</span>
 </div>
 """,
-    unsafe_allow_html=True
+unsafe_allow_html=True
 )
