@@ -5,15 +5,6 @@ import urllib.parse
 from datetime import datetime
 
 # =========================================================
-# PAGE CONFIG (optional but recommended)
-# =========================================================
-st.set_page_config(
-    page_title="Clarity Invest News",
-    page_icon="📰",
-    layout="wide"
-)
-
-# =========================================================
 # CACHE: COMPANY NAME
 # =========================================================
 @st.cache_data(ttl=3600)
