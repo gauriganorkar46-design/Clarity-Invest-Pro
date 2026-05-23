@@ -34,7 +34,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:40px;
+        font-size:52px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -43,7 +43,7 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:22px;
+        font-size:40px;
         line-height:1.8;
         color:#CBD5E1;
         max-width:900px;
@@ -194,7 +194,7 @@ def show_home_page():
         st.markdown(
             """
             <div class='custom-card'>
-            <h3>📈 Stock Analysis</h3>
+            <h3>💹 Stock Analysis</h3>
             <p>Understand trends, volatility, and market movement.</p>
             </div>
             """,
@@ -320,7 +320,7 @@ def show_home_page():
         text-align:center;
         '>
 
-        <h2>🎯 Built for Beginners</h2>
+        <h2>✨ Built for Beginners</h2>
         <p>
         Simple, clear and practical investing dashboard for learning finance easily.
         </p>

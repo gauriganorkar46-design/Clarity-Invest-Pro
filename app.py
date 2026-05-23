@@ -81,7 +81,7 @@ def navigate(page):
 col1, col2, col3 = st.columns([1, 4, 1])
 
 with col1:
-    if st.button("☰"):
+    if st.button("☰", key="top_menu_toggle"):
         st.session_state.menu = not st.session_state.menu
 
 with col2:
@@ -128,23 +128,23 @@ if st.session_state.menu:
     colA, colB = st.columns(2)
 
     with colA:
-        if st.button("📈 Analysis"):
+        if st.button("📈 Analysis",key="menu_analysis"):
             navigate("analysis")
 
-        if st.button("💰 SIP"):
+        if st.button("💰 SIP", key="menu_sip"):
             navigate("sip")
 
-        if st.button("📘 Portfolio"):
+        if st.button("📘 Portfolio", key="menu_portfolio"):
             navigate("portfolio")
 
     with colB:
-        if st.button("⚖️ Compare"):
+        if st.button("⚖️ Compare", key="menu_compare"):
             navigate("compare")
 
-        if st.button("💎 Premium"):
+        if st.button("💎 Premium", key="menu_premium"):
             navigate("premium")
 
-        if st.button("📩 Contact"):
+        if st.button("📩 Contact", key="menu_contact"):
             navigate("contact")
 
     if st.button("❌ Close Menu"):
