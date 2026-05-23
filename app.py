@@ -86,7 +86,14 @@ with col1:
 
 with col2:
     st.markdown(
-        "<h2 style='text-align:center;'>⚡ Clarity Invest</h2>",
+        f"""
+        <div style='text-align:center; padding-top:5px;'>
+            <h2 style='margin:0;'>⚡ Clarity Invest</h2>
+            <p style='color:#94A3B8; margin:0; font-size:12px;'>
+                {st.session_state.page.upper()} MODE
+            </p>
+        </div>
+        """,
         unsafe_allow_html=True
     )
 

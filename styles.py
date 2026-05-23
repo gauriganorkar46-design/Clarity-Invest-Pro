@@ -31,6 +31,25 @@ html, body, [class*="css"] {
 }
 
 /* ======================================================
+GLOBAL APP BACKGROUND
+====================================================== */
+
+.stApp {
+    background: linear-gradient(135deg,#020617,#071127,#0F172A);
+    color: white;
+}
+
+/* ======================================================
+GLOBAL TEXT FIX (MOBILE SAFE)
+====================================================== */
+
+p, li, label, span {
+    color: #D1D5DB !important;
+    font-size: 1rem;
+    line-height: 1.6;
+} 
+
+/* ======================================================
 MAIN APP
 ====================================================== */
 
@@ -223,6 +242,10 @@ BUTTONS
 
     box-shadow:
     0px 10px 25px rgba(124,58,237,0.4);
+}
+
+.stButton > button:active {
+    transform: scale(0.97);
 }
 
 /* ======================================================
@@ -445,6 +468,37 @@ CUSTOM CARD STYLE
     0px 8px 25px rgba(0,0,0,0.25);
 }
 
+.custom-card:hover {
+    transform: translateY(-4px);
+    border: 1px solid rgba(56,189,248,0.5);
+    box-shadow: 0px 12px 30px rgba(56,189,248,0.12);
+}
+
+/* ======================================================
+EXPLORER CARDS
+====================================================== */
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.explore-card {
+    background: linear-gradient(145deg,#0F172A,#111C33);
+    border: 1px solid #1E293B;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.explore-card:hover {
+    transform: translateY(-6px);
+    border: 1px solid #38BDF8;
+    box-shadow: 0 12px 28px rgba(56,189,248,0.15);
+}
+
 /* ======================================================
 HORIZONTAL LINE
 ====================================================== */
@@ -478,6 +532,10 @@ MOBILE RESPONSIVE
     h2 {
 
         font-size: 2.5rem !important;
+    }
+    
+    p, li, label, span {
+        font-size: 0.95rem !important;
     }
 
     .block-container {
