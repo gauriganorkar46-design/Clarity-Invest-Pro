@@ -26,7 +26,7 @@ margin-bottom:25px;
 
 <h1 style='
 color:white;
-font-size:52px;
+font-size:50px;
 font-weight:800;
 margin-bottom:10px;
 '>
@@ -44,7 +44,7 @@ Designed for students and beginner investors
 <p style='
 color:#C4B5FD;
 font-size:28px;
-line-height:1.8;
+line-height:1.5;
 '>
 Understand investing in a simplified and beginner-friendly way with personalized clarity support.
 </p>

@@ -34,7 +34,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:35px;
+        font-size:30px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -43,7 +43,7 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:30px;
+        font-size:25px;
         line-height:1.8;
         color:#CBD5E1;
         max-width:900px;
