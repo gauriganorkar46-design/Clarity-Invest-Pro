@@ -1,284 +1,182 @@
-# =========================================================
-# IMPORTS
-# =========================================================
-
 import streamlit as st
 import yfinance as yf
+import feedparser
+import urllib.parse
+from datetime import datetime
 
 # =========================================================
-# NEWS FUNCTION
+# PAGE CONFIG (optional but recommended)
 # =========================================================
+st.set_page_config(
+    page_title="Clarity Invest News",
+    page_icon="📰",
+    layout="wide"
+)
 
+# =========================================================
+# CACHE: COMPANY NAME
+# =========================================================
+@st.cache_data(ttl=3600)
+def get_company_name(ticker_symbol):
+    try:
+        ticker = yf.Ticker(ticker_symbol)
+        info = ticker.info
+        return info.get("longName") or ticker_symbol
+    except:
+        return ticker_symbol
+
+
+# =========================================================
+# SMART NEWS FETCHER (Google News RSS)
+# =========================================================
+@st.cache_data(ttl=600)
+def fetch_news(query):
+    encoded_query = urllib.parse.quote(query)
+
+    url = (
+        f"https://news.google.com/rss/search?q={encoded_query}"
+        f"&hl=en-IN&gl=IN&ceid=IN:en"
+    )
+
+    feed = feedparser.parse(url)
+
+    news_items = []
+
+    for entry in feed.entries[:10]:
+
+        title = entry.get("title", "No Title")
+        link = entry.get("link", "")
+        published = entry.get("published", "Unknown date")
+
+        source = "Google News"
+        if "source" in entry and isinstance(entry.source, dict):
+            source = entry.source.get("title", "Google News")
+
+        news_items.append({
+            "title": title,
+            "link": link,
+            "publisher": source,
+            "published": published
+        })
+
+    return news_items
+
+
+# =========================================================
+# HEADER UI
+# =========================================================
+def render_header(company_name):
+
+    st.markdown(f"""
+    <div style="
+        padding:28px;
+        border-radius:18px;
+        background: linear-gradient(135deg,#0F172A,#1E293B,#312E81);
+        color:white;
+        margin-bottom:20px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    ">
+        <h1 style="margin-bottom:5px;">📰 Latest Market News</h1>
+        <h3 style="margin-bottom:5px;">{company_name}</h3>
+        <p style="opacity:0.8;">Real-time curated financial news for better investing decisions</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+
+# =========================================================
+# NEWS CARD UI
+# =========================================================
+def render_news_card(news):
+
+    st.markdown("""
+    <div style="
+        padding:18px;
+        border-radius:14px;
+        background:#0B1220;
+        border:1px solid rgba(255,255,255,0.08);
+        margin-bottom:12px;
+    ">
+    """, unsafe_allow_html=True)
+
+    st.markdown(f"### {news['title']}")
+
+    col1, col2 = st.columns([3, 1])
+
+    with col1:
+        st.caption(f"🗞️ {news['publisher']}")
+
+    with col2:
+        st.caption(f"📅 {news['published']}")
+
+    if news["link"]:
+        st.link_button("🔗 Open Full Article", news["link"])
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+
+# =========================================================
+# MAIN NEWS SECTION
+# =========================================================
 def show_news_section(ticker_symbol):
 
+    company_name = get_company_name(ticker_symbol)
+
+    render_header(company_name)
+
     # =====================================================
-    # SECTION HEADER
+    # SMART QUERY STRATEGY
     # =====================================================
+    queries = [
+        company_name,
+        f"{company_name} stock",
+        f"{company_name} earnings",
+        f"{company_name} financial results",
+    ]
 
-    st.markdown(
-        """
-<div style='
-padding:30px;
-border-radius:24px;
-background: linear-gradient(135deg,#0F172A,#1E293B,#312E81);
-border:1px solid rgba(255,255,255,0.08);
-margin-bottom:25px;
-'>
+    all_news = []
 
-<h1 style='
-color:white;
-font-size:42px;
-font-weight:800;
-margin-bottom:10px;
-'>
-📰 Latest Market News
-</h1>
+    for q in queries:
+        all_news.extend(fetch_news(q))
 
-<h3 style='
-color:#D1D5DB;
-font-weight:400;
-margin-bottom:15px;
-'>
-Stay updated with recent company-related developments
-</h3>
+    # Remove duplicates (by title)
+    seen = set()
+    unique_news = []
 
-<p style='
-color:#CBD5E1;
-font-size:17px;
-line-height:1.8;
-'>
-Understand market developments, company activity, and news events in a beginner-friendly way.
-</p>
+    for n in all_news:
+        if n["title"] not in seen:
+            unique_news.append(n)
+            seen.add(n["title"])
 
-</div>
-""",
-        unsafe_allow_html=True
-    )
+    # =====================================================
+    # EMPTY STATE
+    # =====================================================
+    if not unique_news:
+        st.warning("No news found for this company right now.")
+        return
 
-    st.info(
-        """
-News can influence:
-        
-✅ stock movement  
-✅ investor sentiment  
-✅ sector trends  
-✅ market volatility  
-✅ company perception  
-"""
-    )
+    # =====================================================
+    # NEWS UI SECTION
+    # =====================================================
+    st.subheader("📌 Top Market Updates")
 
+    for news in unique_news[:12]:
+        render_news_card(news)
+
+    # =====================================================
+    # EDUCATIONAL LAYER (IMPORTANT FOR BEGINNERS)
+    # =====================================================
     st.markdown("---")
 
-    # =====================================================
-    # FETCH NEWS
-    # =====================================================
+    with st.expander("📘 How to read this news (Beginner Guide)"):
 
-    try:
+        st.markdown("""
+        - Don’t react to a single headline  
+        - Look for repeated themes (earnings, debt, growth)  
+        - Compare news with stock price movement  
+        - Check if news is short-term noise or long-term impact  
+        - Always verify with financial statements  
 
-        ticker = yf.Ticker(ticker_symbol)
+        👉 Good investors read *patterns*, not headlines.
+        """)
 
-        news_data = ticker.news
-
-        # =================================================
-        # NO NEWS
-        # =================================================
-
-        if not news_data or len(news_data) == 0:
-
-            st.warning(
-                "No recent news available for this company."
-            )
-
-            return
-
-        # =================================================
-        # NEWS LOOP
-        # =================================================
-
-        for news in news_data[:5]:
-
-            title = news.get(
-                "title",
-                "No Title"
-            )
-
-            publisher = news.get(
-                "publisher",
-                "Unknown Source"
-            )
-
-            link = news.get(
-                "link",
-                ""
-            )
-
-            thumbnail = news.get(
-                "thumbnail"
-            )
-
-            # =============================================
-            # NEWS CARD
-            # =============================================
-
-            st.markdown(
-                """
-<div style='
-padding:22px;
-border-radius:20px;
-background: rgba(17,24,39,0.95);
-border:1px solid rgba(255,255,255,0.06);
-margin-bottom:25px;
-'>
-""",
-                unsafe_allow_html=True
-            )
-
-            # =============================================
-            # TITLE
-            # =============================================
-
-            st.subheader(title)
-
-            # =============================================
-            # SOURCE
-            # =============================================
-
-            st.caption(f"📰 Source: {publisher}")
-
-            # =============================================
-            # IMAGE
-            # =============================================
-
-            if thumbnail:
-
-                try:
-
-                    image_url = thumbnail[
-                        'resolutions'
-                    ][0]['url']
-
-                    st.image(
-                        image_url,
-                        use_container_width=True
-                    )
-
-                except Exception:
-
-                    pass
-
-            # =============================================
-            # LINK BUTTON
-            # =============================================
-
-            if link:
-
-                st.link_button(
-                    "🔗 Read Full News",
-                    link,
-                    use_container_width=True
-                )
-
-            st.markdown("</div>", unsafe_allow_html=True)
-
-        # =================================================
-        # BEGINNER LEARNING SECTION
-        # =================================================
-
-        st.markdown("---")
-
-        st.subheader("📚 Beginner Market Understanding")
-
-        st.write(
-            """
-News may impact companies differently depending on:
-            
-- company performance
-- investor expectations
-- economic conditions
-- market sentiment
-- sector activity
-
-Beginner investors should focus on understanding the broader context instead of reacting emotionally to short-term headlines.
-"""
-        )
-
-        # =================================================
-        # IMPORTANT REMINDER
-        # =================================================
-
-        st.markdown("---")
-
-        st.warning(
-            """
-⚠️ Important Reminder:
-            
-News alone should not determine investment decisions.
-            
-Long-term investing understanding, risk management, and research are important for informed decision-making.
-"""
-        )
-
-    # =====================================================
-    # ERROR HANDLING
-    # =====================================================
-
-    except Exception:
-
-        st.error(
-            "Unable to fetch latest market news currently."
-        )
-
-    # =====================================================
-    # PREMIUM CTA
-    # =====================================================
-
-    st.markdown("---")
-
-    st.subheader("🎯 Want Beginner-Friendly Market Guidance?")
-
-    st.markdown(
-        """
-<div style='
-padding:25px;
-border-radius:20px;
-background: linear-gradient(135deg,#312E81,#581C87);
-border:1px solid rgba(255,255,255,0.06);
-'>
-
-<h3 style='color:white;'>
-Get Personalized Beginner Clarity
-</h3>
-
-<p style='color:#E5E7EB;font-size:28px;'>
-
-Understand:
-        
-✅ market behavior  
-✅ beginner investing  
-✅ risk understanding  
-✅ stock analysis basics  
-✅ long-term investing clarity  
-
-</p>
-
-</div>
-""",
-        unsafe_allow_html=True
-    )
-
-    st.info(
-        "You can explore personalized beginner guidance from the Premium section."
-    )
-
-    # =====================================================
-    # FOOTER
-    # =====================================================
-
-    st.markdown("---")
-
-    st.caption(
-        """
-Educational purpose only.
-No guaranteed returns or financial advice.
-"""
-    )
+    st.info("📊 This news is for educational purposes only. Not financial advice.")
