@@ -44,7 +44,7 @@ Understand portfolio allocation in a beginner-friendly way
 
 <p style='
 color:#CBD5E1;
-font-size:18px;
+font-size:28px;
 line-height:1.8;
 '>
 Learn how different risk profiles may approach portfolio allocation and long-term investing thinking.
@@ -125,7 +125,7 @@ border:1px solid rgba(255,255,255,0.06);
 📊 Suggested Allocation
 </h2>
 
-<p style='color:#D1D5DB;font-size:17px;'>
+<p style='color:#D1D5DB;font-size:28px;'>
 
 • 60% Large Cap Stocks  
 • 30% Index Funds  
@@ -206,7 +206,7 @@ border:1px solid rgba(255,255,255,0.06);
 📊 Suggested Allocation
 </h2>
 
-<p style='color:#D1D5DB;font-size:17px;'>
+<p style='color:#D1D5DB;font-size:28px;'>
 
 • 50% Large Cap Stocks  
 • 30% Mid Cap Stocks  
@@ -284,10 +284,10 @@ border:1px solid rgba(255,255,255,0.06);
 '>
 
 <h2 style='color:white;'>
-📊 Suggested Allocation
+💸 Suggested Allocation
 </h2>
 
-<p style='color:#D1D5DB;font-size:17px;'>
+<p style='color:#D1D5DB;font-size:25px;'>
 
 • 50% Growth Stocks  
 • 30% Mid/Small Cap  
@@ -384,7 +384,7 @@ It does NOT provide:
 
     st.markdown("---")
 
-    st.subheader("🎯 Want Personalized Portfolio Guidance?")
+    st.subheader("👑 Want Personalized Portfolio Guidance?")
 
     st.markdown(
         """
@@ -399,7 +399,7 @@ border:1px solid rgba(255,255,255,0.06);
 Get Beginner-Focused Personalized Clarity
 </h3>
 
-<p style='color:#E5E7EB;font-size:17px;'>
+<p style='color:#E5E7EB;font-size:28px;'>
 
 Understand investing and portfolio thinking in a simplified beginner-friendly way based on:
         

@@ -44,7 +44,7 @@ Understand long-term investing growth in a beginner-friendly way
 
 <p style='
 color:#CBD5E1;
-font-size:18px;
+font-size:28px;
 line-height:1.8;
 '>
 Estimate how regular monthly investing may grow over time using the power of compounding.
@@ -78,7 +78,7 @@ This calculator helps beginners understand:
     # INPUT SECTION
     # =====================================================
 
-    st.subheader("⚙️ SIP Details")
+    st.subheader("🌈 SIP Details")
 
     col1, col2, col3 = st.columns(3)
 
@@ -152,7 +152,7 @@ This calculator helps beginners understand:
     # METRICS
     # =====================================================
 
-    st.subheader("📊 Investment Projection")
+    st.subheader("🟢 Investment Projection")
 
     metric_col1, metric_col2, metric_col3 = st.columns(3)
 
@@ -258,7 +258,7 @@ border:1px solid rgba(255,255,255,0.06);
 Why SIP Is Popular
 </h3>
 
-<p style='color:#D1D5DB;font-size:17px;line-height:1.8;'>
+<p style='color:#D1D5DB;font-size:22px;line-height:1.8;'>
 
 ✅ Encourages investing discipline  
 
@@ -337,7 +337,7 @@ border:1px solid rgba(255,255,255,0.06);
 Get Beginner-Focused Investing Clarity
 </h3>
 
-<p style='color:#E5E7EB;font-size:17px;'>
+<p style='color:#E5E7EB;font-size:28px;'>
 
 Understand:
         

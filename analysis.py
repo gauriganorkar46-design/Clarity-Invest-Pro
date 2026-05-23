@@ -620,7 +620,7 @@ margin-bottom:25px;
 
 <h1 style='
 color:white;
-font-size:52px;
+font-size:72px;
 font-weight:800;
 margin-bottom:10px;
 '>
@@ -637,7 +637,7 @@ Beginner-friendly stock understanding platform
 
 <p style='
 color:#CBD5E1;
-font-size:18px;
+font-size:25px;
 line-height:1.8;
 '>
 Analyze company trends, risk, volatility, charts, and market behavior in a simplified way.
@@ -768,7 +768,7 @@ This dashboard helps beginners understand:
 
                 "💡 Insights",
 
-                "📊 Historical Data",
+                "🔎 Historical Data",
 
                 "📰 Latest News"
 
@@ -788,7 +788,7 @@ This dashboard helps beginners understand:
 
             with tab2:
 
-                st.subheader("📌 Company Information")
+                st.subheader("🏢 Company Information")
 
                 st.write(f"**Company:** {result['Company']}")
                 st.write(f"**Ticker:** {result['Ticker']}")
@@ -817,7 +817,7 @@ This dashboard helps beginners understand:
 
             with tab3:
 
-                st.subheader("📊 Historical Stock Data")
+                st.subheader("🔎 Historical Stock Data")
 
                 st.dataframe(
 
@@ -863,7 +863,7 @@ This dashboard helps beginners understand:
 
             ):
 
-                sentiment = "📌 HOLD"
+                sentiment = "📍 HOLD"
 
             else:
 

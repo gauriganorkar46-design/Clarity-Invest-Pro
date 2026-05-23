@@ -25,16 +25,16 @@ margin-bottom:30px;
 '>
 
 <h1 style='
-font-size:64px;
+font-size:80px;
 font-weight:800;
 color:white;
 margin-bottom:10px;
 '>
-Clarity Invest Pro
+⚡Clarity Invest Pro
 </h1>
 
 <h2 style='
-font-size:35px;
+font-size:50px;
 font-weight:500;
 color:#D1D5DB;
 margin-bottom:25px;
@@ -43,7 +43,7 @@ Simplifying Investing For Beginners
 </h2>
 
 <p style='
-font-size:20px;
+font-size:28px;
 line-height:1.9;
 color:#CBD5E1;
 max-width:900px;
@@ -111,7 +111,7 @@ Understand investing, stock trends, risk, and market behavior through a clean be
 <div class='custom-card'>
 
 <h2>
-💡 Why Clarity Invest?
+🤔 Why Clarity Invest?
 </h2>
 
 <p>
@@ -149,7 +149,7 @@ Clarity Invest focuses on simplifying investing through:
     # FEATURES
     # =====================================================
 
-    st.header("📊 Dashboard Features")
+    st.header("🌟 Dashboard Features")
 
     feature_col1, feature_col2, feature_col3 = st.columns(3)
 

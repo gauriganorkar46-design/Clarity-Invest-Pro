@@ -30,7 +30,7 @@ margin-bottom:25px;
 
 <h1 style='
 color:white;
-font-size:52px;
+font-size:60px;
 font-weight:800;
 margin-bottom:10px;
 '>
@@ -205,7 +205,7 @@ This comparison tool helps beginners understand:
 
         if len(comparison_results) > 0:
 
-            st.subheader("📊 Comparison Summary")
+            st.subheader("📑 Comparison Summary")
 
             comparison_df = pd.DataFrame([
 
@@ -235,7 +235,7 @@ This comparison tool helps beginners understand:
             # NORMALIZED PERFORMANCE CHART
             # =============================================
 
-            st.subheader("📈 Performance Comparison")
+            st.subheader("📊 Performance Comparison")
 
             comparison_fig = go.Figure()
 
@@ -314,7 +314,7 @@ Normalized charts help compare companies fairly even if stock prices are very di
 
             st.markdown("---")
 
-            st.subheader("📚 Important Beginner Reminder")
+            st.subheader("🧠 Important Beginner Reminder")
 
             st.warning(
                 """
@@ -342,7 +342,7 @@ Comparison should be used for understanding and learning purposes.
 
     st.markdown("---")
 
-    st.subheader("🎯 Want Personalized Investing Guidance?")
+    st.subheader("👑 Want Personalized Investing Guidance?")
 
     st.markdown(
         """
@@ -357,7 +357,7 @@ border:1px solid rgba(255,255,255,0.06);
 Get Beginner-Focused Investing Clarity
 </h3>
 
-<p style='color:#E5E7EB;font-size:17px;'>
+<p style='color:#E5E7EB;font-size:25px;'>
 
 Understand:
         

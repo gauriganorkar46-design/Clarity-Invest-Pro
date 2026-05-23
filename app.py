@@ -38,7 +38,7 @@ st.set_page_config(
 
     page_title="Clarity Invest Pro",
 
-    page_icon="📈",
+    page_icon="🔮",
 
     layout="wide",
 
@@ -72,19 +72,19 @@ with st.sidebar:
 
     st.markdown(
         """
-<div style='text-align:center;padding-top:10px;'>
+<div style='text-align:center;padding-top:20px;'>
 
 <h1 style='
-font-size:32px;
+font-size:42px;
 font-weight:800;
 margin-bottom:0px;
 '>
-Clarity Invest
+⚡Clarity Invest
 </h1>
 
 <p style='
 color:#9CA3AF;
-font-size:14px;
+font-size:18px;
 margin-top:5px;
 '>
 Simplifying Investing
@@ -179,7 +179,7 @@ Simplifying Investing
 
     if st.button(
 
-        "🎯 Premium Guidance",
+        "💎 Premium Guidance",
 
         use_container_width=True
 
@@ -292,11 +292,11 @@ st.markdown(
 text-align:center;
 padding:20px;
 color:#94A3B8;
-font-size:14px;
+font-size:25px;
 '>
 
 <p>
-📊 Clarity Invest Pro Dashboard
+⚡Clarity Invest Pro Dashboard
 </p>
 
 <p>

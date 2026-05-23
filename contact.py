@@ -43,7 +43,7 @@ Beginner-focused investing guidance platform
 
 <p style='
 color:#CBD5E1;
-font-size:18px;
+font-size:22px;
 line-height:1.8;
 '>
 Connect for beginner-friendly investing understanding, financial clarity, and educational guidance.
@@ -163,7 +163,7 @@ border:1px solid rgba(255,255,255,0.06);
 
 <p style='
 color:#E5E7EB;
-font-size:18px;
+font-size:25px;
 line-height:1.9;
 '>
 

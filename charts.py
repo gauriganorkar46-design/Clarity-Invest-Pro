@@ -52,7 +52,7 @@ margin-bottom:15px;
 
 <p style='
 color:#CBD5E1;
-font-size:17px;
+font-size:22px;
 line-height:1.8;
 '>
 Analyze stock movement, trends, momentum, and trading activity using interactive visualization.
@@ -341,7 +341,7 @@ border:1px solid rgba(255,255,255,0.06);
 Get Beginner-Focused Investing Clarity
 </h3>
 
-<p style='color:#E5E7EB;font-size:17px;'>
+<p style='color:#E5E7EB;font-size:25px;'>
 
 Understand:
         

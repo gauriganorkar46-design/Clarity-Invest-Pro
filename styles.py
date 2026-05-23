@@ -98,7 +98,7 @@ h1 {
 
     color: white !important;
 
-    font-size: 3.2rem !important;
+    font-size: 3.5rem !important;
 
     font-weight: 800 !important;
 
@@ -109,7 +109,7 @@ h2 {
 
     color: white !important;
 
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
 
     font-weight: 700 !important;
 }
@@ -118,7 +118,7 @@ h3 {
 
     color: white !important;
 
-    font-size: 1.4rem !important;
+    font-size: 1.6rem !important;
 
     font-weight: 600 !important;
 }
@@ -134,7 +134,7 @@ span {
 
     color: #D1D5DB !important;
 
-    font-size: 1rem;
+    font-size: 1.5rem;
 
     line-height: 1.7;
 }
@@ -257,7 +257,7 @@ div[data-testid="metric-container"] label {
 
     color: #94A3B8 !important;
 
-    font-size: 0.95rem !important;
+    font-size: 1.2rem !important;
 }
 
 /* ======================================================
@@ -268,7 +268,7 @@ div[data-testid="metric-container"] [data-testid="stMetricValue"] {
 
     color: #4ADE80 !important;
 
-    font-size: 2rem !important;
+    font-size: 2.3rem !important;
 
     font-weight: 700 !important;
 }
@@ -472,12 +472,12 @@ MOBILE RESPONSIVE
 
     h1 {
 
-        font-size: 2.3rem !important;
+        font-size: 2.5rem !important;
     }
 
     h2 {
 
-        font-size: 1.7rem !important;
+        font-size: 2.5rem !important;
     }
 
     .block-container {

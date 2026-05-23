@@ -249,7 +249,7 @@ border:1px solid rgba(255,255,255,0.06);
 Get Personalized Beginner Clarity
 </h3>
 
-<p style='color:#E5E7EB;font-size:17px;'>
+<p style='color:#E5E7EB;font-size:28px;'>
 
 Understand:
         

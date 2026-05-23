@@ -30,7 +30,7 @@ font-size:52px;
 font-weight:800;
 margin-bottom:10px;
 '>
-🎯 Personalized Beginner Guidance
+🪄 Personalized Beginner Guidance
 </h1>
 
 <h3 style='
@@ -43,7 +43,7 @@ Designed for students and beginner investors
 
 <p style='
 color:#C4B5FD;
-font-size:18px;
+font-size:28px;
 line-height:1.8;
 '>
 Understand investing in a simplified and beginner-friendly way with personalized clarity support.
@@ -86,7 +86,7 @@ This premium section focuses on:
     # SERVICES SECTION
     # =====================================================
 
-    st.subheader("🚀 Premium Services")
+    st.subheader("💎 Premium Services")
 
     # =====================================================
     # ROW 1
@@ -232,7 +232,7 @@ height:300px;
 '>
 
 <h2 style='color:white;'>
-📊 Portfolio Guidance
+💹 Portfolio Guidance
 </h2>
 
 <h1 style='color:#60A5FA;'>
@@ -307,7 +307,7 @@ This personalized guidance is designed to help beginners gain practical investin
 """
         )
 
-        st.subheader("📌 What You Will Receive")
+        st.subheader("👑 What You Will Receive")
 
         st.write(
             """
@@ -405,7 +405,7 @@ background: rgba(17,24,39,0.95);
 border:1px solid rgba(255,255,255,0.06);
 '>
 
-<p style='font-size:17px;'>
+<p style='font-size:25px;'>
 
 📸 Instagram:  
 https://www.instagram.com/clarity_invest_insights
