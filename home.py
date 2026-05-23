@@ -56,49 +56,120 @@ Understand investing, stock trends, risk, and market behavior through a clean be
         unsafe_allow_html=True
     )
 
+    ## =====================================================
+    # ENGAGEMENT SECTION (EXPLORE HOOKS)
     # =====================================================
-    # QUICK ACTIONS
+
+    st.markdown("## 🚀 Your Financial Clarity Starts Here")
+    st.markdown("##### Explore tools designed to simplify investing decisions")
+
+    st.markdown("---")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    # =====================================================
+    # COLUMN 1
     # =====================================================
 
-    st.subheader("🚀 Explore Dashboard")
+    with col1:
+        st.markdown(
+            """
+            <div style="
+            background-color:#0F172A;
+            padding:20px;
+            border-radius:16px;
+            height:160px;
+            text-align:center;
+            ">
 
-    quick_col1, quick_col2, quick_col3, quick_col4 = st.columns(4)
+            <h3 style="color:#60A5FA;">📈 “What’s Moving?”</h3>
 
-    with quick_col1:
+            <p style="color:#CBD5E1; font-size:14px;">
+            Find active market trends instantly
+            </p>
 
-        if st.button(
-            "📈 Stock Analysis",
-            use_container_width=True
-        ):
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-            st.session_state.page = "analysis"
+    # =====================================================
+    # COLUMN 2
+    # =====================================================
 
-    with quick_col2:
+    with col2:
+        st.markdown(
+            """
+            <div style="
+            background-color:#0F172A;
+            padding:20px;
+            border-radius:16px;
+            height:160px;
+            text-align:center;
+            ">
 
-        if st.button(
-            "⚖️ Compare Stocks",
-            use_container_width=True
-        ):
+            <h3 style="color:#34D399;">⚖️ “Who Wins?”</h3>
 
-            st.session_state.page = "compare"
+            <p style="color:#CBD5E1; font-size:14px;">
+            Compare companies like a pro
+            </p>
 
-    with quick_col3:
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-        if st.button(
-            "💰 SIP Calculator",
-            use_container_width=True
-        ):
+    # =====================================================
+    # COLUMN 3
+    # =====================================================
 
-            st.session_state.page = "sip"
+    with col3:
+        st.markdown(
+            """
+            <div style="
+            background-color:#0F172A;
+            padding:20px;
+            border-radius:16px;
+            height:160px;
+            text-align:center;
+            ">
 
-    with quick_col4:
+            <h3 style="color:#FBBF24;">💰 “What If You Invested?”</h3>
 
-        if st.button(
-            "📘 Portfolio Tool",
-            use_container_width=True
-        ):
+            <p style="color:#CBD5E1; font-size:14px;">
+            Visualize your future wealth
+            </p>
 
-            st.session_state.page = "portfolio"
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+    # =====================================================
+    # COLUMN 4
+    # =====================================================
+
+    with col4:
+        st.markdown(
+            """
+            <div style="
+            background-color:#0F172A;
+            padding:20px;
+            border-radius:16px;
+            height:160px;
+            text-align:center;
+            ">
+
+            <h3 style="color:#A78BFA;">📘 “Are You Safe?”</h3>
+
+            <p style="color:#CBD5E1; font-size:14px;">
+            Check your portfolio risk in seconds
+            </p>
+
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     st.markdown("---")
 
