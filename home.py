@@ -56,123 +56,99 @@ Understand investing, stock trends, risk, and market behavior through a clean be
         unsafe_allow_html=True
     )
 
-    ## =====================================================
-    # ENGAGEMENT SECTION (EXPLORE HOOKS)
+    # =====================================================
+    # MODERN EXPLORE SECTION (FINTECH STYLE)
     # =====================================================
 
     st.markdown("## 🚀 Your Financial Clarity Starts Here")
-    st.markdown("##### Explore tools designed to simplify investing decisions")
+    st.markdown("##### Explore powerful tools designed to simplify investing decisions")
 
     st.markdown("---")
 
-    col1, col2, col3, col4 = st.columns(4)
+    st.markdown(
+    """
+    <style>
 
-    # =====================================================
-    # COLUMN 1
-    # =====================================================
+    .explore-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+        margin-top: 10px;
+    }
 
-    with col1:
-        st.markdown(
-            """
-            <div style="
-            background-color:#0F172A;
-            padding:20px;
-            border-radius:16px;
-            height:160px;
-            text-align:center;
-            ">
+    .explore-card {
+        background: linear-gradient(145deg, #0F172A, #111C33);
+        border: 1px solid #1E293B;
+        padding: 22px;
+        border-radius: 18px;
+        text-align: center;
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+    }
 
-            <h3 style="color:#60A5FA;">📈 “What’s Moving?”</h3>
+    .explore-card:hover {
+        transform: translateY(-6px);
+        border: 1px solid #38BDF8;
+        box-shadow: 0 12px 28px rgba(56, 189, 248, 0.15);
+    }
 
-            <p style="color:#CBD5E1; font-size:14px;">
-            Find active market trends instantly
-            </p>
+    .explore-title {
+        font-size: 17px;
+        font-weight: 600;
+        color: #E2E8F0;
+        margin-top: 10px;
+    }
 
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    .explore-text {
+        font-size: 13px;
+        color: #94A3B8;
+        margin-top: 6px;
+        line-height: 1.4;
+    }
 
-    # =====================================================
-    # COLUMN 2
-    # =====================================================
+    .explore-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 12px;
+        background: #1E293B;
+        color: #38BDF8;
+        display: inline-block;
+    }
 
-    with col2:
-        st.markdown(
-            """
-            <div style="
-            background-color:#0F172A;
-            padding:20px;
-            border-radius:16px;
-            height:160px;
-            text-align:center;
-            ">
+    </style>
 
-            <h3 style="color:#34D399;">⚖️ “Who Wins?”</h3>
+    <div class="explore-grid">
 
-            <p style="color:#CBD5E1; font-size:14px;">
-            Compare companies like a pro
-            </p>
+        <div class="explore-card">
+            <div class="explore-badge">Market Insight</div>
+            <div class="explore-title">🌀 What’s Moving?</div>
+            <div class="explore-text">Track real-time stock momentum and market trends instantly</div>
+        </div>
 
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        <div class="explore-card">
+            <div class="explore-badge">Smart Compare</div>
+            <div class="explore-title">⚖️ Who Wins?</div>
+            <div class="explore-text">Compare companies side-by-side like a professional analyst</div>
+        </div>
 
-    # =====================================================
-    # COLUMN 3
-    # =====================================================
+        <div class="explore-card">
+            <div class="explore-badge">Future Value</div>
+            <div class="explore-title">💰 What If You Invested?</div>
+            <div class="explore-text">Visualize long-term wealth growth from your investments</div>
+        </div>
 
-    with col3:
-        st.markdown(
-            """
-            <div style="
-            background-color:#0F172A;
-            padding:20px;
-            border-radius:16px;
-            height:160px;
-            text-align:center;
-            ">
+        <div class="explore-card">
+            <div class="explore-badge">Risk Check</div>
+            <div class="explore-title">📘 Are You Safe?</div>
+            <div class="explore-text">Analyze portfolio balance and risk exposure instantly</div>
+        </div>
 
-            <h3 style="color:#FBBF24;">💰 “What If You Invested?”</h3>
-
-            <p style="color:#CBD5E1; font-size:14px;">
-            Visualize your future wealth
-            </p>
-
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
-    # =====================================================
-    # COLUMN 4
-    # =====================================================
-
-    with col4:
-        st.markdown(
-            """
-            <div style="
-            background-color:#0F172A;
-            padding:20px;
-            border-radius:16px;
-            height:160px;
-            text-align:center;
-            ">
-
-            <h3 style="color:#A78BFA;">📘 “Are You Safe?”</h3>
-
-            <p style="color:#CBD5E1; font-size:14px;">
-            Check your portfolio risk in seconds
-            </p>
-
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
 
     st.markdown("---")
-
     # =====================================================
     # WHY CLARITY INVEST
     # =====================================================
