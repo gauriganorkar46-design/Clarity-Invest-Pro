@@ -53,108 +53,108 @@ Understand investing, stock trends, risk, and market behavior through a clean be
 
 </div>
 """,
-        unsafe_allow_html=True
+unsafe_allow_html=True
     )
 
-    # =====================================================
-    # MODERN EXPLORE SECTION (FINTECH STYLE)
-    # =====================================================
+# =====================================================
+# MODERN EXPLORE SECTION (FINTECH STYLE)
+# =====================================================
 
-    st.markdown("## 🚀 Your Financial Clarity Starts Here")
-    st.markdown("##### Explore powerful tools designed to simplify investing decisions")
+st.markdown("## 🚀 Your Financial Clarity Starts Here")
+st.markdown("##### Explore powerful tools designed to simplify investing decisions")
 
-    st.markdown("---")
+st.markdown("---")
 
-    st.markdown(
+st.markdown(
+"""
+<style>
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.explore-card {
+    background: linear-gradient(145deg, #0F172A, #111C33);
+    border: 1px solid #1E293B;
+    padding: 22px;
+    border-radius: 18px;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+.explore-card:hover {
+    transform: translateY(-6px);
+    border: 1px solid #38BDF8;
+    box-shadow: 0 12px 28px rgba(56, 189, 248, 0.15);
+}
+
+.explore-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: #E2E8F0;
+    margin-top: 10px;
+}
+
+.explore-text {
+    font-size: 13px;
+    color: #94A3B8;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.explore-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: #1E293B;
+    color: #38BDF8;
+    display: inline-block;
+}
+
+</style>
+
+<div class="explore-grid">
+
+<div class="explore-card">
+    <div class="explore-badge">Market Insight</div>
+    <div class="explore-title">🌀 What’s Moving?</div>
+    <div class="explore-text">Track real-time stock momentum and market trends instantly</div>
+</div>
+
+<div class="explore-card">
+    <div class="explore-badge">Smart Compare</div>
+    <div class="explore-title">⚖️ Who Wins?</div>
+    <div class="explore-text">Compare companies side-by-side like a professional analyst</div>
+</div>
+
+<div class="explore-card">
+    <div class="explore-badge">Future Value</div>
+    <div class="explore-title">💰 What If You Invested?</div>
+    <div class="explore-text">Visualize long-term wealth growth from your investments</div>
+</div>
+
+<div class="explore-card">
+    <div class="explore-badge">Risk Check</div>
+    <div class="explore-title">📘 Are You Safe?</div>
+    <div class="explore-text">Analyze portfolio balance and risk exposure instantly</div>
+</div>
+
+</div>
+""",
+unsafe_allow_html=True
+)
+
+st.markdown("---")
+# =====================================================
+# WHY CLARITY INVEST
+# =====================================================
+
+st.markdown(
     """
-    <style>
-
-    .explore-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 18px;
-        margin-top: 10px;
-    }
-
-    .explore-card {
-        background: linear-gradient(145deg, #0F172A, #111C33);
-        border: 1px solid #1E293B;
-        padding: 22px;
-        border-radius: 18px;
-        text-align: center;
-        transition: all 0.25s ease-in-out;
-        cursor: pointer;
-    }
-
-    .explore-card:hover {
-        transform: translateY(-6px);
-        border: 1px solid #38BDF8;
-        box-shadow: 0 12px 28px rgba(56, 189, 248, 0.15);
-    }
-
-    .explore-title {
-        font-size: 17px;
-        font-weight: 600;
-        color: #E2E8F0;
-        margin-top: 10px;
-    }
-
-    .explore-text {
-        font-size: 13px;
-        color: #94A3B8;
-        margin-top: 6px;
-        line-height: 1.4;
-    }
-
-    .explore-badge {
-        font-size: 11px;
-        padding: 4px 10px;
-        border-radius: 12px;
-        background: #1E293B;
-        color: #38BDF8;
-        display: inline-block;
-    }
-
-    </style>
-
-    <div class="explore-grid">
-
-    <div class="explore-card">
-        <div class="explore-badge">Market Insight</div>
-        <div class="explore-title">🌀 What’s Moving?</div>
-        <div class="explore-text">Track real-time stock momentum and market trends instantly</div>
-    </div>
-
-    <div class="explore-card">
-        <div class="explore-badge">Smart Compare</div>
-        <div class="explore-title">⚖️ Who Wins?</div>
-        <div class="explore-text">Compare companies side-by-side like a professional analyst</div>
-    </div>
-
-    <div class="explore-card">
-        <div class="explore-badge">Future Value</div>
-        <div class="explore-title">💰 What If You Invested?</div>
-        <div class="explore-text">Visualize long-term wealth growth from your investments</div>
-    </div>
-
-    <div class="explore-card">
-        <div class="explore-badge">Risk Check</div>
-        <div class="explore-title">📘 Are You Safe?</div>
-        <div class="explore-text">Analyze portfolio balance and risk exposure instantly</div>
-    </div>
-
-    </div>
-    """,
-    unsafe_allow_html=True
-    )
-
-    st.markdown("---")
-    # =====================================================
-    # WHY CLARITY INVEST
-    # =====================================================
-
-    st.markdown(
-        """
 <div class='custom-card'>
 
 <h2>
