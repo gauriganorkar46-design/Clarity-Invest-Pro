@@ -4,6 +4,7 @@
 
 import streamlit as st
 
+
 # =========================================================
 # HOME PAGE
 # =========================================================
@@ -16,7 +17,6 @@ def show_home_page():
 
     st.markdown(
         """
-       
         <div style='
         padding:40px;
         border-radius:30px;
@@ -24,6 +24,17 @@ def show_home_page():
         border:1px solid rgba(255,255,255,0.08);
         margin-bottom:30px;
         '>
+
+        <!-- TRUST LINE -->
+        <div style='
+        font-size:14px;
+        letter-spacing:1px;
+        color:#A5B4FC;
+        margin-bottom:10px;
+        font-weight:500;
+        '>
+        ⚡ Beginner-friendly investing made simple, transparent, and confidence-driven
+        </div>
 
         <h1 style='
         font-size:60px;
@@ -58,7 +69,7 @@ def show_home_page():
     )
 
     # =====================================================
-    # EXPLORE SECTION (FINTECH STYLE CARDS)
+    # EXPLORE SECTION
     # =====================================================
 
     st.markdown("## 🚀 Your Financial Clarity Starts Here")
@@ -169,75 +180,57 @@ def show_home_page():
 
     with col1:
 
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h3>💹 Stock Analysis</h3>
-            <p>Understand trends, volatility, and market movement.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h3>💹 Stock Analysis</h3>
+        <p>Understand trends, volatility, and market movement.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h3>📊 Charts</h3>
-            <p>Interactive visual analysis of stocks.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h3>📊 Charts</h3>
+        <p>Interactive visual analysis of stocks.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col2:
 
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h3>⚖️ Compare Stocks</h3>
-            <p>Compare companies based on performance and risk.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h3>⚖️ Compare Stocks</h3>
+        <p>Compare companies based on performance and risk.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h3>📰 Market News</h3>
-            <p>Latest updates and financial news.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h3>📰 Market News</h3>
+        <p>Latest updates and financial news.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with col3:
 
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h3>🤖 Insights</h3>
-            <p>AI-like sentiment and trend analysis.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h3>🤖 Insights</h3>
+        <p>AI-like sentiment and trend analysis.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h3>💰 Tools</h3>
-            <p>SIP, portfolio and financial calculators.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h3>💰 Tools</h3>
+        <p>SIP, portfolio and financial calculators.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -250,37 +243,28 @@ def show_home_page():
     c1, c2, c3 = st.columns(3)
 
     with c1:
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h2>1️⃣ Analyze</h2>
-            <p>Check stock behavior and trends.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h2>1️⃣ Analyze</h2>
+        <p>Check stock behavior and trends.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with c2:
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h2>2️⃣ Compare</h2>
-            <p>Compare companies easily.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h2>2️⃣ Compare</h2>
+        <p>Compare companies easily.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     with c3:
-        st.markdown(
-            """
-            <div class='custom-card'>
-            <h2>3️⃣ Learn</h2>
-            <p>Understand investing simply.</p>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+        st.markdown("""
+        <div class='custom-card'>
+        <h2>3️⃣ Learn</h2>
+        <p>Understand investing simply.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -288,8 +272,7 @@ def show_home_page():
     # FINAL CTA
     # =====================================================
 
-    st.markdown(
-        """
+    st.markdown("""
         <div style='
         padding:30px;
         border-radius:20px;
@@ -304,9 +287,7 @@ def show_home_page():
         </p>
 
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
