@@ -83,58 +83,20 @@ def navigate(page):
 # TOP HEADER (APP STYLE)
 # =========================================================
 
-col1, col2, col3 = st.columns([1, 4, 1])
+# =========================================================
+# TOP HEADER
+# =========================================================
+
+col1, col2 = st.columns([1, 6])
 
 with col1:
-    if st.button("☰", key="top_menu_toggle"):
+    if st.button(">> Menu", key="top_menu_toggle"):
         st.session_state.menu = not st.session_state.menu
 
 with col2:
-
-    current_page = st.session_state.page.upper()
-
-    st.markdown(
-        f"""
-        <div style="text-align:center; padding-top:5px;">
-
-            <h2 style="
-            font-size:38px !important;
-            font-weight:800;
-            margin:0;
-            color:white;
-            ">
-            ⚡ Clarity Invest
-            </h2>
-
-            <p style="
-            font-size:16px;
-            color:#64748B;
-            margin-top:2px;
-            margin-bottom:4px;
-            ">
-            Beginner Investing Dashboard
-            </p>
-
-            <p style="
-            color:#94A3B8;
-            margin:0;
-            font-size:11px;
-            letter-spacing:1px;
-            ">
-            {current_page.upper()} MODE
-            </p>
-
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-with col3:
-    if st.button("🏠", key="top_home"):
-        navigate("home")
+    st.title("⚡ Clarity Invest Pro")
 
 st.markdown("---")
-
 
 # =========================================================
 # SLIDE MENU (ONLY WHEN OPEN)
