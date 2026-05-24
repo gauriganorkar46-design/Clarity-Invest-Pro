@@ -126,6 +126,9 @@ if st.session_state.menu:
     colA, colB = st.columns(2)
 
     with colA:
+        if st.button("🏠 Home", key="menu_home"):
+            navigate("home")
+            
         if st.button("📈 Analysis",key="menu_analysis"):
             navigate("analysis")
 
