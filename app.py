@@ -99,7 +99,7 @@ with col2:
             font-weight:800;
             letter-spacing:-0.5px;
             ">
-            ⚡ Clarity Invest
+            "⚡ Clarity Invest"
             </h2>
 
             <p style="
@@ -108,7 +108,7 @@ with col2:
             margin-top:2px;
             margin-bottom:4px;
             ">
-            Beginner Investing Dashboard
+            "Beginner Investing Dashboard"
             </p>
 
             <p style="
