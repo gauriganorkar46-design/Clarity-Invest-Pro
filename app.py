@@ -89,47 +89,45 @@ with col2:
 
     current_page = st.session_state.page.upper()
 
-    st.markdown(
-        f"""
-        <div style="text-align:center; padding-top:5px;">
+    st.html(f"""
+    <div style="text-align:center; padding-top:5px;">
 
-            <h2 style="
-            margin:0;
-            font-size:38px;
-            font-weight:800;
-            letter-spacing:-0.5px;
-            ">
-            "⚡ Clarity Invest"
-            </h2>
+        <h2 style="
+        margin:0;
+        font-size:38px;
+        font-weight:800;
+        letter-spacing:-0.5px;
+        color:white;
+        ">
+        ⚡ Clarity Invest
+        </h2>
 
-            <p style="
-            font-size:18px;
-            color:#64748B;
-            margin-top:2px;
-            margin-bottom:4px;
-            ">
-            "Beginner Investing Dashboard"
-            </p>
+        <p style="
+        font-size:18px;
+        color:#64748B;
+        margin-top:2px;
+        margin-bottom:4px;
+        ">
+        Beginner Investing Dashboard
+        </p>
 
-            <p style="
-            color:#94A3B8;
-            margin:0;
-            font-size:12px;
-            letter-spacing:1px;
-            ">
-            {current_page} MODE
-            </p>
+        <p style="
+        color:#94A3B8;
+        margin:0;
+        font-size:12px;
+        letter-spacing:1px;
+        ">
+        {current_page} MODE
+        </p>
 
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
+    </div>
+    """)
+    
 with col3:
     if st.button("🏠",key="top_home"):
         navigate("home")
 
-    st.markdown("---")
+st.markdown("---")
 
 
 # =========================================================
