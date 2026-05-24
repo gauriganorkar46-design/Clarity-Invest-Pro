@@ -125,7 +125,7 @@ with col2:
         """,
         unsafe_allow_html=True
     )
-        
+
 with col3:
     if st.button("🏠",key="top_home"):
         navigate("home")
