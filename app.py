@@ -1,72 +1,46 @@
 # =========================================================
-# CLARITY INVEST PRO
-# MAIN APPLICATION FILE
-# app.py
-# =========================================================
-
-# =========================================================
-# IMPORTS
+# CLARITY INVEST PRO - MAIN APP
 # =========================================================
 
 import streamlit as st
 
-# =========================================================
-# IMPORT SEGMENTS
-# =========================================================
-
 from styles import load_css
-
 from home import show_home_page
-
 from analysis import show_analysis_page
-
 from comparison import show_comparison_page
-
 from sip import show_sip_page
-
 from portfolio import show_portfolio_page
-
 from premium import show_premium_page
-
 from contact import show_contact_page
 
 # =========================================================
-# PAGE CONFIGURATION
+# PAGE CONFIG
 # =========================================================
 
 st.set_page_config(
-
     page_title="Clarity Invest Pro",
-
     page_icon="🔮",
-
-    layout="wide",
-
-    initial_sidebar_state="expanded"
-
+    layout="wide"
 )
 
 # =========================================================
-# LOAD GLOBAL CSS
+# LOAD CSS
 # =========================================================
 
 load_css()
 
 # =========================================================
-# SESSION STATE
+# SESSION STATE INIT
 # =========================================================
 
 if "page" not in st.session_state:
-
     st.session_state.page = "home"
 
 if "menu" not in st.session_state:
     st.session_state.menu = False
 
-
-
 # =========================================================
-# NAVIGATION FUNCTION
+# NAVIGATION FUNCTION (FIXED)
 # =========================================================
 
 def navigate(page):
@@ -75,15 +49,13 @@ def navigate(page):
     st.rerun()
 
 # =========================================================
-# TOP HEADER
+# HEADER
 # =========================================================
 
-col1, col2 = st.columns([1, 7], vertical_alignment="center")
+col1, col2 = st.columns([1, 7])
 
 with col1:
-    st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
-
-    if st.button("››", key="top_menu_toggle"):
+    if st.button("››", key="menu_toggle"):
         st.session_state.menu = not st.session_state.menu
         st.rerun()
 
@@ -93,52 +65,89 @@ with col2:
 st.markdown("---")
 
 # =========================================================
-# SIDEBAR NAVIGATION (NEW CLEAN SYSTEM)
+# SLIDE MENU (FIXED)
 # =========================================================
 
-page = st.sidebar.radio(
-    "📌 Navigation",
-    ["🏠 Home", "📊 Analysis", "⚖️ Compare", "💰 SIP", "📘 Portfolio", "💎 Premium", "📩 Contact"]
-)
+if st.session_state.menu:
+
+    st.markdown("""
+    <div style="
+        background:#0F172A;
+        padding:15px;
+        border-radius:12px;
+        margin-bottom:10px;
+    ">
+        <h3 style="color:white;">Quick Menu</h3>
+        <p style="color:#94A3B8;">Navigate faster</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    colA, colB = st.columns(2)
+
+    with colA:
+        if st.button("📈 Analysis", key="menu_analysis"):
+            navigate("analysis")
+
+        if st.button("💰 SIP", key="menu_sip"):
+            navigate("sip")
+
+        if st.button("📘 Portfolio", key="menu_portfolio"):
+            navigate("portfolio")
+
+    with colB:
+        if st.button("⚖️ Compare", key="menu_compare"):
+            navigate("compare")
+
+        if st.button("💎 Premium", key="menu_premium"):
+            navigate("premium")
+
+        if st.button("📩 Contact", key="menu_contact"):
+            navigate("contact")
+
+        if st.button("🏠 Home", key="menu_home"):
+            navigate("home")
+
+    if st.button("❌ Close Menu"):
+        st.session_state.menu = False
+        st.rerun()
+
+    st.markdown("---")
 
 # =========================================================
-# PAGE ROUTING
+# PAGE ROUTING (FIXED)
 # =========================================================
 
-if page == "🏠 Home":
-    st.session_state.page = "home"
+if st.session_state.page == "home":
+    show_home_page()
 
-elif page == "📊 Analysis":
-    st.session_state.page = "analysis"
+elif st.session_state.page == "analysis":
+    show_analysis_page()
 
-elif page == "⚖️ Compare":
-    st.session_state.page = "compare"
+elif st.session_state.page == "compare":
+    show_comparison_page()
 
-elif page == "💰 SIP":
-    st.session_state.page = "sip"
+elif st.session_state.page == "sip":
+    show_sip_page()
 
-elif page == "📘 Portfolio":
-    st.session_state.page = "portfolio"
+elif st.session_state.page == "portfolio":
+    show_portfolio_page()
 
-elif page == "💎 Premium":
-    st.session_state.page = "premium"
+elif st.session_state.page == "premium":
+    show_premium_page()
 
-elif page == "📩 Contact":
-    st.session_state.page = "contact"
-    
+elif st.session_state.page == "contact":
+    show_contact_page()
+
 # =========================================================
 # FOOTER
 # =========================================================
 
 st.markdown("---")
 
-st.markdown(
-"""
-<div style='text-align:center; padding:15px; color:#94A3B8; font-size:12px;'>
+st.markdown("""
+<div style='text-align:center; color:#94A3B8; font-size:12px;'>
 <b>⚡ Clarity Invest Pro</b><br>
 Smart investing made simple<br>
-<span style="font-size:11px;">Educational Purpose Only</span>
+Educational Purpose Only
 </div>
-""",
-unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
