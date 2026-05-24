@@ -82,7 +82,7 @@ def navigate(page):
 col1, col2, col3 = st.columns([1, 4, 1])
 
 with col1:
-    if st.button("☰", key="top_menu_toggle"):
+    if st.button(">>", key="top_menu_toggle"):
         st.session_state.menu = not st.session_state.menu
 
 with col2:
@@ -114,7 +114,7 @@ with col2:
             font-size:12px;
             letter-spacing:1px;
             '>
-                {st.session_state.page.upper()} MODE
+            {st.session_state.page.upper()} MODE
             </p>
 
         </div>
