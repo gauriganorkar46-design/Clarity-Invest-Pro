@@ -126,9 +126,6 @@ if st.session_state.menu:
     colA, colB = st.columns(2)
 
     with colA:
-        if st.button("🏠 Home", key="menu_home"):
-            navigate("home")
-            
         if st.button("📈 Analysis",key="menu_analysis"):
             navigate("analysis")
 
@@ -147,6 +144,9 @@ if st.session_state.menu:
 
         if st.button("📩 Contact", key="menu_contact"):
             navigate("contact")
+
+        if st.button("🏠 Home", key="menu_home"):
+            navigate("home")
 
     if st.button("❌ Close Menu", use_container_width=False):
         st.session_state.menu = False
