@@ -81,20 +81,20 @@ HEADINGS
 
 h1 {
     color: white !important;
-    font-size: 3.2rem !important;
+    font-size: 3.5rem !important;
     font-weight: 700 !important;
     letter-spacing: -1px;
 }
 
 h2 {
     color: white !important;
-    font-size: 2.2rem !important;
+    font-size: 2.5rem !important;
     font-weight: 700 !important;
 }
 
 h3 {
     color: white !important;
-    font-size: 1.6rem !important;
+    font-size: 2rem !important;
     font-weight: 600 !important;
 }
 

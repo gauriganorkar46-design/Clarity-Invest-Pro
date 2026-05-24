@@ -76,22 +76,31 @@ if st.session_state.menu:
 
     st.markdown("""
     <div style="
-        background:#0F172A;
-        padding:18px;
-        border-radius:14px;
-        margin-bottom:12px;
-        border:1px solid rgba(255,255,255,0.08);
-    ">
+    padding: 2px 0;
+">
 
-        <h3 style="color:white; margin-bottom:4px;">
-        ☰ Quick Menu
-        </h3>
+<h3 style="
+    color: white;
+    margin-bottom: 6px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+">
+☰ Quick Menu
+</h3>
 
-        <p style="color:#94A3B8; margin:0;">
-        Try more tools →
-        </p>
+<p style="
+    color: #94A3B8;
+    margin: 0;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+">
+Try more tools <span style="color:#38BDF8;">→</span>
+</p>
 
-    </div>
+</div>
     """, unsafe_allow_html=True)
 
     colA, colB = st.columns(2)

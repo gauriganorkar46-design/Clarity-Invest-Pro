@@ -27,7 +27,7 @@ def show_home_page():
 
         <!-- TRUST LINE -->
         <div style='
-        font-size:14px;
+        font-size:18px;
         letter-spacing:1px;
         color:#A5B4FC;
         margin-bottom:10px;
@@ -46,7 +46,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:25px;
+        font-size:30px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -55,7 +55,7 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:20px;
+        font-size:25px;
         line-height:1.8;
         color:#CBD5E1;
         max-width:800px;
@@ -82,21 +82,21 @@ def show_home_page():
         <style>
 
         .explore-title {
-            font-size: 17px;
+            font-size: 19px;
             font-weight: 600;
             color: #E2E8F0;
             margin-top: 10px;
         }
 
         .explore-text {
-            font-size: 13px;
+            font-size: 17px;
             color: #94A3B8;
             margin-top: 6px;
             line-height: 1.4;
         }
 
         .explore-badge {
-            font-size: 11px;
+            font-size: 15px;
             padding: 4px 10px;
             border-radius: 12px;
             background: #1E293B;
