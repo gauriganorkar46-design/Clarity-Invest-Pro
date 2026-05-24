@@ -79,46 +79,44 @@ def navigate(page):
 # TOP HEADER (APP STYLE)
 # =========================================================
 
+# =========================================================
+# TOP HEADER (APP STYLE)
+# =========================================================
+
 col1, col2, col3 = st.columns([1, 4, 1])
 
 with col1:
-    if st.button(">>", key="top_menu_toggle"):
+    if st.button("☰", key="top_menu_toggle"):
         st.session_state.menu = not st.session_state.menu
 
 with col2:
 
-    current_page = st.session_state.page.upper()
-
     st.markdown(
         f"""
-        <div style="text-align:center; padding-top:5px;">
+        <div style="text-align:center;">
 
             <h2 style="
-            margin:0;
-            font-size:38px;
-            font-weight:800;
-            letter-spacing:-0.5px;
             color:white;
+            margin-bottom:0px;
             ">
             ⚡ Clarity Invest
             </h2>
 
             <p style="
-            font-size:18px;
             color:#64748B;
-            margin-top:2px;
-            margin-bottom:4px;
+            font-size:16px;
+            margin-top:0px;
+            margin-bottom:2px;
             ">
             Beginner Investing Dashboard
             </p>
 
             <p style="
             color:#94A3B8;
-            margin:0;
-            font-size:12px;
+            font-size:11px;
             letter-spacing:1px;
             ">
-            {current_page} MODE
+            {st.session_state.page.upper()} MODE
             </p>
 
         </div>
@@ -127,7 +125,7 @@ with col2:
     )
 
 with col3:
-    if st.button("🏠",key="top_home"):
+    if st.button("🏠", key="top_home"):
         navigate("home")
 
 st.markdown("---")
