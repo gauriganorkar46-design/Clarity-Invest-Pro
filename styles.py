@@ -227,7 +227,7 @@ BUTTONS
 
     border-radius: 14px !important;
 
-    padding: 0.55rem 1.rem !important;
+    padding: 0.45rem 0.8rem !important;
 
     font-weight: 600 !important;
 
