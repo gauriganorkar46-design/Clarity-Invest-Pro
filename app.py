@@ -20,7 +20,8 @@ from contact import show_contact_page
 st.set_page_config(
     page_title="Clarity Invest Pro",
     page_icon="🔮",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 # =========================================================
@@ -40,7 +41,7 @@ if "menu" not in st.session_state:
     st.session_state.menu = False
 
 # =========================================================
-# NAVIGATION FUNCTION (FIXED)
+# NAVIGATION FUNCTION
 # =========================================================
 
 def navigate(page):
@@ -55,7 +56,10 @@ def navigate(page):
 col1, col2 = st.columns([1, 7])
 
 with col1:
-    if st.button("››", key="menu_toggle"):
+
+    menu_icon = "✕ CLOSE" if st.session_state.menu else "☰ OPEN"
+
+    if st.button(menu_icon, key="menu_toggle"):
         st.session_state.menu = not st.session_state.menu
         st.rerun()
 
@@ -65,7 +69,7 @@ with col2:
 st.markdown("---")
 
 # =========================================================
-# SLIDE MENU (FIXED)
+# SLIDE MENU
 # =========================================================
 
 if st.session_state.menu:
@@ -73,12 +77,20 @@ if st.session_state.menu:
     st.markdown("""
     <div style="
         background:#0F172A;
-        padding:15px;
-        border-radius:12px;
-        margin-bottom:10px;
+        padding:18px;
+        border-radius:14px;
+        margin-bottom:12px;
+        border:1px solid rgba(255,255,255,0.08);
     ">
-        <h3 style="color:white;">Quick Menu</h3>
-        <p style="color:#94A3B8;">Navigate faster</p>
+
+        <h3 style="color:white; margin-bottom:4px;">
+        ☰ Quick Menu
+        </h3>
+
+        <p style="color:#94A3B8; margin:0;">
+        Try more tools →
+        </p>
+
     </div>
     """, unsafe_allow_html=True)
 
@@ -107,6 +119,8 @@ if st.session_state.menu:
         if st.button("🏠 Home", key="menu_home"):
             navigate("home")
 
+    st.markdown("---")
+
     if st.button("❌ Close Menu"):
         st.session_state.menu = False
         st.rerun()
@@ -114,7 +128,7 @@ if st.session_state.menu:
     st.markdown("---")
 
 # =========================================================
-# PAGE ROUTING (FIXED)
+# PAGE ROUTING
 # =========================================================
 
 if st.session_state.page == "home":
@@ -145,7 +159,7 @@ elif st.session_state.page == "contact":
 st.markdown("---")
 
 st.markdown("""
-<div style='text-align:center; color:#94A3B8; font-size:12px;'>
+<div style='text-align:center; color:#94A3B8; font-size:12px; line-height:1.6;'>
 <b>⚡ Clarity Invest Pro</b><br>
 Smart investing made simple<br>
 Educational Purpose Only
