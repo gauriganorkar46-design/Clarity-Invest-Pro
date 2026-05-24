@@ -239,10 +239,6 @@ BUTTONS
 
     min-height: 42px !important;
 
-    height: 48px !important;
-
-    margin-top: 8px !important;
-
     overflow: visible !important;
 
     transition: all 0.2s ease !important;

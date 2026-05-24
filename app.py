@@ -78,9 +78,11 @@ def navigate(page):
 # TOP HEADER
 # =========================================================
 
-col1, col2 = st.columns([1.2, 6])
+col1, col2 = st.columns([1, 7], vertical_alignment="center")
 
 with col1:
+    st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
+
     if st.button("››", key="top_menu_toggle"):
         st.session_state.menu = not st.session_state.menu
 
