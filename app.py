@@ -129,7 +129,7 @@ with col3:
     if st.button("🏠",key="top_home"):
         navigate("home")
 
-st.markdown("---")
+    st.markdown("---")
 
 
 # =========================================================
