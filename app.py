@@ -81,7 +81,7 @@ def navigate(page):
 col1, col2 = st.columns([1.2, 6])
 
 with col1:
-    if st.button(">>", key="top_menu_toggle", use_container_width=True):
+    if st.button("››", key="top_menu_toggle"):
         st.session_state.menu = not st.session_state.menu
 
 with col2:
