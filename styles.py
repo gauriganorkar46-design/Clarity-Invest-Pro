@@ -234,6 +234,25 @@ BUTTONS
     transition: all 0.3s ease !important;
 
     width: 100%;
+
+    font-size: 18px !important;
+
+    min-height: 42px !important;
+
+    height: 48px !important;
+
+    margin-top: 8px !important;
+
+    overflow: visible !important;
+
+    transition: all 0.2s ease !important;
+
+    display:flex !important;
+
+    align-items:center !important;
+
+    justify-content:center !important;
+
 }
 
 .stButton > button:hover {
