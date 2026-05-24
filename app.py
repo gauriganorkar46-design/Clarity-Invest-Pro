@@ -91,32 +91,37 @@ with col1:
 
 with col2:
 
+    current_page = st.session_state.page.upper()
+
     st.markdown(
         f"""
-        <div style="text-align:center;">
+        <div style="text-align:center; padding-top:5px;">
 
             <h2 style="
+            font-size:38px !important;
+            font-weight:800;
+            margin:0;
             color:white;
-            margin-bottom:0px;
             ">
             ⚡ Clarity Invest
             </h2>
 
             <p style="
-            color:#64748B;
             font-size:16px;
-            margin-top:0px;
-            margin-bottom:2px;
+            color:#64748B;
+            margin-top:2px;
+            margin-bottom:4px;
             ">
             Beginner Investing Dashboard
             </p>
 
             <p style="
             color:#94A3B8;
+            margin:0;
             font-size:11px;
             letter-spacing:1px;
             ">
-            {st.session_state.page.upper()} MODE
+            {current_page.upper()} MODE
             </p>
 
         </div>

@@ -128,7 +128,7 @@ h2 {
 
     color: white !important;
 
-    font-size: 2.5rem !important;
+    font-size: 38px !important;
 
     font-weight: 700 !important;
 }
