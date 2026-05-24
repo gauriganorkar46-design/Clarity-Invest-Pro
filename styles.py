@@ -45,7 +45,7 @@ GLOBAL TEXT FIX (MOBILE SAFE)
 
 p, li, label, span {
     color: #D1D5DB !important;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1.6;
 } 
 
@@ -72,9 +72,9 @@ REMOVE DEFAULT SPACING
 
 .block-container {
 
-    padding-top: 2rem;
+    padding-top: 1.2rem;
 
-    padding-bottom: 2rem;
+    padding-bottom: 1.2rem;
 
     padding-left: 2rem;
 
@@ -117,9 +117,9 @@ h1 {
 
     color: white !important;
 
-    font-size: 3.7rem !important;
+    font-size: 3.5rem !important;
 
-    font-weight: 800 !important;
+    font-weight: 700 !important;
 
     letter-spacing: -1px;
 }
@@ -128,7 +128,7 @@ h2 {
 
     color: white !important;
 
-    font-size: 2.7rem !important;
+    font-size: 2.5rem !important;
 
     font-weight: 700 !important;
 }
@@ -137,7 +137,7 @@ h3 {
 
     color: white !important;
 
-    font-size: 2.2rem !important;
+    font-size: 2rem !important;
 
     font-weight: 600 !important;
 }
@@ -227,7 +227,7 @@ BUTTONS
 
     border-radius: 14px !important;
 
-    padding: 0.8rem 1.3rem !important;
+    padding: 0.55rem 1.rem !important;
 
     font-weight: 600 !important;
 
@@ -246,6 +246,30 @@ BUTTONS
 
 .stButton > button:active {
     transform: scale(0.97);
+
+.stDownloadButton button {
+
+    background: rgba(15,23,42,0.95) !important;
+
+    border: 1px solid rgba(255,255,255,0.08) !important;
+
+    color: white !important;
+
+    border-radius: 14px !important;
+
+    padding: 0.55rem 1rem !important;
+
+    transition: all 0.25s ease !important;
+}
+
+.stDownloadButton button:hover {
+
+    border: 1px solid rgba(56,189,248,0.4) !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(56,189,248,0.12);
+}
 }
 
 /* ======================================================
@@ -455,25 +479,33 @@ CUSTOM CARD STYLE
     border-radius: 24px;
 
     background:
-    linear-gradient(
-        135deg,
-        rgba(15,23,42,0.95),
-        rgba(30,41,59,0.95)
-    );
+        rgba(15,23,42,0.92),
+    ;
 
     border:
     1px solid rgba(255,255,255,0.05);
 
     box-shadow:
     0px 8px 25px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
 }
 
 .custom-card:hover {
     transform: translateY(-4px);
     border: 1px solid rgba(56,189,248,0.5);
-    box-shadow: 0px 12px 30px rgba(56,189,248,0.12);
+    box-shadow: 0 8px 18px rgba(56,189,248,0.08);
 }
 
+.premium-card {
+    transition: all 0.25s ease;
+}
+
+.premium-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(168,85,247,0.5);
+    box-shadow: 0 8px 18px rgba(56,189,248,0.08);
+}
 /* ======================================================
 EXPLORER CARDS
 ====================================================== */
@@ -485,7 +517,7 @@ EXPLORER CARDS
 }
 
 .explore-card {
-    background: linear-gradient(145deg,#0F172A,#111C33);
+    background: rgba(15,23,42,0.92);
     border: 1px solid #1E293B;
     padding: 20px;
     border-radius: 18px;
@@ -497,6 +529,12 @@ EXPLORER CARDS
     transform: translateY(-6px);
     border: 1px solid #38BDF8;
     box-shadow: 0 12px 28px rgba(56,189,248,0.15);
+}
+.custom-card,
+.explore-card,
+.premium-card {
+
+    backdrop-filter: blur(10px);
 }
 
 /* ======================================================
@@ -526,12 +564,12 @@ MOBILE RESPONSIVE
 
     h1 {
 
-        font-size: 2.5rem !important;
+        font-size: 2rem !important;
     }
 
     h2 {
 
-        font-size: 2.5rem !important;
+        font-size: 2rem !important;
     }
     
     p, li, label, span {
@@ -544,6 +582,21 @@ MOBILE RESPONSIVE
 
         padding-right: 1rem;
     }
+
+    .custom-card {
+
+    padding: 18px !important;
+    }
+
+    .explore-card {
+
+        padding: 16px !important;
+    }
+
+    .stButton > button {
+
+        font-size: 14px !important;
+}
 }
 
 </style>

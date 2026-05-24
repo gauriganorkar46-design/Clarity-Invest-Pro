@@ -16,8 +16,9 @@ def show_home_page():
 
     st.markdown(
         """
+       
         <div style='
-        padding:50px;
+        padding:40px;
         border-radius:30px;
         background: linear-gradient(135deg,#0F172A,#1E293B,#312E81);
         border:1px solid rgba(255,255,255,0.08);
@@ -25,7 +26,7 @@ def show_home_page():
         '>
 
         <h1 style='
-        font-size:70px;
+        font-size:60px;
         font-weight:800;
         color:white;
         margin-bottom:10px;
@@ -34,7 +35,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:30px;
+        font-size:25px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -43,10 +44,10 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:25px;
+        font-size:20px;
         line-height:1.8;
         color:#CBD5E1;
-        max-width:900px;
+        max-width:800px;
         '>
         Understand investing, stock trends, risk, and market behavior through a clean beginner-friendly dashboard designed to make finance easier and more practical.
         </p>
@@ -68,29 +69,6 @@ def show_home_page():
     st.markdown(
         """
         <style>
-
-        .explore-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            margin-top: 10px;
-        }
-
-        .explore-card {
-            background: linear-gradient(145deg, #0F172A, #111C33);
-            border: 1px solid #1E293B;
-            padding: 22px;
-            border-radius: 18px;
-            text-align: center;
-            transition: all 0.25s ease-in-out;
-            cursor: pointer;
-        }
-
-        .explore-card:hover {
-            transform: translateY(-6px);
-            border: 1px solid #38BDF8;
-            box-shadow: 0 12px 28px rgba(56, 189, 248, 0.15);
-        }
 
         .explore-title {
             font-size: 17px;

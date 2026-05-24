@@ -105,9 +105,12 @@ This premium section focuses on:
 <div style='
 padding:30px;
 border-radius:22px;
-background: rgba(17,24,39,0.95);
+background: rgba(15,23,42,0.92);
 border:1px solid rgba(255,255,255,0.06);
-height:320px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:320px;
 '>
 
 <h2 style='color:white;'>
@@ -118,7 +121,11 @@ height:320px;
 ₹49
 </h1>
 
-<p style='color:#D1D5DB;'>
+<p style='color:#D1D5DB;
+font-size:16px;
+line-height:1.8;
+margin-top:15px;
+'>
 
 ✔ Investing basics  
 ✔ Risk understanding  
@@ -152,7 +159,6 @@ height:320px;
 
                     mime="application/pdf",
 
-                    use_container_width=True
                 )
 
         except:
@@ -169,11 +175,14 @@ height:320px;
 
         st.markdown(
             """
-<div style='
+<div class='premium-card' style='
 padding:30px;
 border-radius:22px;
-background: linear-gradient(135deg,#312E81,#581C87);
+background: rgba(15,23,42,0.92);
 border:1px solid rgba(255,255,255,0.06);
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 height:320px;
 '>
 
@@ -185,7 +194,10 @@ height:320px;
 ₹99
 </h1>
 
-<p style='color:#E5E7EB;'>
+<p style='color:#E5E7EB;
+font-size:16px;
+line-height:1.8;
+margin-top:15px;'>
 
 ✔ Personalized beginner guidance  
 ✔ Based on your goals  
@@ -223,12 +235,15 @@ height:320px;
 
         st.markdown(
             """
-<div style='
+<div class='premium-card' style='
 padding:30px;
 border-radius:22px;
-background: rgba(17,24,39,0.95);
+background: rgba(15,23,42,0.92);
 border:1px solid rgba(255,255,255,0.06);
-height:300px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:320px;
 '>
 
 <h2 style='color:white;'>
@@ -239,7 +254,10 @@ height:300px;
 ₹199
 </h1>
 
-<p style='color:#D1D5DB;'>
+<p style='color:#D1D5DB;
+font-size:16px;
+line-height:1.8;
+margin-top:15px;'>
 
 ✔ Beginner portfolio understanding  
 ✔ Allocation clarity  
@@ -261,12 +279,15 @@ height:300px;
 
         st.markdown(
             """
-<div style='
+<div class='premium-card' style='
 padding:30px;
 border-radius:22px;
-background: rgba(17,24,39,0.95);
+background: rgba(15,23,42,0.92);
 border:1px solid rgba(255,255,255,0.06);
-height:300px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:320px;
 '>
 
 <h2 style='color:white;'>
@@ -277,7 +298,11 @@ height:300px;
 ₹299+
 </h1>
 
-<p style='color:#D1D5DB;'>
+<p style='color:#D1D5DB;
+font-size:16px;
+line-height:1.8;
+margin-top:15px;
+'>
 
 ✔ Direct beginner support  
 ✔ Investing clarity discussions  
@@ -407,13 +432,18 @@ border:1px solid rgba(255,255,255,0.06);
 
 <p style='font-size:25px;'>
 
-📸 Instagram:  
-https://www.instagram.com/clarity_invest_insights
+📸 Instagram:<br>
+<a href='https://www.instagram.com/clarity_invest_insights' target='_blank'>
+@clarity_invest_insights
+</a>
 
 <br><br>
 
-💼 LinkedIn:  
-https://www.linkedin.com
+💼 LinkedIn<br>
+
+<a href='https://www.linkedin.com' target='_blank'>
+LinkedIn Profile
+</a>
 
 <br><br>
 

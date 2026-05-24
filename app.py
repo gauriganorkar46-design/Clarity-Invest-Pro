@@ -72,6 +72,7 @@ if "menu" not in st.session_state:
 def navigate(page):
     st.session_state.page = page
     st.session_state.menu = False
+    st.rerun()
 
 
 # =========================================================
@@ -88,10 +89,34 @@ with col2:
     st.markdown(
         f"""
         <div style='text-align:center; padding-top:5px;'>
-            <h2 style='margin:0;'>⚡ Clarity Invest</h2>
-            <p style='color:#94A3B8; margin:0; font-size:12px;'>
+
+            <h2 style='
+            margin:0;
+            font-size:38px;
+            font-weight:800;
+            letter-spacing:-0.5px;
+            '>
+            ⚡ Clarity Invest
+            </h2>
+
+            <p style='
+            font-size:18px;
+            color:#64748B;
+            margin-top:2px;
+            margin-bottom:4px;
+            '>
+            Beginner Investing Dashboard
+            </p>
+
+            <p style='
+            color:#94A3B8;
+            margin:0;
+            font-size:12px;
+            letter-spacing:1px;
+            '>
                 {st.session_state.page.upper()} MODE
             </p>
+
         </div>
         """,
         unsafe_allow_html=True
@@ -109,6 +134,17 @@ st.markdown("---")
 # =========================================================
 
 if st.session_state.menu:
+
+    st.markdown(
+    """
+    <style>
+    div.stButton > button {
+        margin-bottom: 10px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
 
     st.markdown(
         """
@@ -147,7 +183,7 @@ if st.session_state.menu:
         if st.button("📩 Contact", key="menu_contact"):
             navigate("contact")
 
-    if st.button("❌ Close Menu"):
+    if st.button("❌ Close Menu", use_container_width=False):
         st.session_state.menu = False
 
     st.markdown("---")
@@ -177,36 +213,6 @@ elif st.session_state.page == "premium":
 
 elif st.session_state.page == "contact":
     show_contact_page()
-
-
-# =========================================================
-# BOTTOM NAVIGATION (MOBILE APP STYLE)
-# =========================================================
-
-st.markdown("---")
-
-col1, col2, col3, col4, col5 = st.columns(5)
-
-with col1:
-    if st.button("🏠"):
-        navigate("home")
-
-with col2:
-    if st.button("📈"):
-        navigate("analysis")
-
-with col3:
-    if st.button("⚖️"):
-        navigate("compare")
-
-with col4:
-    if st.button("💰"):
-        navigate("sip")
-
-with col5:
-    if st.button("📘"):
-        navigate("portfolio")
-
 
 # =========================================================
 # FOOTER
