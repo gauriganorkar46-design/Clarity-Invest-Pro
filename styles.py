@@ -43,7 +43,7 @@ TEXT (UNIFIED SYSTEM)
 
 p, li, label, span {
     color: #D1D5DB !important;
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 1.6;
 }
 
@@ -81,20 +81,20 @@ HEADINGS
 
 h1 {
     color: white !important;
-    font-size: 3.5rem !important;
+    font-size: 4rem !important;
     font-weight: 700 !important;
     letter-spacing: -1px;
 }
 
 h2 {
     color: white !important;
-    font-size: 2.5rem !important;
+    font-size: 3rem !important;
     font-weight: 700 !important;
 }
 
 h3 {
     color: white !important;
-    font-size: 2rem !important;
+    font-size: 2.25rem !important;
     font-weight: 600 !important;
 }
 
@@ -150,7 +150,7 @@ BUTTONS
     border-radius: 14px !important;
     padding: 0.55rem 1rem !important;
     font-weight: 600 !important;
-    font-size: 16px !important;
+    font-size: 20px !important;
     width: 100%;
     min-height: 42px !important;
 
@@ -205,12 +205,13 @@ div[data-testid="metric-container"] {
 
 div[data-testid="metric-container"] label {
     color: #94A3B8 !important;
-    font-size: 1rem !important;
+    font-size: 1.25rem
+      !important;
 }
 
 div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     color: #4ADE80 !important;
-    font-size: 2.2rem !important;
+    font-size: 2.5rem !important;
     font-weight: 700 !important;
 }
 
@@ -394,11 +395,11 @@ RESPONSIVE
 
 @media screen and (max-width: 768px) {
 
-    h1 { font-size: 2.5rem !important; }
-    h2 { font-size: 1.8rem !important; }
+    h1 { font-size: 2.85rem !important; }
+    h2 { font-size: 2.25rem !important; }
 
     p, li, label, span {
-        font-size: 1rem !important;
+        font-size: 1.25rem !important;
     }
 
     .block-container {
@@ -410,8 +411,25 @@ RESPONSIVE
     .explore-card { padding: 16px !important; }
 
     .stButton > button {
-        font-size: 14px !important;
+        font-size: 20px !important;
     }
+}
+
+/* ======================================================
+MENU BUTTON FIX
+====================================================== */
+
+div[data-testid="column"]:first-child .stButton button {
+
+    min-width: 95px !important;
+
+    height: 52px !important;
+
+    font-size: 20px !important;
+
+    font-weight: 700 !important;
+
+    border-radius: 14px !important;
 }
 
 </style>

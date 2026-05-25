@@ -82,7 +82,7 @@ if st.session_state.menu:
 <h3 style="
     color: white;
     margin-bottom: 6px;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: 600;
     letter-spacing: 0.3px;
 ">
@@ -92,7 +92,7 @@ if st.session_state.menu:
 <p style="
     color: #94A3B8;
     margin: 0;
-    font-size: 17px;
+    font-size: 35px;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -103,7 +103,7 @@ Try more tools <span style="color:#38BDF8;">→</span>
 </div>
     """, unsafe_allow_html=True)
 
-    colA, colB = st.columns(2)
+    colA, colB = st.columns([1,1], gap="small")
 
     with colA:
         if st.button("📈 Analysis", key="menu_analysis"):
@@ -168,7 +168,7 @@ elif st.session_state.page == "contact":
 st.markdown("---")
 
 st.markdown("""
-<div style='text-align:center; color:#94A3B8; font-size:12px; line-height:1.6;'>
+<div style='text-align:center; color:#94A3B8; font-size:35px; line-height:1.6;'>
 <b>⚡ Clarity Invest Pro</b><br>
 Smart investing made simple<br>
 Educational Purpose Only
