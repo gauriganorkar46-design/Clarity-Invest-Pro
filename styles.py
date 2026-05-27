@@ -43,7 +43,7 @@ TEXT (UNIFIED SYSTEM)
 
 p, li, label, span {
     color: #D1D5DB !important;
-    font-size: 1.25rem;
+    font-size: 2.25rem;
     line-height: 1.6;
 }
 
@@ -88,13 +88,13 @@ h1 {
 
 h2 {
     color: white !important;
-    font-size: 3rem !important;
+    font-size: 3.5rem !important;
     font-weight: 700 !important;
 }
 
 h3 {
     color: white !important;
-    font-size: 2.25rem !important;
+    font-size: 2.55rem !important;
     font-weight: 600 !important;
 }
 
@@ -148,10 +148,9 @@ BUTTONS
     color: white !important;
     border: none !important;
     border-radius: 14px !important;
-    padding: 0.55rem 1rem !important;
+    padding: 0.55rem 0.9rem !important;
     font-weight: 600 !important;
-    font-size: 20px !important;
-    width: 100%;
+    font-size:28px !important;
     min-height: 42px !important;
 
     display: flex !important;
@@ -180,7 +179,7 @@ DOWNLOAD BUTTON
     border: 1px solid rgba(255,255,255,0.08) !important;
     color: white !important;
     border-radius: 14px !important;
-    padding: 0.55rem 1rem !important;
+    padding: 0.45rem 1rem !important;
     transition: all 0.25s ease !important;
 }
 
@@ -205,13 +204,13 @@ div[data-testid="metric-container"] {
 
 div[data-testid="metric-container"] label {
     color: #94A3B8 !important;
-    font-size: 1.25rem
+    font-size: 3.25rem
       !important;
 }
 
 div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     color: #4ADE80 !important;
-    font-size: 2.5rem !important;
+    font-size: 4rem !important;
     font-weight: 700 !important;
 }
 
@@ -395,8 +394,8 @@ RESPONSIVE
 
 @media screen and (max-width: 768px) {
 
-    h1 { font-size: 2.85rem !important; }
-    h2 { font-size: 2.25rem !important; }
+    h1 { font-size: 4rem !important; }
+    h2 { font-size: 3rem !important; }
 
     p, li, label, span {
         font-size: 1.25rem !important;
@@ -411,7 +410,7 @@ RESPONSIVE
     .explore-card { padding: 16px !important; }
 
     .stButton > button {
-        font-size: 20px !important;
+        font-size: 42px !important;
     }
 }
 
@@ -425,11 +424,15 @@ div[data-testid="column"]:first-child .stButton button {
 
     height: 52px !important;
 
-    font-size: 20px !important;
+    font-size: 40px !important;
 
     font-weight: 700 !important;
 
     border-radius: 14px !important;
+
+.element-container {
+    
+    margin-bottom: 0.3rem !important;
 }
 
 </style>

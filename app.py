@@ -53,18 +53,36 @@ def navigate(page):
 # HEADER
 # =========================================================
 
-col1, col2 = st.columns([1, 7])
+col1, col2 = st.columns([1.2, 8.8], gap="small")
 
 with col1:
 
-    menu_icon = "✕ CLOSE" if st.session_state.menu else "☰ OPEN"
+    menu_icon = "✕ CLOSE" if st.session_state.menu else "☰ MENU"
 
     if st.button(menu_icon, key="menu_toggle"):
         st.session_state.menu = not st.session_state.menu
         st.rerun()
 
 with col2:
-    st.title("⚡ Clarity Invest Pro")
+
+    st.markdown("""
+    <h1 style="
+    <div style="
+    display:flex;
+    align-items:center;
+    height:100%;
+    ">
+    font-size:52px;
+    font-weight:800;
+    margin-top:0;
+    margin-bottom:0;
+    color:white;
+    letter-spacing:-1px;
+    ">
+    ⚡ Clarity Invest Pro
+    </h1>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -76,13 +94,13 @@ if st.session_state.menu:
 
     st.markdown("""
     <div style="
-    padding: 2px 0;
+    padding:1px 0;
 ">
 
 <h3 style="
     color: white;
-    margin-bottom: 6px;
-    font-size: 40px;
+    margin-bottom:6px;
+    font-size:35px;
     font-weight: 600;
     letter-spacing: 0.3px;
 ">
@@ -92,10 +110,10 @@ if st.session_state.menu:
 <p style="
     color: #94A3B8;
     margin: 0;
-    font-size: 35px;
+    font-size:35px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap:6px;
 ">
 Try more tools <span style="color:#38BDF8;">→</span>
 </p>
@@ -168,7 +186,7 @@ elif st.session_state.page == "contact":
 st.markdown("---")
 
 st.markdown("""
-<div style='text-align:center; color:#94A3B8; font-size:35px; line-height:1.6;'>
+<div style='text-align:center; color:#94A3B8; font-size:26px; line-height:1.6;'>
 <b>⚡ Clarity Invest Pro</b><br>
 Smart investing made simple<br>
 Educational Purpose Only

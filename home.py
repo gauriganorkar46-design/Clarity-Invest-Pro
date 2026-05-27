@@ -27,7 +27,7 @@ def show_home_page():
 
         <!-- TRUST LINE -->
         <div style='
-        font-size:40px;
+        font-size:32px;
         letter-spacing:1px;
         color:#A5B4FC;
         margin-bottom:10px;
@@ -37,7 +37,7 @@ def show_home_page():
         </div>
 
         <h1 style='
-        font-size:60px;
+        font-size:70px;
         font-weight:800;
         color:white;
         margin-bottom:10px;
@@ -46,7 +46,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size: 50px;
+        font-size:38px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -55,7 +55,7 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:35px;
+        font-size:28px;
         line-height:1.8;
         color:#CBD5E1;
         max-width:800px;
@@ -72,8 +72,26 @@ def show_home_page():
     # EXPLORE SECTION
     # =====================================================
 
-    st.markdown("## 🚀 Your Financial Clarity Starts Here")
-    st.markdown("##### Explore powerful tools designed to simplify investing decisions")
+    st.markdown("""
+        <h2 style="
+        font-size:50px;
+        font-weight:700;
+        margin-bottom:8px;
+        color:white;
+        ">
+        🚀 Your Financial Clarity Starts Here
+        </h2>
+
+        <p style="
+        font-size:43px;
+        color:#CBD5E1;
+        margin-top:0;
+        margin-bottom:20px;
+        font-weight:500;
+        ">
+        Explore powerful tools designed to simplify investing decisions
+        </p>
+        """, unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -82,14 +100,14 @@ def show_home_page():
         <style>
 
         .explore-title {
-            font-size: 40px;
+            font-size: 30px;
             font-weight: 600;
             color: #E2E8F0;
             margin-top: 10px;
         }
 
         .explore-text {
-            font-size: 35px;
+            font-size: 32px;
             color: #94A3B8;
             margin-top: 6px;
             line-height: 1.4;
@@ -147,20 +165,45 @@ def show_home_page():
         """
         <div class='custom-card'>
 
-        <h2>🤔 Why Clarity Invest?</h2>
+        <h2 style="
+        font-size:50px;
+        font-weight:700;
+        margin-bottom:18px;
+        ">
+        🤔 Why Clarity Invest?
+        </h2>
 
-        <p>
+        <p style="
+        font-size:43px;
+        line-height:1.8;
+        margin-bottom:18px;
+        color:#CBD5E1;
+        ">
         Most beginners find investing confusing because financial platforms use complex language and technical concepts.
         </p>
 
-        <p>We simplify investing through:</p>
+        <p style="
+        font-size:38px;
+        font-weight:600;
+        margin-bottom:14px;
+        color:white;
+        ">
+        We simplify investing through:
+        </p>
 
-        <ul>
+        <ul style="
+        font-size:20px;
+        line-height:2;
+        color:#D1D5DB;
+        padding-left:22px;
+        ">
+
         <li>✅ Beginner-friendly explanations</li>
         <li>✅ Risk understanding</li>
         <li>✅ Real stock behavior insights</li>
         <li>✅ Market trend clarity</li>
         <li>✅ Practical learning approach</li>
+
         </ul>
 
         </div>
@@ -169,21 +212,48 @@ def show_home_page():
     )
 
     st.markdown("---")
-
+   
     # =====================================================
     # FEATURES SECTION
     # =====================================================
 
-    st.header("🌟 Dashboard Features")
+    st.markdown("""
+    <h2 style="
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:30px;
+    color:white;
+    ">
+    🌟 Dashboard Features
+    </h2>
+    """, unsafe_allow_html=True)
 
     col1, col2, col3 = st.columns(3)
+
+    # =====================================================
+    # COLUMN 1
+    # =====================================================
 
     with col1:
 
         st.markdown("""
         <div class='custom-card'>
-        <h3>💹 Stock Analysis</h3>
-        <p>Understand trends, volatility, and market movement.</p>
+
+        <h3 style="
+        font-size:30px;
+        margin-bottom:16px;
+        ">
+        💹 Stock Analysis
+        </h3>
+
+        <p style="
+        font-size:20px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Understand trends, volatility, and market movement.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
@@ -191,17 +261,49 @@ def show_home_page():
 
         st.markdown("""
         <div class='custom-card'>
-        <h3>📊 Charts</h3>
-        <p>Interactive visual analysis of stocks.</p>
+
+        <h3 style="
+        font-size:30px;
+        margin-bottom:16px;
+        ">
+        📊 Charts
+        </h3>
+
+        <p style="
+        font-size:20px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Interactive visual analysis of stocks.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
+
+    # =====================================================
+    # COLUMN 2
+    # =====================================================
 
     with col2:
 
         st.markdown("""
         <div class='custom-card'>
-        <h3>⚖️ Compare Stocks</h3>
-        <p>Compare companies based on performance and risk.</p>
+
+        <h3 style="
+        font-size:30px;
+        margin-bottom:16px;
+        ">
+        ⚖️ Compare Stocks
+        </h3>
+
+        <p style="
+        font-size:20px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Compare companies based on performance and risk.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
@@ -209,17 +311,49 @@ def show_home_page():
 
         st.markdown("""
         <div class='custom-card'>
-        <h3>📰 Market News</h3>
-        <p>Latest updates and financial news.</p>
+
+        <h3 style="
+        font-size:30px;
+        margin-bottom:16px;
+        ">
+        📰 Market News
+        </h3>
+
+        <p style="
+        font-size:20px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Latest updates and financial news.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
+
+    # =====================================================
+    # COLUMN 3
+    # =====================================================
 
     with col3:
 
         st.markdown("""
         <div class='custom-card'>
-        <h3>🤖 Insights</h3>
-        <p>AI-like sentiment and trend analysis.</p>
+
+        <h3 style="
+        font-size:30px;
+        margin-bottom:16px;
+        ">
+        🤖 Insights
+        </h3>
+
+        <p style="
+        font-size:20px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        AI-like sentiment and trend analysis.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
@@ -227,8 +361,22 @@ def show_home_page():
 
         st.markdown("""
         <div class='custom-card'>
-        <h3>💰 Tools</h3>
-        <p>SIP, portfolio and financial calculators.</p>
+
+        <h3 style="
+        font-size:30px;
+        margin-bottom:16px;
+        ">
+        💰 Tools
+        </h3>
+
+        <p style="
+        font-size:20px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        SIP, portfolio and financial calculators.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
@@ -238,36 +386,87 @@ def show_home_page():
     # HOW IT WORKS
     # =====================================================
 
-    st.header("⚙️ How It Works")
+    st.markdown("""
+    <h2 style="
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:25px;
+    color:white;
+    ">
+    ⚙️ How It Works
+    </h2>
+    """, unsafe_allow_html=True)
 
     c1, c2, c3 = st.columns(3)
 
     with c1:
         st.markdown("""
         <div class='custom-card'>
-        <h2>1️⃣ Analyze</h2>
-        <p>Check stock behavior and trends.</p>
+
+        <h2 style="
+        font-size:38px;
+        margin-bottom:16px;
+        ">
+        1️⃣ Analyze
+        </h2>
+
+        <p style="
+        font-size:22px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Check stock behavior and trends.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
     with c2:
         st.markdown("""
         <div class='custom-card'>
-        <h2>2️⃣ Compare</h2>
-        <p>Compare companies easily.</p>
+
+        <h2 style="
+        font-size:38px;
+        margin-bottom:16px;
+        ">
+        2️⃣ Compare
+        </h2>
+
+        <p style="
+        font-size:22px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Compare companies easily.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
     with c3:
         st.markdown("""
         <div class='custom-card'>
-        <h2>3️⃣ Learn</h2>
-        <p>Understand investing simply.</p>
+
+        <h2 style="
+        font-size:38px;
+        margin-bottom:16px;
+        ">
+        3️⃣ Learn
+        </h2>
+
+        <p style="
+        font-size:22px;
+        line-height:1.8;
+        color:#CBD5E1;
+        ">
+        Understand investing simply.
+        </p>
+
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("---")
-
+    
     # =====================================================
     # FINAL CTA
     # =====================================================
