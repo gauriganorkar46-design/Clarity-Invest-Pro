@@ -41,12 +41,49 @@ APP BACKGROUND
 TEXT (UNIFIED SYSTEM)
 ====================================================== */
 
-p, li, label, span {
+/* Paragraphs */
+
+p {
+
     color: #D1D5DB !important;
-    font-size: 2.25rem;
-    line-height: 1.6;
+
+    font-size: 20px !important;
+
+    line-height: 1.9 !important;
+
+    font-weight: 400;
 }
 
+/* Lists */
+
+li {
+
+    color: #D1D5DB !important;
+
+    font-size: 19px !important;
+
+    line-height: 1.9 !important;
+
+    margin-bottom: 8px;
+}
+
+/* Labels */
+
+label {
+
+    color: #E5E7EB !important;
+
+    font-size: 18px !important;
+
+    font-weight: 600 !important;
+}
+
+/* Generic Span */
+
+span {
+
+    font-size: 18px;
+}
 
 /* ======================================================
 MAIN CONTAINER
@@ -80,24 +117,69 @@ HEADINGS
 ====================================================== */
 
 h1 {
+
     color: white !important;
-    font-size: 3.6rem !important;
-    font-weight: 700 !important;
+
+    font-size: 4rem !important;
+
+    font-weight: 800 !important;
+
     letter-spacing: -1px;
+
+    line-height: 1.2;
 }
+
+/* Section Heading */
 
 h2 {
+
     color: white !important;
-    font-size: 3rem !important;
+
+    font-size: 2.8rem !important;
+
     font-weight: 700 !important;
+
+    line-height: 1.3;
 }
+
+/* Card / Sub Heading */
 
 h3 {
+
     color: white !important;
-    font-size: 2.5rem !important;
-    font-weight: 600 !important;
+
+    font-size: 2rem !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1.4;
 }
 
+/* ======================================================
+STREAMLIT TITLES
+====================================================== */
+
+.stTitle {
+
+    font-size: 4rem !important;
+
+    font-weight: 800 !important;
+}
+
+.stMarkdown h1 {
+
+    font-size: 4rem !important;
+}
+
+.stMarkdown h2 {
+
+    font-size: 2.8rem !important;
+}
+
+.stMarkdown h3 {
+
+    font-size: 2rem !important;
+}
 
 /* ======================================================
 INPUT BOXES
@@ -154,9 +236,9 @@ BUTTONS
     border: none !important;
     border-radius:16px !important;
     padding: 0.55rem 0.9rem !important;
-    font-weight:600 !important;
-    font-size:18px !important;
-    min-height:58px !important;
+    font-weight:700 !important;
+    font-size:24px !important;
+    min-height:64px !important;
 
     display: flex !important;
     align-items: center !important;
@@ -209,13 +291,13 @@ div[data-testid="metric-container"] {
 
 div[data-testid="metric-container"] label {
     color: #94A3B8 !important;
-    font-size:1.15rem !important;
+    font-size: 1.5rem !important;
     font-weight: 600 !important;
 }
 
 div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     color: #4ADE80 !important;
-    font-size:2.6rem !important;
+    font-size: 3rem !important;
     font-weight: 800 !important;
 }
 
@@ -224,7 +306,7 @@ div[data-testid="metric-container"] [data-testid="stMetricValue"] {
 DATAFRAME
 ====================================================== */
 
-[data-testid="stDataFrame"] {
+[data-testid="stDataFrame"] * {
     font-size: 16px !important;
     background-color: rgba(15,23,42,0.9);
     border-radius: 20px;
@@ -243,8 +325,8 @@ TABS
     padding: 16px 26px;
     margin-right: 8px;
     transition: 0.3s;
-    font-size: 18px !important;
-    font-weight: 600 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
 }
 
 .stTabs [aria-selected="true"] {
@@ -357,6 +439,17 @@ CARDS
 EXPLORE GRID
 ====================================================== */
 
+.explore-title {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #E2E8F0;
+
+    margin-top: 14px;
+}
+
 .explore-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -403,8 +496,8 @@ RESPONSIVE
 
 @media screen and (max-width: 768px) {
 
-    h1 { font-size: 4rem !important; }
-    h2 { font-size: 3rem !important; }
+    h1 { font-size: 3.8rem !important; }
+    h2 { font-size: 3.4rem !important; }
 
     p, li, label, span {
         font-size: 1.25rem !important;
@@ -500,27 +593,33 @@ MENU GRID LAYOUT
 
 .menu-title span {
 
-    font-size: 34px;
+    font-size: 42px;
+
+    colour: white;
 }
 
 .menu-title h2 {
 
     margin: 0;
 
-    font-size: 34px !important;
+    font-size: 42px !important;
 
-    font-weight: 700 !important;
+    font-weight: 800 !important;
 }
 
 /* Menu Subtitle */
 
 .menu-subtitle {
 
-    font-size: 18px;
+    font-size: 22px;
 
-    color: #94A3B8;
+    color: #CBD5E1;
 
-    margin-bottom: 30px;
+    margin-top: 10px;
+
+    margin-bottom: 35px;
+    
+    line-height: 1.7;
 }
 
 /* Grid Layout */

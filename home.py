@@ -27,7 +27,7 @@ def show_home_page():
 
         <!-- TRUST LINE -->
         <div style='
-        font-size:28px;
+        font-size:25px;
         letter-spacing:1px;
         color:#A5B4FC;
         margin-bottom:10px;
@@ -37,7 +37,7 @@ def show_home_page():
         </div>
 
         <h1 style='
-        font-size:60px;
+        font-size:56px;
         font-weight:800;
         color:white;
         margin-bottom:10px;
@@ -46,7 +46,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:30px;
+        font-size:28px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -55,7 +55,7 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:25px;
+        font-size:23px;
         line-height:1.8;
         color:#CBD5E1;
         max-width:800px;
