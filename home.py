@@ -27,7 +27,7 @@ def show_home_page():
 
         <!-- TRUST LINE -->
         <div style='
-        font-size:32px;
+        font-size:28px;
         letter-spacing:1px;
         color:#A5B4FC;
         margin-bottom:10px;
@@ -37,7 +37,7 @@ def show_home_page():
         </div>
 
         <h1 style='
-        font-size:70px;
+        font-size:60px;
         font-weight:800;
         color:white;
         margin-bottom:10px;
@@ -46,7 +46,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:38px;
+        font-size:30px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -55,7 +55,7 @@ def show_home_page():
         </h2>
 
         <p style='
-        font-size:28px;
+        font-size:25px;
         line-height:1.8;
         color:#CBD5E1;
         max-width:800px;
@@ -74,7 +74,7 @@ def show_home_page():
 
     st.markdown("""
         <h2 style="
-        font-size:50px;
+        font-size:45px;
         font-weight:700;
         margin-bottom:8px;
         color:white;
@@ -83,7 +83,7 @@ def show_home_page():
         </h2>
 
         <p style="
-        font-size:43px;
+        font-size:40px;
         color:#CBD5E1;
         margin-top:0;
         margin-bottom:20px;
@@ -174,7 +174,7 @@ def show_home_page():
         </h2>
 
         <p style="
-        font-size:43px;
+        font-size:40px;
         line-height:1.8;
         margin-bottom:18px;
         color:#CBD5E1;
@@ -183,7 +183,7 @@ def show_home_page():
         </p>
 
         <p style="
-        font-size:38px;
+        font-size:35px;
         font-weight:600;
         margin-bottom:14px;
         color:white;
@@ -192,7 +192,7 @@ def show_home_page():
         </p>
 
         <ul style="
-        font-size:20px;
+        font-size:28px;
         line-height:2;
         color:#D1D5DB;
         padding-left:22px;
@@ -247,7 +247,7 @@ def show_home_page():
         </h3>
 
         <p style="
-        font-size:20px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -270,7 +270,7 @@ def show_home_page():
         </h3>
 
         <p style="
-        font-size:20px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -297,7 +297,7 @@ def show_home_page():
         </h3>
 
         <p style="
-        font-size:20px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -320,7 +320,7 @@ def show_home_page():
         </h3>
 
         <p style="
-        font-size:20px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -347,7 +347,7 @@ def show_home_page():
         </h3>
 
         <p style="
-        font-size:20px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -370,7 +370,7 @@ def show_home_page():
         </h3>
 
         <p style="
-        font-size:20px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -404,14 +404,14 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:38px;
+        font-size:35px;
         margin-bottom:16px;
         ">
         1️⃣ Analyze
         </h2>
 
         <p style="
-        font-size:22px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -426,14 +426,14 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:38px;
+        font-size:35px;
         margin-bottom:16px;
         ">
         2️⃣ Compare
         </h2>
 
         <p style="
-        font-size:22px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -448,14 +448,14 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:38px;
+        font-size:35px;
         margin-bottom:16px;
         ">
         3️⃣ Learn
         </h2>
 
         <p style="
-        font-size:22px;
+        font-size:24px;
         line-height:1.8;
         color:#CBD5E1;
         ">

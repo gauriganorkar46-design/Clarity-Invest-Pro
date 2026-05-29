@@ -147,11 +147,11 @@ BUTTONS
     background: linear-gradient(135deg,#4F46E5,#7C3AED) !important;
     color: white !important;
     border: none !important;
-    border-radius: 14px !important;
+    border-radius:16px !important;
     padding: 0.55rem 0.9rem !important;
-    font-weight: 600 !important;
-    font-size:28px !important;
-    min-height: 42px !important;
+    font-weight:600 !important;
+    font-size:18px !important;
+    min-height:58px !important;
 
     display: flex !important;
     align-items: center !important;
@@ -418,19 +418,30 @@ RESPONSIVE
 MENU BUTTON FIX
 ====================================================== */
 
-div[data-testid="column"]:first-child .stButton button {
+div[data-testid="column"]:first-child .stButton {
 
-    min-width: 95px !important;
+    display: flex !important;
+
+    justify-content: center !important;
+
+    align-items: center !important;
+}
+
+div[data-testid="column"]:first-child .stButton button {
 
     width: 95px !important;
 
-    height: 58px !important;
+    min-width: 95px !important;
 
-    font-size: 40px !important;
+    height: 64px !important;
+
+    border-radius: 18px !important;
+
+    font-size: 34px !important;
 
     font-weight: 700 !important;
 
-    border-radius: 16px !important;
+    padding: 0 !important;
 
     display: flex !important;
 
@@ -438,9 +449,81 @@ div[data-testid="column"]:first-child .stButton button {
 
     justify-content: center !important;
 
+    overflow: visible !important;
+}
+
 .element-container {
     
     margin-bottom: 0.3rem !important;
+}
+
+/* ======================================================
+MENU GRID LAYOUT
+====================================================== */
+
+.menu-wrapper {
+
+    background: rgba(15,23,42,0.92);
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    margin-bottom: 30px;
+
+    backdrop-filter: blur(12px);
+}
+
+/* Menu Header */
+
+.menu-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+.menu-title span {
+
+    font-size: 34px;
+}
+
+.menu-title h2 {
+
+    margin: 0;
+
+    font-size: 34px !important;
+
+    font-weight: 700 !important;
+}
+
+/* Menu Subtitle */
+
+.menu-subtitle {
+
+    font-size: 18px;
+
+    color: #94A3B8;
+
+    margin-bottom: 30px;
+}
+
+/* Grid Layout */
+
+.menu-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+
+    gap: 18px;
+
 }
 
 </style>

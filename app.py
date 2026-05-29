@@ -53,11 +53,11 @@ def navigate(page):
 # HEADER
 # =========================================================
 
-col1, col2 = st.columns([1, 12], gap="small")
+col1, col2 = st.columns([1.8, 10.2], gap="medium")
 
 with col1:
 
-    menu_icon = "✕" if st.session_state.menu else "☰"
+    menu_icon = "✖" if st.session_state.menu else "☰"
 
     if st.button(menu_icon, key="menu_toggle"):
         st.session_state.menu = not st.session_state.menu
@@ -89,81 +89,94 @@ st.markdown("---")
 
 if st.session_state.menu:
 
-    st.markdown("""
-    <div style="
-    padding:1px 0;
-">
+    st.markdown(
+        """
+        <div class="menu-wrapper">
 
-<div style="
-display:flex;
-align-items:center;
-gap:10px;
-margin-bottom:10px;
-">
+            <div class="menu-title">
 
-<span style="
-font-size:34px;
-">
-☰
-</span>
+                <span>☰</span>
 
-<h2 style="
-margin:0;
-font-size:34px;
-font-weight:700;
-color:white;
-">
-Quick Menu
-</h2>
+                <h2>Quick Menu</h2>
 
-</div>
+            </div>
 
-<p style="
-color:#94A3B8;
-margin:0;
-font-size:18px;
-font-weight:500;
-margin-bottom:22px;
-">
-Try more tools →
-</p>
+            <div class="menu-subtitle">
+                Explore all investing tools and features
+            </div>
 
-</div>
-                
-""", unsafe_allow_html=True)
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-    colA, colB = st.columns([1,1], gap="small")
+    # =====================================================
+    # MENU BUTTONS
+    # =====================================================
 
-    with colA:
-        if st.button("📈 Analysis", key="menu_analysis"):
-            navigate("analysis")
+    col1, col2 = st.columns(2, gap="medium")
 
-        if st.button("💰 SIP", key="menu_sip"):
-            navigate("sip")
+    with col1:
+    
+        st.button(
+            "📈 Analysis",
+            on_click=navigate,
+            args=("analysis",),
+            use_container_width=True
+        )
 
-        if st.button("📘 Portfolio", key="menu_portfolio"):
-            navigate("portfolio")
+        st.button(
+            "💰 SIP Calculator",
+            on_click=navigate,
+            args=("sip",),
+            use_container_width=True
+        )
 
-    with colB:
-        if st.button("⚖️ Compare", key="menu_compare"):
-            navigate("compare")
+        st.button(
+            "📘 Portfolio",
+            on_click=navigate,
+            args=("portfolio",),
+            use_container_width=True
+        )
 
-        if st.button("💎 Premium", key="menu_premium"):
-            navigate("premium")
+        st.button(
+            "🏠 Home",
+            on_click=navigate,
+            args=("home",),
+            use_container_width=True
+        )
 
-        if st.button("📩 Contact", key="menu_contact"):
-            navigate("contact")
+    with col2:
 
-        if st.button("🏠 Home", key="menu_home"):
-            navigate("home")
+        st.button(
+            "⚖️ Compare Stocks",
+            on_click=navigate,
+            args=("compare",),
+            use_container_width=True
+        )
 
-    st.markdown("---")
+        st.button(
+            "💎 Premium",
+            on_click=navigate,
+            args=("premium",),
+            use_container_width=True
+        )
 
-    if st.button("❌ Close Menu"):
-        st.session_state.menu = False
-        st.rerun()
+        st.button(
+            "📩 Contact",
+            on_click=navigate,
+            args=("contact",),
+            use_container_width=True
+        )
 
-    st.markdown("---")
+        if st.button(
+            "❌ Close Menu",
+            use_container_width=True
+        ):
+            st.session_state.menu = False
+            st.rerun()
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
 # =========================================================
 # PAGE ROUTING
