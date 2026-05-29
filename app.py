@@ -53,11 +53,11 @@ def navigate(page):
 # HEADER
 # =========================================================
 
-col1, col2 = st.columns([1.2, 8.8], gap="small")
+col1, col2 = st.columns([1, 12], gap="small")
 
 with col1:
 
-    menu_icon = "✕ CLOSE" if st.session_state.menu else "☰ MENU"
+    menu_icon = "✕" if st.session_state.menu else "☰"
 
     if st.button(menu_icon, key="menu_toggle"):
         st.session_state.menu = not st.session_state.menu
@@ -65,24 +65,21 @@ with col1:
 
 with col2:
 
-    st.markdown("""
-    <h1 style="
-    <div style="
-    display:flex;
-    align-items:center;
-    height:100%;
-    ">
-    font-size:52px;
-    font-weight:800;
-    margin-top:0;
-    margin-bottom:0;
-    color:white;
-    letter-spacing:-1px;
-    ">
-    ⚡ Clarity Invest Pro
-    </h1>
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        """
+        <h1 style="
+        font-size:46px;
+        font-weight:800;
+        color:white;
+        margin-top:0;
+        margin-bottom:0;
+        letter-spacing:-1px;
+        ">
+        ⚡ Clarity Invest Pro
+        </h1>
+        """,
+        unsafe_allow_html=True
+    )
 
 st.markdown("---")
 
@@ -97,29 +94,43 @@ if st.session_state.menu:
     padding:1px 0;
 ">
 
-<h3 style="
-    color: white;
-    margin-bottom:6px;
-    font-size:35px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
+<div style="
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
 ">
-☰ Quick Menu
-</h3>
+
+<span style="
+font-size:34px;
+">
+☰
+</span>
+
+<h2 style="
+margin:0;
+font-size:34px;
+font-weight:700;
+color:white;
+">
+Quick Menu
+</h2>
+
+</div>
 
 <p style="
-    color: #94A3B8;
-    margin: 0;
-    font-size:35px;
-    display: flex;
-    align-items: center;
-    gap:6px;
+color:#94A3B8;
+margin:0;
+font-size:18px;
+font-weight:500;
+margin-bottom:22px;
 ">
-Try more tools <span style="color:#38BDF8;">→</span>
+Try more tools →
 </p>
 
 </div>
-    """, unsafe_allow_html=True)
+                
+""", unsafe_allow_html=True)
 
     colA, colB = st.columns([1,1], gap="small")
 

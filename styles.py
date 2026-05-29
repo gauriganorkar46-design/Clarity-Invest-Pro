@@ -422,13 +422,21 @@ div[data-testid="column"]:first-child .stButton button {
 
     min-width: 95px !important;
 
-    height: 52px !important;
+    width: 95px !important;
+
+    height: 58px !important;
 
     font-size: 40px !important;
 
     font-weight: 700 !important;
 
-    border-radius: 14px !important;
+    border-radius: 16px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
 
 .element-container {
     
