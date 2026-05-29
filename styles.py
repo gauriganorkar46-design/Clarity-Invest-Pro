@@ -47,7 +47,7 @@ p {
 
     color: #D1D5DB !important;
 
-    font-size: 20px !important;
+    font-size: 23px !important;
 
     line-height: 1.9 !important;
 
@@ -60,7 +60,7 @@ li {
 
     color: #D1D5DB !important;
 
-    font-size: 19px !important;
+    font-size: 23px !important;
 
     line-height: 1.9 !important;
 
@@ -73,7 +73,7 @@ label {
 
     color: #E5E7EB !important;
 
-    font-size: 18px !important;
+    font-size: 22px !important;
 
     font-weight: 600 !important;
 }
@@ -82,7 +82,7 @@ label {
 
 span {
 
-    font-size: 18px;
+    font-size: 22px;
 }
 
 /* ======================================================
@@ -120,7 +120,7 @@ h1 {
 
     color: white !important;
 
-    font-size: 4rem !important;
+    font-size: 4.2rem !important;
 
     font-weight: 800 !important;
 
@@ -135,7 +135,7 @@ h2 {
 
     color: white !important;
 
-    font-size: 2.8rem !important;
+    font-size: 3.8rem !important;
 
     font-weight: 700 !important;
 
@@ -148,7 +148,7 @@ h3 {
 
     color: white !important;
 
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
 
     font-weight: 700 !important;
 
@@ -161,24 +161,24 @@ STREAMLIT TITLES
 
 .stTitle {
 
-    font-size: 4rem !important;
+    font-size: 4.2rem !important;
 
     font-weight: 800 !important;
 }
 
 .stMarkdown h1 {
 
-    font-size: 4rem !important;
+    font-size: 4.2rem !important;
 }
 
 .stMarkdown h2 {
 
-    font-size: 2.8rem !important;
+    font-size: 3.8rem !important;
 }
 
 .stMarkdown h3 {
 
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
 }
 
 /* ======================================================

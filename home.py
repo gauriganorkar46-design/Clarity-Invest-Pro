@@ -27,7 +27,7 @@ def show_home_page():
 
         <!-- TRUST LINE -->
         <div style='
-        font-size:25px;
+        font-size:28px;
         letter-spacing:1px;
         color:#A5B4FC;
         margin-bottom:10px;
@@ -37,7 +37,7 @@ def show_home_page():
         </div>
 
         <h1 style='
-        font-size:56px;
+        font-size: 56px;
         font-weight:800;
         color:white;
         margin-bottom:10px;
@@ -46,7 +46,7 @@ def show_home_page():
         </h1>
 
         <h2 style='
-        font-size:28px;
+        font-size:30px;
         font-weight:500;
         color:#D1D5DB;
         margin-bottom:25px;
@@ -74,7 +74,7 @@ def show_home_page():
 
     st.markdown("""
         <h2 style="
-        font-size:45px;
+        font-size: 45px;
         font-weight:700;
         margin-bottom:8px;
         color:white;
@@ -83,7 +83,7 @@ def show_home_page():
         </h2>
 
         <p style="
-        font-size:40px;
+        font-size: 40px;
         color:#CBD5E1;
         margin-top:0;
         margin-bottom:20px;
@@ -166,7 +166,7 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:50px;
+        font-size: 40px;
         font-weight:700;
         margin-bottom:18px;
         ">
@@ -174,7 +174,7 @@ def show_home_page():
         </h2>
 
         <p style="
-        font-size:40px;
+        font-size: 35px;
         line-height:1.8;
         margin-bottom:18px;
         color:#CBD5E1;
@@ -183,7 +183,7 @@ def show_home_page():
         </p>
 
         <p style="
-        font-size:35px;
+        font-size: 35px;
         font-weight:600;
         margin-bottom:14px;
         color:white;
@@ -219,9 +219,9 @@ def show_home_page():
 
     st.markdown("""
     <h2 style="
-    font-size:42px;
-    font-weight:700;
-    margin-bottom:30px;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 30px;
     color:white;
     ">
     🌟 Dashboard Features
@@ -240,15 +240,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h3 style="
-        font-size:30px;
+        font-size: 30px;
         margin-bottom:16px;
         ">
         💹 Stock Analysis
         </h3>
 
         <p style="
-        font-size:24px;
-        line-height:1.8;
+        font-size: 24px;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         Understand trends, volatility, and market movement.
@@ -263,15 +263,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h3 style="
-        font-size:30px;
+        font-size: 30px;
         margin-bottom:16px;
         ">
         📊 Charts
         </h3>
 
         <p style="
-        font-size:24px;
-        line-height:1.8;
+        font-size: 24px;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         Interactive visual analysis of stocks.
@@ -290,15 +290,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h3 style="
-        font-size:30px;
+        font-size: 30px;
         margin-bottom:16px;
         ">
         ⚖️ Compare Stocks
         </h3>
 
         <p style="
-        font-size:24px;
-        line-height:1.8;
+        font-size: 24px;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         Compare companies based on performance and risk.
@@ -313,15 +313,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h3 style="
-        font-size:30px;
-        margin-bottom:16px;
+        font-size: 30px;
+        margin-bottom: 16px;
         ">
         📰 Market News
         </h3>
 
         <p style="
-        font-size:24px;
-        line-height:1.8;
+        font-size: 24px;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         Latest updates and financial news.
@@ -340,15 +340,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h3 style="
-        font-size:30px;
+        font-size: 30px;
         margin-bottom:16px;
         ">
         🤖 Insights
         </h3>
 
         <p style="
-        font-size:24px;
-        line-height:1.8;
+        font-size: 24px;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         AI-like sentiment and trend analysis.
@@ -363,14 +363,14 @@ def show_home_page():
         <div class='custom-card'>
 
         <h3 style="
-        font-size:30px;
-        margin-bottom:16px;
+        font-size: 30px;
+        margin-bottom: 16px;
         ">
         💰 Tools
         </h3>
 
         <p style="
-        font-size:24px;
+        font-size: 24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -388,9 +388,9 @@ def show_home_page():
 
     st.markdown("""
     <h2 style="
-    font-size:42px;
-    font-weight:700;
-    margin-bottom:25px;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 25px;
     color:white;
     ">
     ⚙️ How It Works
@@ -404,15 +404,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:35px;
+        font-size: 35px;
         margin-bottom:16px;
         ">
         1️⃣ Analyze
         </h2>
 
         <p style="
-        font-size:24px;
-        line-height:1.8;
+        font-size: 24px;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         Check stock behavior and trends.
@@ -426,14 +426,14 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:35px;
+        font-size: 35px;
         margin-bottom:16px;
         ">
         2️⃣ Compare
         </h2>
 
         <p style="
-        font-size:24px;
+        font-size: 24px;
         line-height:1.8;
         color:#CBD5E1;
         ">
@@ -448,15 +448,15 @@ def show_home_page():
         <div class='custom-card'>
 
         <h2 style="
-        font-size:35px;
-        margin-bottom:16px;
+        font-size: 35px;
+        margin-bottom: 16px;
         ">
         3️⃣ Learn
         </h2>
 
         <p style="
         font-size:24px;
-        line-height:1.8;
+        line-height: 1.8;
         color:#CBD5E1;
         ">
         Understand investing simply.
@@ -473,7 +473,7 @@ def show_home_page():
 
     st.markdown("""
         <div style='
-        padding:26px;
+        padding: 26px;
         border-radius:20px;
         background: linear-gradient(135deg,#312E81,#581C87);
         color:white;
