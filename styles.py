@@ -81,20 +81,20 @@ HEADINGS
 
 h1 {
     color: white !important;
-    font-size: 4rem !important;
+    font-size: 3.6rem !important;
     font-weight: 700 !important;
     letter-spacing: -1px;
 }
 
 h2 {
     color: white !important;
-    font-size: 3.5rem !important;
+    font-size: 3rem !important;
     font-weight: 700 !important;
 }
 
 h3 {
     color: white !important;
-    font-size: 2.55rem !important;
+    font-size: 2.5rem !important;
     font-weight: 600 !important;
 }
 
@@ -109,6 +109,8 @@ INPUT BOXES
     border: 1px solid rgba(255,255,255,0.08) !important;
     border-radius: 14px !important;
     padding: 12px !important;
+    font-size: 24px !important;
+    min-height: 58px !important;
 }
 
 .stTextArea textarea {
@@ -136,6 +138,9 @@ div[data-baseweb="select"] > div {
     border-radius: 14px !important;
     border: 1px solid rgba(255,255,255,0.08) !important;
     color: white !important;
+    min-height: 58px !important;
+    font-size: 24px !important;
+    padding-left: 8px !important;
 }
 
 
@@ -197,21 +202,21 @@ METRICS
 div[data-testid="metric-container"] {
     background: linear-gradient(135deg,rgba(15,23,42,0.95),rgba(30,41,59,0.95));
     border: 1px solid rgba(255,255,255,0.06);
-    padding: 1.4rem;
-    border-radius: 20px;
+    padding: 1.8rem;
+    border-radius: 22px;
     box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
 }
 
 div[data-testid="metric-container"] label {
     color: #94A3B8 !important;
-    font-size: 3.25rem
-      !important;
+    font-size:1.15rem !important;
+    font-weight: 600 !important;
 }
 
 div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     color: #4ADE80 !important;
-    font-size: 4rem !important;
-    font-weight: 700 !important;
+    font-size:2.6rem !important;
+    font-weight: 800 !important;
 }
 
 
@@ -220,6 +225,7 @@ DATAFRAME
 ====================================================== */
 
 [data-testid="stDataFrame"] {
+    font-size: 16px !important;
     background-color: rgba(15,23,42,0.9);
     border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.06);
@@ -234,8 +240,11 @@ TABS
     background-color: #111827 !important;
     color: white !important;
     border-radius: 14px 14px 0px 0px;
-    padding: 12px 20px;
-    margin-right: 6px;
+    padding: 16px 26px;
+    margin-right: 8px;
+    transition: 0.3s;
+    font-size: 18px !important;
+    font-weight: 600 !important;
 }
 
 .stTabs [aria-selected="true"] {
@@ -524,6 +533,30 @@ MENU GRID LAYOUT
 
     gap: 18px;
 
+}
+
+/* ======================================================
+INFO / SUCCESS / WARNING BOX SIZE
+====================================================== */
+
+.stAlert {
+
+    padding: 22px !important;
+
+    border-radius: 20px !important;
+
+    font-size: 18px !important;
+
+    line-height: 1.8 !important;
+}
+
+/* Info Text */
+
+.stAlert p {
+
+    font-size: 18px !important;
+
+    font-weight: 500 !important;
 }
 
 </style>
